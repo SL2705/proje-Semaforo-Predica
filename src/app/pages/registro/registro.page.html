@@ -1,0 +1,91 @@
+<ion-header [translucent]="true">
+</ion-header>
+
+<ion-content [fullscreen]="true">
+<div class="operator-wrapper">
+  <div class="operator-card">
+    <div class="page-container">
+
+       <div class="welcome-header text-center">
+        <h1 class="user-name">Registrar Nuevo Usuario</h1>
+       </div>
+
+       <div class="status-section">
+        <form class="register-form">
+
+          <div class="input-group">
+             <label class="input-label">Rol del Empleado</label>
+             <select class="custom-select" #rolSeleccionado (change)="0">
+                <option value="operador" selected>Operador de Producción</option>
+                <option value="supervisor">Supervisor de Línea</option>
+                <option value="rrhh">Recursos Humanos (RRHH)</option>
+              </select>
+          </div>
+
+           <div class="input-group">
+            <label class="input-label">Nombre Completo</label>
+            <input type="text" class="custom-input-field" placeholder="Ejemplo: Daniel Olivas">
+           </div>
+
+           <div class="input-row">
+              <div class="input-group">
+                <label class="input-label">ID / Núm. Reloj</label>
+                <input type="number" class="custom-input-field" placeholder="26519">
+              </div>
+           </div>
+
+           <div class="input-group">
+             <label class="input-label" [class.disabled-label]="rolSeleccionado.value !== 'operador'">Linea de Trabajo</label>
+             <input type="text" 
+                  class="custom-input-field" 
+                  placeholder="Ej: Ensamble A"
+                  [disabled]="rolSeleccionado.value !== 'operador'"
+                  [style.background-color]="rolSeleccionado.value !== 'operador' ? '#f1f5f9' : '#fcfdfe'">
+           </div>
+
+            <div class="input-group">
+              <label class="input-label" [class.disabled-label]="rolSeleccionado.value !== 'supervisor'">
+                Líneas a Cargo (Supervisor)
+              </label>
+              <input 
+                type="text" 
+                class="custom-input-field" 
+                placeholder="Ej: A-1, A-2, B-1"
+                [disabled]="rolSeleccionado.value !== 'supervisor'"
+                [style.background-color]="rolSeleccionado.value !== 'supervisor' ? '#f1f5f9' : '#fcfdfe'">
+            </div>
+
+             <div class="input-group">
+              <label class="input-label" [class.disabled-label]="rolSeleccionado.value !== 'rrhh'">
+                Departamento Administrativo
+              </label>
+              <input 
+                type="text" 
+                class="custom-input-field" 
+                placeholder="Ej: Sistemas"
+                [disabled]="rolSeleccionado.value !== 'rrhh'"
+                [style.background-color]="rolSeleccionado.value !== 'rrhh' ? '#f1f5f9' : '#fcfdfe'">
+            </div>
+
+             <div class="input-group">
+              <label class="input-label">Correo Electrónico</label>
+              <input type="email" class="custom-input-field" placeholder="usuario@maquila.com">
+            </div>
+
+            
+            <div class="input-group">
+              <label class="input-label">Contraseña Temporal</label>
+              <input type="password" class="custom-input-field" placeholder="••••••••">
+              <p class="helper-text">El usuario deberá cambiarla en su primer inicio de sesión.</p>
+            </div>
+
+            <button type="button" class="register-button">
+              Crear Cuenta de Empleado
+            </button>
+
+        </form>
+       </div>
+    </div>
+  </div>
+</div>
+</ion-content>

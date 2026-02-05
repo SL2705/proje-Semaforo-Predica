@@ -1,0 +1,78 @@
+.login-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  padding: 20px;
+
+  .login-card {
+    background: white;
+    width: 100%;
+    max-width: 360px;
+    padding: 40px 25px;
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    text-align: center;
+  }
+}
+
+.title-text {
+  font-size: 28px;
+  font-weight: 800;
+  color: #1A3D63;
+  margin-bottom: 35px;
+}
+
+//Cuadros de texto 
+.input-group {
+  margin-bottom: 22px;
+  text-align: left;
+
+  .field-label {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #475569;
+  }
+
+  .input-item-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    height: 52px;
+    display: flex;
+    padding: 0 15px;
+
+    .native-input {
+      width: 100%;
+      border: none;
+      background: transparent;
+      outline: none;
+    }
+  }
+}
+
+//boton
+.custom-login-button {
+  background: #1A3D63 !important;
+  color: white !important;
+  width: 100%;
+  max-width: 260px;
+  height: 54px;
+  border-radius: 27px;
+  border: none;
+  font-weight: 700;
+  box-shadow: 0 6px 15px rgba(26, 61, 99, 0.3);
+}
+
+.forgot-text, .register-link {
+  color: #1A3D63;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.register-section {
+  margin-top: 30px;
+  .no-account-text { color: #64748b; font-size: 14px; }
+}

@@ -1,0 +1,198 @@
+.operator-wrapper {
+  display: flex;
+  justify-content: center;
+  min-height: 100%;
+  background: #f8fafc;
+  padding: 40px 20px;
+}
+
+.operator-card {
+  background: white;
+  width: 100%;
+  max-width: 450px;
+  border-radius: 32px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.page-container {
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+.user-name {
+  font-size: 26px;
+  font-weight: 800;
+  color: #1A3D63;
+  margin: 10px 0 0;
+}
+
+.user-id {
+  font-size: 14px;
+  color: #64748b;
+  margin: 0;
+}
+
+//Semaforo//
+.status-section {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+//La idea es que cambie de color dependiendo el estado// 
+.light-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #10b981;
+  border: 4px solid white;
+  box-shadow: 0 0 20px rgba(16,185,129,0.4);
+}
+
+.status-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #1A3D63;
+  margin: 0;
+}
+
+.status-msg {
+  font-size: 14px;
+  color: #64748b;
+}
+
+//Menu desplegable//
+.menu-button {
+  width: 100%;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 25px; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.text-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 4px;
+}
+
+.main-txt {
+  font-size: 16px;
+  font-weight: 800; 
+  color: #1A3D63;
+}
+
+.sub-txt {
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.arrow {
+  transition: 0.3s;
+  color: #1A3D63;
+}
+
+.dropdown-content {
+  background: #fafbfc;
+  padding: 10px 25px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.kardex-item {
+  padding: 15px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.month-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.header-with-back {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.back-btn {
+  background: #f1f5f9;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1A3D63;
+  cursor: pointer;
+}
+
+//Cambiar contraseña//
+.password-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-group-pass {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #475569;
+  }
+
+  input {
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    font-size: 16px;
+    outline: none;
+    background: #f8fafc;
+  }
+}
+
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.submit-btn {
+  background: #1A3D63;
+  color: white;
+  border: none;
+  padding: 16px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background: transparent;
+  color: #64748b;
+  border: none;
+  padding: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}

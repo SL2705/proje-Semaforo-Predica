@@ -1,0 +1,87 @@
+<ion-content [fullscreen]="true">
+  <div class="operator-wrapper">
+    <div class="operator-card">
+      
+      <div class="page-container" *ngIf="view === 'dashboard'">
+        <header class="welcome-header">
+          <!--La idea es que recupere estos datos de la BD una vez que el usuario
+          haya sido registrado e inicie sesion-->
+          <h1 class="user-name">¡Hola, Daniel Olivas!</h1>
+          <p class="user-id">ID: 26519 • Linea Ensamble A</p>
+        </header>
+
+        <div class="status-section">
+          <div class="light-circle stable"></div>
+          <div class="status-text-box">
+            <!--La idea es que cambie el texto y el mensaje dependiendo del estado del operador-->
+            <h2 class="status-title">Estado: Estable</h2>
+            <p class="status-msg">¡Sigue Así!</p>
+          </div>
+        </div>
+
+        <div class="accordion-container">
+          <button type="button" class="menu-button" (click)="isKardexOpen = !isKardexOpen">
+            <div class="text-group">
+              <span class="main-txt">Mi Historial de Asistencia</span>
+              <span class="sub-txt">Consulta tu Kardex de este mes</span>
+            </div>
+            <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </button>
+
+          <div class="dropdown-content" *ngIf="isKardexOpen">
+            <div class="kardex-item" *ngFor="let mes of meses">
+              <span class="month-name">{{mes}}</span>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="menu-button" (click)="setView('password')">
+          <div class="text-group">
+            <span class="main-txt">Cambiar Contraseña</span>
+            <span class="sub-txt">Actualiza tus credenciales de acceso</span>
+          </div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="m9 18 6-6-6-6"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="page-container" *ngIf="view === 'password'">
+        <header class="header-with-back">
+          <button class="back-btn" (click)="setView('dashboard')">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="m15 18-6-6 6-6"/>
+            </svg>
+          </button>
+          <div>
+            <h1 class="user-name">Nueva Contraseña</h1>
+            <p class="user-id">Asegura tu cuenta</p>
+          </div>
+        </header>
+
+        <form class="password-form" (submit)="$event.preventDefault()">
+          <div class="input-group-pass">
+            <label>Contraseña Actual</label>
+            <input type="password" placeholder="••••••••">
+          </div>
+          <div class="input-group-pass">
+            <label>Nueva Contraseña</label>
+            <input type="password" placeholder="Mínimo 8 caracteres">
+          </div>
+          <div class="input-group-pass">
+            <label>Confirmar Nueva Contraseña</label>
+            <input type="password" placeholder="Repite tu contraseña">
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="submit-btn">Actualizar Contraseña</button>
+            <button type="button" class="cancel-btn" (click)="setView('dashboard')">Cancelar</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</ion-content>
