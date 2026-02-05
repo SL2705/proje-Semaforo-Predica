@@ -102,7 +102,7 @@ El sistema implementa medidas estrictas para garantizar la protección de datos:
 * **Control de Acceso (RBAC):** Login con roles definidos:
     * **RRHH:** Acceso total a reportes y semáforos globales.
     * **Supervisor:** Visualización limitada a su equipo directo.
-    * * **Empleado:** Solo puede ver su propio estado y semáforo.
+    * **Empleado:** Solo puede ver su propio estado y semáforo.
 * **Cifrado de Información:** Las contraseñas se gestionan mediante Firebase Auth y los datos sensibles en PostgreSQL se protegen mediante consultas parametrizadas para evitar inyecciones.
 * **Auditoría y Monitoreo:** El sistema registra un historial (logs) de accesos, detallando quién consultó la información y en qué momento.
 * **Políticas Internas:** Los datos son para uso exclusivo de análisis de retención, prohibiendo cualquier uso externo no autorizado.
