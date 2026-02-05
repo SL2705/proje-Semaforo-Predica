@@ -2,6 +2,7 @@
 
 Este proyecto es una solución tecnológica diseñada para identificar y mitigar la rotación prematura de personal en el sector maquilador. A través de un análisis de indicadores clave, el sistema permite a Recursos Humanos actuar de forma preventiva antes de que el empleado decida renunciar.
 
+<!--
 ---
 
 ## Tabla de Contenidos
@@ -10,6 +11,7 @@ Este proyecto es una solución tecnológica diseñada para identificar y mitigar
 * [Requisitos del Sistema](#-requisitos-del-sistema)
 * [Instalación y Ejecución](#-instalación-y-ejecución)
 * [Seguridad y Confidencialidad](#-seguridad-y-confidencialidad)
+-->
 
 ---
 
