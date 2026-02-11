@@ -1,0 +1,195 @@
+<ion-content [fullscreen]="true">
+  <div class="background-wrapper">
+    <div class="main-card">
+
+      <ng-container *ngIf="vista === 'lista'">
+        <div class="header-container">
+          <div class="user-greeting">
+            <!--El nombre debe de cambiar dependiendo del usuario que inicie sesion-->
+            <h1>¡Hola, Ricardo!</h1>
+            <p class="fecha-subtitle">{{fechaHoy}}</p>
+          </div>
+          <ion-icon name="log-out-outline" class="logout-icon" (click)="cerrarSesion()"></ion-icon>
+        </div>
+
+          <!--El supervisor tambien podra cambiar las lineas que tiene a cargo para ver a los 
+        operadores de cada linea-->
+
+        <div class="segment-container">
+          <button [class.active]="lineaSeleccionada === 'A'" (click)="cambiarLinea('A')">LÍNEA A</button>
+          <button [class.active]="lineaSeleccionada === 'B'" (click)="cambiarLinea('B')">LÍNEA B</button>
+        </div>
+
+        <p class="field-label">Personal en línea</p>
+        
+        <div class="scroll-area">
+          <div class="employee-card" *ngFor="let persona of personalFiltrado" (click)="abrirDetalle(persona)">
+            <div class="employee-info">
+              <h2 class="nombre-operador">{{ persona.nombre }}</h2>
+              <p class="reloj-text">No. Reloj: {{ persona.reloj }}</p>
+            </div>
+            <div class="status-badge" [ngClass]="persona.claseEstado">{{ persona.estado }}</div>
+            <ion-icon name="chevron-forward-outline" class="chevron-icon"></ion-icon>
+          </div>
+        </div>
+
+        <div class="button-section" style="margin-top: 20px;">
+          <button class="action-footer-btn" (click)="setVista('password')">
+            <ion-icon name="key-outline"></ion-icon>
+            CAMBIAR CONTRASEÑA
+          </button>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="vista === 'detalle'">
+        <div class="header-section">
+          <div class="back-nav" (click)="vista = 'lista'">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+            <span>REGRESAR</span>
+          </div>
+        </div>
+
+        <div class="info-card-blue centered-info">
+          <p class="label-white">Operador Seleccionado</p>
+          <h2>{{empleadoSeleccionado?.nombre}}</h2>
+          <div class="reloj-tag">No. Reloj: {{empleadoSeleccionado?.reloj}}</div>
+        </div>
+
+        <p class="field-label">Historial Reciente</p>
+        <div class="history-card">
+          <div class="history-item">
+            <span class="history-label">HOY</span>
+            <strong class="history-value" [class.blue-text]="tieneExcepcionActiva()">{{empleadoSeleccionado?.estado}}</strong>
+            <ion-icon [name]="getIconoEstadoHoy()" [class]="getClaseIconoHoy()"></ion-icon>
+          </div>
+          <div class="history-item">
+            <span class="history-label">AYER</span>
+            <strong class="history-value">PUNTUAL</strong>
+            <ion-icon name="checkmark-circle" class="green-icon"></ion-icon>
+          </div>
+          <div class="history-item">
+            <span class="history-label">04 FEB</span>
+            <strong class="history-value">RETARDO</strong>
+            <ion-icon name="time-outline" class="orange-icon"></ion-icon>
+          </div>
+        </div>
+
+        <button class="kardex-btn">
+          <ion-icon name="document-text-outline"></ion-icon> VER KARDEX COMPLETO
+        </button>
+
+          <!--El supervisor podra cambiar el estado de un operador, con la gestion de excepciones
+          haciendo que el operador este de vacaciones, con permiso, o regiustrando su incapacidad-->
+        <p class="field-label-center">Gestión de Excepciones</p>
+        
+        <div class="grid-actions">
+          <div class="action-box" 
+               [ngClass]="{'active-blue': empleadoSeleccionado?.claseEstado === 'vacaciones', 'disabled': tieneExcepcionActiva() && empleadoSeleccionado?.claseEstado !== 'vacaciones'}"
+               (click)="(!tieneExcepcionActiva() || empleadoSeleccionado?.claseEstado === 'vacaciones') && abrirModalExcepcion('vacaciones')">
+            <ion-icon [name]="empleadoSeleccionado?.claseEstado === 'vacaciones' ? 'refresh-outline' : 'airplane-outline'" class="blue-icon"></ion-icon>
+            <p>{{ empleadoSeleccionado?.claseEstado === 'vacaciones' ? 'TERMINAR ESTADO' : 'REGISTRAR VACACIONES' }}</p>
+          </div>
+
+          <div class="action-box"
+               [ngClass]="{'active-blue': empleadoSeleccionado?.claseEstado === 'permiso', 'disabled': tieneExcepcionActiva() && empleadoSeleccionado?.claseEstado !== 'permiso'}"
+               (click)="(!tieneExcepcionActiva() || empleadoSeleccionado?.claseEstado === 'permiso') && abrirModalExcepcion('permiso')">
+            <ion-icon [name]="empleadoSeleccionado?.claseEstado === 'permiso' ? 'refresh-outline' : 'calendar-outline'" class="blue-icon"></ion-icon>
+            <p>{{ empleadoSeleccionado?.claseEstado === 'permiso' ? 'TERMINAR ESTADO' : 'REGISTRAR PERMISO' }}</p>
+          </div>
+
+          <div class="action-box"
+               [ngClass]="{'active-blue': empleadoSeleccionado?.claseEstado === 'incapacidad', 'disabled': tieneExcepcionActiva() && empleadoSeleccionado?.claseEstado !== 'incapacidad'}"
+               (click)="(!tieneExcepcionActiva() || empleadoSeleccionado?.claseEstado === 'incapacidad') && abrirModalExcepcion('incapacidad')">
+            <ion-icon [name]="empleadoSeleccionado?.claseEstado === 'incapacidad' ? 'refresh-outline' : 'medical-outline'" class="blue-icon"></ion-icon>
+            <p>{{ empleadoSeleccionado?.claseEstado === 'incapacidad' ? 'TERMINAR ESTADO' : 'REGISTRAR INCAPACIDAD' }}</p>
+          </div>
+
+            <!--El supervisor tambien podra mandar una solicitud de suspension a un operador cambaindo el 
+            estado de este hasta Rh decida si se autoriza o no la suspension-->
+          <div class="action-box"
+               [ngClass]="{
+                 'active-blue': empleadoSeleccionado?.claseEstado === 'suspension',
+                 'disabled': tieneExcepcionActiva()
+               }"
+               (click)="!tieneExcepcionActiva() ? abrirModalExcepcion('suspension') : null">
+            
+            <ion-icon [name]="empleadoSeleccionado?.claseEstado === 'suspension' ? 'time-outline' : 'ban-outline'" class="blue-icon"></ion-icon>
+            
+            <p>
+              {{ 
+                empleadoSeleccionado?.estado === 'SUSPENSIÓN' 
+                ? 'SUSPENSIÓN CONFIRMADA POR RH' 
+                : (empleadoSeleccionado?.claseEstado === 'suspension' ? 'SUSPENSIÓN PENDIENTE DE RH' : 'SOLICITAR SUSPENSIÓN')
+              }}
+            </p>
+          </div>
+        </div>
+
+        <div class="button-section">
+          <button class="footer-btn" [class.locked]="tieneExcepcionActiva()" [disabled]="tieneExcepcionActiva()">
+            <ion-icon [name]="tieneExcepcionActiva() ? 'lock-closed-outline' : 'document-attach-outline'"></ion-icon>
+            {{ tieneExcepcionActiva() ? 'Registro bloqueado por excepción activa' : 'CORREGIR REGISTRO DE HOY' }}
+          </button>
+        </div>
+      </ng-container>
+
+      <div class="page-container" *ngIf="vista === 'password'">
+        <div class="header-with-back">
+          <button class="back-btn" (click)="setVista('lista')">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+          </button>
+          <div style="text-align: left;">
+            <h1 class="user-name-pass">Nueva Contraseña</h1>
+            <p class="user-id-pass">Asegura tu cuenta</p>
+          </div>
+        </div>
+
+        <form class="password-form" (submit)="$event.preventDefault()">
+          <div class="input-group-pass">
+            <label>Contraseña Actual</label>
+            <input type="password" placeholder="••••••••">
+          </div>
+          <div class="input-group-pass">
+            <label>Nueva Contraseña</label>
+            <input type="password" placeholder="Mínimo 8 caracteres">
+          </div>
+          <div class="input-group-pass">
+            <label>Confirmar Nueva Contraseña</label>
+            <input type="password" placeholder="Repite tu contraseña">
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="submit-btn">Actualizar Contraseña</button>
+            <button type="button" class="cancel-btn" (click)="setVista('lista')">Cancelar</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <ion-modal [isOpen]="isModalOpen" (didDismiss)="isModalOpen = false" class="custom-exception-modal">
+    <ng-template>
+      <div class="modal-content">
+        <div class="modal-header">
+          <ion-icon [name]="modalData.icono" class="main-icon" [style.color]="modalData.color"></ion-icon>
+          <ion-button fill="clear" (click)="isModalOpen = false" class="close-btn"><ion-icon name="close-outline"></ion-icon></ion-button>
+        </div>
+        <div class="modal-body">
+          <h2>{{ modalData.titulo }}</h2>
+          <p [innerHTML]="modalData.mensaje"></p>
+          <div class="warning-text" *ngIf="!esModoCancelacion">
+            <ion-icon name="alert-circle-outline"></ion-icon>
+            <span>{{ modalData.advertencia }}</span>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="confirm-btn" [style.background]="modalData.color" (click)="confirmarAccion()">
+            {{ modalData.boton }}
+          </button>
+          <button class="cancel-link" (click)="isModalOpen = false">CERRAR</button>
+        </div>
+      </div>
+    </ng-template>
+  </ion-modal>
+</ion-content>

@@ -1,32 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { IonicModule } from '@ionic/angular';
+import { addIcons } from 'ionicons';
+import { 
+  logOutOutline, checkmarkCircle, timeOutline, 
+  documentTextOutline, keyOutline, arrowBackOutline 
+} from 'ionicons/icons';
 
 @Component({
   selector: 'app-operador',
   templateUrl: './operador.page.html',
   styleUrls: ['./operador.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonicModule, CommonModule, FormsModule]
 })
-export class OperadorPage implements OnInit {
-  
-  //Menus// 
-  view: 'dashboard' | 'password' = 'dashboard';
-  
-  isKardexOpen: boolean = false;
-  meses: string[] = ['Enero 2026', 'Diciembre 2025', 'Noviembre 2025'];
+export class OperadorPage {
+  view: string = 'dashboard';
 
-  constructor() { }
+  constructor() {
+    addIcons({ 
+      logOutOutline, checkmarkCircle, timeOutline, 
+      documentTextOutline, keyOutline, arrowBackOutline 
+    });
+  }
 
-  ngOnInit() { }
+  setView(newView: string) {
+    this.view = newView;
+  }
 
-  //Cambiar de pantalla//
-  setView(target: 'dashboard' | 'password') {
-    this.view = target;
-    if (target === 'password') {
-      this.isKardexOpen = false;
-    }
+  cerrarSesion() {
+    console.log("Cerrando sesión del operador...");
+    // Aquí redirigirías al login: this.navCtrl.navigateRoot('/login');
   }
 }

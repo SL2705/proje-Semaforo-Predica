@@ -21,5 +21,17 @@ export const routes: Routes = [
   {
     path: 'registro',
     loadComponent: () => import('./pages/registro/registro.page').then( m => m.RegistroPage)
+  },  {
+    path: 'jefe-grupo',
+    loadComponent: () => import('./pages/jefe-grupo/jefe-grupo.page').then( m => m.JefeGrupoPage)
   },
+  {
+    path: 'supervisor',
+    loadComponent: () => import('./pages/supervisor/supervisor.page').then( m => m.SupervisorPage)
+  },
+  {
+    path: 'recursos-humanos',
+    loadComponent: () => import('./pages/recursos-humanos/recursos-humanos.page').then( m => m.RecursosHumanosPage)
+  },
+
 ];

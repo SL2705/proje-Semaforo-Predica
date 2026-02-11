@@ -17,14 +17,17 @@
   }
 }
 
-.title-text {
-  font-size: 28px;
-  font-weight: 800;
-  color: #1A3D63;
-  margin-bottom: 35px;
+.header-section {
+  .title-text {
+    font-size: 28px;
+    font-weight: 800;
+    color: #1A3D63;
+    margin-bottom: 4px; 
+  }
+
 }
 
-//Cuadros de texto 
+
 .input-group {
   margin-bottom: 22px;
   text-align: left;
@@ -53,7 +56,7 @@
   }
 }
 
-//boton
+// Boton
 .custom-login-button {
   background: #1A3D63 !important;
   color: white !important;
@@ -64,15 +67,27 @@
   border: none;
   font-weight: 700;
   box-shadow: 0 6px 15px rgba(26, 61, 99, 0.3);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+
+  &:active {
+    transform: scale(0.98);
+  }
 }
 
-.forgot-text, .register-link {
+.forgot-text {
+  margin-top: 15px;
+  text-align: left;
   color: #1A3D63;
   font-weight: 700;
+  font-size: 14px;
   cursor: pointer;
 }
 
 .register-section {
   margin-top: 30px;
-  .no-account-text { color: #64748b; font-size: 14px; }
+  .no-account-text { 
+    color: #64748b; 
+    font-size: 14px; 
+  }
 }

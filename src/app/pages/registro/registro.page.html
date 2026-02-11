@@ -17,6 +17,7 @@
              <label class="input-label">Rol del Empleado</label>
              <select class="custom-select" #rolSeleccionado (change)="0">
                 <option value="operador" selected>Operador de Producción</option>
+                <option value="jefe_grupo">Jefe de Grupo</option>
                 <option value="supervisor">Supervisor de Línea</option>
                 <option value="rrhh">Recursos Humanos (RRHH)</option>
               </select>
@@ -34,6 +35,9 @@
               </div>
            </div>
 
+           <!--Dependiendo del rol, se habilitaran o deshabilitaran las opciones para elegir
+           a que linea o que departamento pertence, o que lineas tiene a cargo, en el caso de 
+           los jefes de grupo y supervisores-->
            <div class="input-group">
              <label class="input-label" [class.disabled-label]="rolSeleccionado.value !== 'operador'">Linea de Trabajo</label>
              <input type="text" 
@@ -44,15 +48,15 @@
            </div>
 
             <div class="input-group">
-              <label class="input-label" [class.disabled-label]="rolSeleccionado.value !== 'supervisor'">
-                Líneas a Cargo (Supervisor)
+              <label class="input-label" [class.disabled-label]="rolSeleccionado.value !== 'supervisor' && rolSeleccionado.value !== 'jefe_grupo'">
+                Líneas a Cargo (Supervisor / Jefe de Grupo)
               </label>
               <input 
                 type="text" 
                 class="custom-input-field" 
                 placeholder="Ej: A-1, A-2, B-1"
-                [disabled]="rolSeleccionado.value !== 'supervisor'"
-                [style.background-color]="rolSeleccionado.value !== 'supervisor' ? '#f1f5f9' : '#fcfdfe'">
+                [disabled]="rolSeleccionado.value !== 'supervisor'  && rolSeleccionado.value !== 'jefe_grupo'"
+                [style.background-color]="(rolSeleccionado.value !== 'supervisor' && rolSeleccionado.value !== 'jefe_grupo') ? '#f1f5f9' : '#fcfdfe'">
             </div>
 
              <div class="input-group">

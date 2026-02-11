@@ -3,57 +3,62 @@
     <div class="operator-card">
       
       <div class="page-container" *ngIf="view === 'dashboard'">
-        <header class="welcome-header">
-          <!--La idea es que recupere estos datos de la BD una vez que el usuario
-          haya sido registrado e inicie sesion-->
-          <h1 class="user-name">¡Hola, Daniel Olivas!</h1>
-          <p class="user-id">ID: 26519 • Linea Ensamble A</p>
+        <header class="header-main">
+          <div class="welcome-header">
+            <!--El nombre debe de cambiar dependiendo del usuario que inicie sesion
+            Igual que id ID y la Linea a la que pertence-->
+            <h1 class="user-name">¡Hola, Daniel Olivas!</h1>
+            <p class="user-id">ID: 26519 • Linea Ensamble A</p>
+          </div>
+          <ion-icon name="log-out-outline" class="logout-icon" (click)="cerrarSesion()"></ion-icon>
         </header>
 
         <div class="status-section">
           <div class="light-circle stable"></div>
           <div class="status-text-box">
-            <!--La idea es que cambie el texto y el mensaje dependiendo del estado del operador-->
+            <!--El semaforo debera cambiar dependiendo el estado del operador -->
             <h2 class="status-title">Estado: Estable</h2>
+            <!--El mensaje tambien cambia dependiendo el estado -->
             <p class="status-msg">¡Sigue Así!</p>
           </div>
         </div>
 
-        <div class="accordion-container">
-          <button type="button" class="menu-button" (click)="isKardexOpen = !isKardexOpen">
-            <div class="text-group">
-              <span class="main-txt">Mi Historial de Asistencia</span>
-              <span class="sub-txt">Consulta tu Kardex de este mes</span>
-            </div>
-            <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="m6 9 6 6 6-6"/>
-            </svg>
-          </button>
-
-          <div class="dropdown-content" *ngIf="isKardexOpen">
-            <div class="kardex-item" *ngFor="let mes of meses">
-              <span class="month-name">{{mes}}</span>
-            </div>
+        <p class="field-label">Historial Reciente</p>
+        <div class="history-card">
+          <div class="history-item">
+            <span class="history-label">HOY</span>
+            <strong class="history-value">REGISTRADO</strong>
+            <ion-icon name="checkmark-circle" class="green-icon"></ion-icon>
+          </div>
+          <div class="history-item">
+            <span class="history-label">AYER</span>
+            <strong class="history-value">PUNTUAL</strong>
+            <ion-icon name="checkmark-circle" class="green-icon"></ion-icon>
+          </div>
+          <div class="history-item">
+            <span class="history-label">04 FEB</span>
+            <strong class="history-value">RETARDO</strong>
+            <ion-icon name="time-outline" class="orange-icon"></ion-icon>
           </div>
         </div>
 
-        <button type="button" class="menu-button" (click)="setView('password')">
-          <div class="text-group">
-            <span class="main-txt">Cambiar Contraseña</span>
-            <span class="sub-txt">Actualiza tus credenciales de acceso</span>
-          </div>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <path d="m9 18 6-6-6-6"/>
-          </svg>
+        <button class="kardex-btn">
+          <ion-icon name="document-text-outline"></ion-icon> VER KARDEX COMPLETO
         </button>
+
+        <!--El operador podra cambiar su contra las veces que quiera-->
+        <div class="button-section">
+          <button class="action-footer-btn" (click)="setView('password')">
+            <ion-icon name="key-outline"></ion-icon>
+            CAMBIAR CONTRASEÑA
+          </button>
+        </div>
       </div>
 
       <div class="page-container" *ngIf="view === 'password'">
         <header class="header-with-back">
           <button class="back-btn" (click)="setView('dashboard')">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="m15 18-6-6 6-6"/>
-            </svg>
+            <ion-icon name="arrow-back-outline"></ion-icon>
           </button>
           <div>
             <h1 class="user-name">Nueva Contraseña</h1>
