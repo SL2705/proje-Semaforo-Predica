@@ -5,9 +5,10 @@
 <div class="login-wrapper">
    <div class="login-card">
 
-    <div class="header-section">
-        <h1 class="title-text">Iniciar Sesion</h1>
-    </div>
+<div class="header-section">
+    <h1 class="title-text">Iniciar Sesion</h1>
+    <p class="login-subtext">Ingrese sus credenciales para continuar</p>
+</div>
 
     <div class="form-container">
         <div class="input-group">
@@ -20,11 +21,25 @@
       <!--La primera vez que el usuario inicie sesion, entrara con la contraseña que se le dio cuando
       lo registraron-->
         <div class="input-group">
-          <label class="field-label">Contraseña</label>
-          <div class="input-item-box">
-            <input type="password" placeholder="Ingrese su contraseña" class="native-input">
+
+          <div class="password-label-row">
+            <label class="field-label">Contraseña</label>
+            <span class="forgot-text">¿Olvidó sus datos?</span>
           </div>
-          <p class="forgot-text">¿Olvido sus datos de acceso?</p>
+
+          <div class="input-item-box">
+            <input 
+              [type]="showPassword ? 'text' : 'password'" 
+              placeholder="Ingrese su contraseña" 
+              class="native-input">
+
+            <ion-icon
+              [name]="showPassword ? 'eye-off-outline' : 'eye-outline'"
+              class="password-eye"
+              (click)="togglePassword()">
+            </ion-icon>
+          </div>
+
         </div>
   </div>
 

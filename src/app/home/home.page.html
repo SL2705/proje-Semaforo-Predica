@@ -1,20 +1,50 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistemas - Módulo IT</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="home.page.scss">
+</head>
+<body>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <div class="viewport">
+        <div class="panel">
+            <aside>
+                <div class="logo-box">
+                    <i class="fa-solid fa-microchip"></i>
+                </div>
+                <h2>Control de Acceso</h2>
+                <p>Registro de personal y asignación de roles.</p>
+            </aside>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+            <main>
+                <h1 class="hero-title">SISTEMAS</h1>
+
+                <section class="alert">
+                    <h3>Acceso Restringido</h3>
+                    <p>Solo el personal autorizado puede registrar nuevos usuarios y gestionar roles.</p>
+                </section>
+
+                <div class="actions">
+                    <!-- CAMBIO CORRECTO -->
+                    <a routerLink="/registro" class="card">
+                        <div class="card-left">
+                            <div class="icon-holder">
+                                <i class="fa-solid fa-user-plus"></i>
+                            </div>
+                            <div class="text-holder">
+                                <b>Registrar Nuevo Usuario</b>
+                                <span>ID, Rol y Contraseña Temporal</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right arrow"></i>
+                    </a>
+                </div>
+            </main>
+        </div>
+    </div>
+
+</body>
+</html>
