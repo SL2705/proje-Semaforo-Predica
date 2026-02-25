@@ -1,0 +1,75 @@
+.background-wrapper {
+  position: relative;
+  min-height: 100%;
+  width: 100%;
+  background: var(--ion-background-color);
+  overflow: hidden;
+}
+
+/* Circulo grande superior derecho */
+.background-wrapper::before {
+  content: "";
+  position: absolute;
+  top: -150px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: var(--ion-color-primary);
+  opacity: 0.03;
+  border: 2px solid var(--ion-color-primary);
+  opacity: 0.1;
+  z-index: 0;
+}
+
+/* Circulo mediano inferior izquierdo */
+.background-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: -80px;
+  left: -80px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 2px solid var(--ion-text-color);
+  opacity: 0.12;
+  background: transparent;
+  z-index: 0;
+}
+
+/* Circulo adicional con solo borde */
+.background-wrapper .shape-extra {
+  position: absolute;
+  top: 40%;
+  left: 60%;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 1px solid var(--ion-color-tertiary);
+  opacity: 0.08;
+  background: transparent;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Linea curva suave  */
+.background-wrapper .shape-curve {
+  position: absolute;
+  bottom: 10%;
+  right: 15%;
+  width: 350px;
+  height: 180px;
+  border-radius: 50% 50% 0 0;
+  border: 2px solid var(--ion-color-success);
+  opacity: 0.06;
+  border-bottom: none;
+  transform: rotate(15deg);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Contenido siempre encima */
+.background-wrapper > *:not(.shape-extra):not(.shape-curve) {
+  position: relative;
+  z-index: 1;
+}

@@ -33,9 +33,5 @@ export const routes: Routes = [
     path: 'recursos-humanos',
     loadComponent: () => import('./pages/recursos-humanos/recursos-humanos.page').then( m => m.RecursosHumanosPage)
   },
-  {
-    path: 'bienvenida',
-    loadComponent: () => import('./pages/bienvenida/bienvenida.page').then( m => m.BienvenidaPage)
-  },
 
 ];

@@ -2,6 +2,8 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <app-background-layout>
+
 <div class="operator-wrapper">
   <div class="operator-card">
     <div class="page-container">
@@ -36,12 +38,12 @@
            </div>
 
            <!--Dependiendo del rol, se habilitaran o deshabilitaran las opciones para elegir
-           a que linea o que departamento pertence, o que lineas tiene a cargo, en el caso de 
+           a que linea o que departamento pertence, o que lineas tiene a cargo, en el caso de
            los jefes de grupo y supervisores-->
            <div class="input-group">
              <label class="input-label" [class.disabled-label]="rolSeleccionado.value !== 'operador'">Linea de Trabajo</label>
-             <input type="text" 
-                  class="custom-input-field" 
+             <input type="text"
+                  class="custom-input-field"
                   placeholder="Ej: Ensamble A"
                   [disabled]="rolSeleccionado.value !== 'operador'"
                   [style.background-color]="rolSeleccionado.value !== 'operador' ? '#f1f5f9' : '#fcfdfe'">
@@ -51,9 +53,9 @@
               <label class="input-label" [class.disabled-label]="rolSeleccionado.value !== 'supervisor' && rolSeleccionado.value !== 'jefe_grupo'">
                 Líneas a Cargo (Supervisor / Jefe de Grupo)
               </label>
-              <input 
-                type="text" 
-                class="custom-input-field" 
+              <input
+                type="text"
+                class="custom-input-field"
                 placeholder="Ej: A-1, A-2, B-1"
                 [disabled]="rolSeleccionado.value !== 'supervisor'  && rolSeleccionado.value !== 'jefe_grupo'"
                 [style.background-color]="(rolSeleccionado.value !== 'supervisor' && rolSeleccionado.value !== 'jefe_grupo') ? '#f1f5f9' : '#fcfdfe'">
@@ -63,9 +65,9 @@
               <label class="input-label" [class.disabled-label]="rolSeleccionado.value !== 'rrhh'">
                 Departamento Administrativo
               </label>
-              <input 
-                type="text" 
-                class="custom-input-field" 
+              <input
+                type="text"
+                class="custom-input-field"
                 placeholder="Ej: Sistemas"
                 [disabled]="rolSeleccionado.value !== 'rrhh'"
                 [style.background-color]="rolSeleccionado.value !== 'rrhh' ? '#f1f5f9' : '#fcfdfe'">
@@ -76,7 +78,7 @@
               <input type="email" class="custom-input-field" placeholder="usuario@maquila.com">
             </div>
 
-            
+
             <div class="input-group">
               <label class="input-label">Contraseña Temporal</label>
               <input type="password" class="custom-input-field" placeholder="••••••••">
@@ -92,4 +94,6 @@
     </div>
   </div>
 </div>
+
+</app-background-layout>
 </ion-content>
