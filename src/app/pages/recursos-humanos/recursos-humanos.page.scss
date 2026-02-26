@@ -19,7 +19,7 @@ $gris-iconos: #b4bfcd;
 .fecha-subtitle { 
   font-size: 11px; 
   font-weight: 700; 
-  color: #94a3b8; 
+  color: $gris-texto-secundario; 
   text-transform: uppercase; 
   margin-bottom: 30px; 
 }
@@ -42,7 +42,6 @@ $gris-iconos: #b4bfcd;
   }
 }
 
-
 .user-greeting h1 { 
   font-size: 26px; 
   font-weight: 800; 
@@ -62,7 +61,16 @@ $gris-iconos: #b4bfcd;
   cursor: pointer; 
 }
 
-//Solicitudes y suspendidos// 
+.menu-icon {
+  color: $azul-primario;
+  font-size: 30px;
+  cursor: pointer;
+  padding: 5px;
+  transition: opacity 0.15s;
+  &:active { opacity: 0.6; }
+}
+
+//SOLICITUDES Y SUSPENDIDOS//
 .solicitud-card {
   background: white; 
   border: 1px solid $gris-border; 
@@ -107,7 +115,7 @@ $gris-iconos: #b4bfcd;
   }
 }
 
-//Semaforos//
+//SEMAFOROS//
 .segment-container {
   display: flex; 
   background: $gris-suave; 
@@ -130,7 +138,7 @@ $gris-iconos: #b4bfcd;
   }
 }
 
-//Operadores//
+//OPERADORES//
 .employee-card {
   display: flex; 
   justify-content: space-between; 
@@ -200,7 +208,7 @@ $gris-iconos: #b4bfcd;
   }
 }
 
-//Historial//
+//HISTORIAL//
 .history-card { 
   border: 1px solid $gris-border; 
   border-radius: 20px; 
@@ -243,7 +251,7 @@ $gris-iconos: #b4bfcd;
 .orange-icon { color: $amarillo; }
 .pending-icon { color: $gris-iconos; }
 
-//botones//
+//BOTONES//
 .kardex-btn {
   width: 100%; 
   background: white; 
@@ -303,4 +311,207 @@ $gris-iconos: #b4bfcd;
   align-items: center; 
   justify-content: center; 
   gap: 10px;
+}
+
+//MENU HAMBURGUESA//
+.header-section { margin-bottom: 10px; }
+
+.header-with-back {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  .regresar-text {
+    color: $azul-primario;
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+  }
+}
+
+//ANUNCIOS//
+.cabecera-anuncios { display:flex; align-items:center; gap:10px; margin-bottom:15px; }
+.icono-azul { color:#2563eb; font-size:20px; }
+.titulo-tablon { color:#2563eb; font-weight:900; font-size:12px; letter-spacing:1px; }
+
+.seccion-anuncios { background: transparent; margin-bottom: 18px; }
+.lista-tarjetas { display:flex; flex-direction:column; }
+
+.tarjeta-info {
+  background:#f8fafc; padding:15px; border-radius:16px; border:1px solid $gris-border; margin-bottom:12px; text-align:left;
+  .fila-superior { display:flex; justify-content:space-between; align-items:center; }
+  .tag { font-size:9px; font-weight:700; padding:2px 8px; border-radius:4px; background:#eff6ff; color:#2563eb; }
+  .fecha { font-size:10px; color:$gris-texto-secundario; }
+  .titulo-nota { font-weight:700; font-size:14px; color:$azul-primario; margin:8px 0 0; }
+}
+
+.subtitulo-gris { font-size:11px; font-weight:800; color:$gris-texto-secundario; margin:25px 0 10px; text-align:left; }
+
+.enlace-recurso {
+  display:flex; justify-content:space-between; align-items:center; padding:15px; border-bottom:1px solid #f1f5f9;
+  font-size:13px; color:$gris-texto-secundario; font-weight:600;
+}
+
+.enlace-recurso > span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.enlace-recurso ion-icon.flechita {
+  color: $azul-primario;
+  font-size: 16px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  margin-left: 8px;
+  transition: transform 0.12s ease, opacity 0.12s ease;
+  opacity: 0.95;
+}
+
+.enlace-recurso:hover ion-icon.flechita,
+.enlace-recurso:active ion-icon.flechita,
+.enlace-recurso:focus ion-icon.flechita {
+  transform: translateX(4px);
+  opacity: 1;
+}
+
+@media (max-width: 420px) {
+  .enlace-recurso { padding-right: 10px; }
+  .enlace-recurso ion-icon.flechita { width: 20px; height: 20px; font-size: 15px; margin-left: 6px; }
+}
+
+.menu-footer { margin-top:auto; padding-top:20px; display:flex; flex-direction:column; gap:10px; }
+
+.logout-menu-btn {
+  @extend .action-footer-btn;
+  background:#fee2e2; color:$rojo; display:flex; align-items:center; justify-content:center; gap:8px;
+  border-radius:16px; padding:12px; font-weight:800;
+}
+
+//VISTA: Cambiar Contraseña//
+.page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.header-with-back {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.back-btn {
+  background: #f1f5f9;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  color: $azul-primario;
+  font-size: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.user-name-pass {
+  font-size: 24px;
+  font-weight: 800;
+  color: $azul-primario;
+  margin: 0;
+}
+
+.user-id-pass {
+  font-size: 11px;
+  font-weight: 700;
+  color: $gris-texto-secundario;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.password-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input-group-pass {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: left;
+}
+
+.input-group-pass label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #475569;
+}
+
+.input-group-pass input {
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid $gris-border;
+  background: $gris-suave;
+  font-size: 15px;
+  outline: none;
+  transition: box-shadow 0.12s ease, border-color 0.12s ease;
+}
+
+.input-group-pass input:focus {
+  border-color: rgba($azul-primario, 0.12);
+  box-shadow: 0 4px 12px rgba(26,61,99,0.06);
+}
+
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.submit-btn {
+  background: $azul-primario;
+  color: white;
+  border: none;
+  padding: 16px;
+  border-radius: 16px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.08s ease, box-shadow 0.12s ease;
+}
+
+.submit-btn:active { transform: translateY(1px); }
+
+.cancel-btn {
+  background: transparent;
+  color: $gris-texto-secundario;
+  border: none;
+  font-weight: 600;
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.password-hint {
+  font-size: 12px;
+  color: $gris-texto-secundario;
+  margin-top: -6px;
+}
+
+@media (max-width:420px) {
+  .main-card { padding:30px 18px; }
+  .menu-icon { font-size:26px; }
+  .logout-menu-btn { font-size:13px; padding:10px; }
+
+  .user-name-pass { font-size: 20px; }
+  .back-btn { width: 38px; height: 38px; }
+  .input-group-pass input { padding: 12px; }
+  .submit-btn { padding: 14px; font-size: 14px; }
 }

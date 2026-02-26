@@ -5,25 +5,21 @@
       <div class="page-container" *ngIf="view === 'dashboard'">
         <header class="header-main">
           <div class="welcome-header">
-            <!--El nombre debe de cambiar dependiendo del usuario que inicie sesion
-            Igual que id ID y la Linea a la que pertence-->
             <h1 class="user-name">¡Hola, Daniel Olivas!</h1>
             <p class="user-id">ID: 26519 • Linea Ensamble A</p>
           </div>
-          <ion-icon name="log-out-outline" class="logout-icon" (click)="cerrarSesion()"></ion-icon>
+          <ion-icon name="menu-outline" class="menu-icon" (click)="setView('menu')"></ion-icon>
         </header>
 
         <div class="status-section">
           <div class="light-circle stable"></div>
           <div class="status-text-box">
-            <!--El semaforo debera cambiar dependiendo el estado del operador -->
             <h2 class="status-title">Estado: Estable</h2>
-            <!--El mensaje tambien cambia dependiendo el estado -->
             <p class="status-msg">¡Sigue Así!</p>
           </div>
         </div>
 
-        <p class="field-label">Historial Reciente</p>
+        <p class="field-label-header">Historial Reciente</p>
         <div class="history-card">
           <div class="history-item">
             <span class="history-label">HOY</span>
@@ -46,7 +42,6 @@
           <ion-icon name="document-text-outline"></ion-icon> VER KARDEX COMPLETO
         </button>
 
-        <!--El operador podra cambiar su contra las veces que quiera-->
         <div class="button-section">
           <button class="action-footer-btn" (click)="setView('password')">
             <ion-icon name="key-outline"></ion-icon>
@@ -55,16 +50,82 @@
         </div>
       </div>
 
+      <div class="page-container" *ngIf="view === 'menu'">
+  <div class="header-section">
+    <div class="header-with-back" (click)="setView('dashboard')" style="cursor: pointer;">
+      <button class="back-btn">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </button>
+      <span class="regresar-text">REGRESAR</span>
+    </div>
+  </div>
+
+        <div class="seccion-anuncios">
+          <div class="cabecera-anuncios">
+            <ion-icon name="megaphone-outline" class="icono-azul"></ion-icon>
+            <span class="titulo-tablon">ANUNCIOS</span>
+          </div>
+
+          <div class="lista-tarjetas">
+            <div class="tarjeta-info">
+              <div class="fila-superior">
+                <span class="tag tag-seguridad">SEGURIDAD</span>
+                <span class="fecha">Hoy</span>
+              </div>
+              <p class="titulo-nota">Aviso de seguridad</p>
+            </div>
+
+            <div class="tarjeta-info">
+              <div class="fila-superior">
+                <span class="tag tag-sistemas">SISTEMAS</span>
+                <span class="fecha">Mañana</span>
+              </div>
+              <p class="titulo-nota">Mantenimiento Programado</p>
+            </div>
+
+            <div class="tarjeta-info">
+              <div class="fila-superior">
+                <span class="tag tag-rh">RH</span>
+                <span class="fecha">25 Feb</span>
+              </div>
+              <p class="titulo-nota">Nuevos Horarios de Comedor</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="seccion-recursos">
+          <p class="subtitulo-gris">RECURSOS DE CONSULTA</p>
+          <div class="enlace-recurso">
+            <span><ion-icon name="document-text-outline"></ion-icon> Manual de Usuario</span>
+            <ion-icon name="chevron-forward-outline" class="flechita"></ion-icon>
+          </div>
+          <div class="enlace-recurso">
+            <span><ion-icon name="shield-checkmark-outline"></ion-icon> Reglamento Interno</span>
+            <ion-icon name="chevron-forward-outline" class="flechita"></ion-icon>
+          </div>
+          <div class="enlace-recurso">
+            <span><ion-icon name="help-circle-outline"></ion-icon> Soporte Técnico</span>
+            <ion-icon name="chevron-forward-outline" class="flechita"></ion-icon>
+          </div>
+        </div>
+
+        <div class="menu-footer" style="margin-top: auto; padding-top: 20px;">
+          <button class="logout-menu-btn" (click)="cerrarSesion()">
+            <ion-icon name="log-out-outline"></ion-icon> Cerrar Sesión
+          </button>
+        </div>
+      </div>
+
       <div class="page-container" *ngIf="view === 'password'">
-        <header class="header-with-back">
+        <div class="header-with-back">
           <button class="back-btn" (click)="setView('dashboard')">
             <ion-icon name="arrow-back-outline"></ion-icon>
           </button>
-          <div>
-            <h1 class="user-name">Nueva Contraseña</h1>
-            <p class="user-id">Asegura tu cuenta</p>
+          <div style="text-align: left;">
+            <h1 class="user-name-pass">Nueva Contraseña</h1>
+            <p class="user-id-pass">Asegura tu cuenta</p>
           </div>
-        </header>
+        </div>
 
         <form class="password-form" (submit)="$event.preventDefault()">
           <div class="input-group-pass">

@@ -5,7 +5,9 @@ import { IonicModule } from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import { 
   logOutOutline, checkmarkCircle, timeOutline, 
-  documentTextOutline, keyOutline, arrowBackOutline 
+  documentTextOutline, keyOutline, arrowBackOutline,
+  menuOutline, megaphoneOutline, shieldCheckmarkOutline,
+  helpCircleOutline, chevronForwardOutline, closeOutline
 } from 'ionicons/icons';
 
 @Component({
@@ -21,16 +23,19 @@ export class OperadorPage {
   constructor() {
     addIcons({ 
       logOutOutline, checkmarkCircle, timeOutline, 
-      documentTextOutline, keyOutline, arrowBackOutline 
+      documentTextOutline, keyOutline, arrowBackOutline,
+      menuOutline, megaphoneOutline, shieldCheckmarkOutline,
+      helpCircleOutline, chevronForwardOutline, closeOutline
     });
   }
 
+  //Cambiar de vista//
   setView(newView: string) {
     this.view = newView;
   }
 
   cerrarSesion() {
-    console.log("Cerrando sesión del operador...");
-    // Aquí redirigirías al login: this.navCtrl.navigateRoot('/login');
+    //Lógica para salir//
+    console.log("Cerrando sesión...");
   }
 }

@@ -33,6 +33,15 @@ $color-suspension-txt: #075985;
 .header-container { display: flex; justify-content: space-between; align-items: flex-start; }
 .logout-icon { color: #ef4444; font-size: 24px; cursor: pointer; }
 
+.menu-icon {
+  color: $azul-primario;
+  font-size: 30px;
+  cursor: pointer;
+  padding: 5px;
+  transition: opacity 0.15s;
+  &:active { opacity: 0.6; }
+}
+
 .segment-container {
   display: flex; background: $gris-suave; padding: 5px; border-radius: 12px; margin-bottom: 25px;
   button {
@@ -171,3 +180,57 @@ $color-suspension-txt: #075985;
   border-radius: 16px; font-size: 15px; font-weight: 700; margin-top: 10px;
 }
 .cancel-btn { background: transparent; color: $gris-texto-secundario; border: none; font-weight: 600; padding: 10px; }
+
+//MENU HAMBURGUESA//
+
+.header-section { margin-bottom: 10px; }
+
+.header-with-back {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  .regresar-text {
+    color: $azul-primario;
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+  }
+}
+
+.cabecera-anuncios { display:flex; align-items:center; gap:10px; margin-bottom:15px; }
+.icono-azul { color:#2563eb; font-size:20px; }
+.titulo-tablon { color:#2563eb; font-weight:900; font-size:12px; letter-spacing:1px; }
+
+.seccion-anuncios { background: transparent; margin-bottom: 18px; }
+.lista-tarjetas { display:flex; flex-direction:column; }
+
+.tarjeta-info {
+  background:#f8fafc; padding:15px; border-radius:16px; border:1px solid $gris-border; margin-bottom:12px; text-align:left;
+  .fila-superior { display:flex; justify-content:space-between; align-items:center; }
+  .tag { font-size:9px; font-weight:700; padding:2px 8px; border-radius:4px; background:#eff6ff; color:#2563eb; }
+  .fecha { font-size:10px; color:$gris-texto-secundario; }
+  .titulo-nota { font-weight:700; font-size:14px; color:$azul-primario; margin:8px 0 0; }
+}
+
+.subtitulo-gris { font-size:11px; font-weight:800; color:$gris-texto-secundario; margin:25px 0 10px; text-align:left; }
+
+.enlace-recurso {
+  display:flex; justify-content:space-between; align-items:center; padding:15px; border-bottom:1px solid #f1f5f9;
+  font-size:13px; color:$gris-texto-secundario; font-weight:600;
+}
+.flechita { color:$azul-primario; font-size:16px; }
+
+.menu-footer { margin-top:auto; padding-top:20px; display:flex; flex-direction:column; gap:10px; }
+
+.logout-menu-btn {
+  @extend .action-footer-btn;
+  background:#fee2e2; color:#ef4444; display:flex; align-items:center; justify-content:center; gap:8px;
+  border-radius:16px; padding:12px; font-weight:800;
+}
+
+@media (max-width:420px) {
+  .main-card { padding:30px 18px; }
+  .menu-icon { font-size:26px; }
+  .logout-menu-btn { font-size:13px; padding:10px; }
+}

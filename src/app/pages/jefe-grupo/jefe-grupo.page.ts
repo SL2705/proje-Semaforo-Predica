@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { addIcons } from 'ionicons';
-import { 
-  calendarClearOutline, personOutline, checkmarkCircle, 
+import {
+  calendarClearOutline, personOutline, checkmarkCircle,
   chevronForwardOutline, arrowBackOutline, logOutOutline,
-  keyOutline // Agregado para password
+  keyOutline, menuOutline, megaphoneOutline, documentTextOutline,
+  shieldCheckmarkOutline, helpCircleOutline, timeOutline
 } from 'ionicons/icons';
 
 @Component({
@@ -35,10 +36,11 @@ export class JefeGrupoPage implements OnInit {
   ];
 
   constructor() {
-    addIcons({ 
-      calendarClearOutline, personOutline, checkmarkCircle, 
+    addIcons({
+      calendarClearOutline, personOutline, checkmarkCircle,
       chevronForwardOutline, arrowBackOutline, logOutOutline,
-      keyOutline 
+      keyOutline, menuOutline, megaphoneOutline, documentTextOutline,
+      shieldCheckmarkOutline, helpCircleOutline, timeOutline
     });
   }
 

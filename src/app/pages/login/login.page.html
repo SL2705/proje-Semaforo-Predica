@@ -2,53 +2,71 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-<div class="login-wrapper">
-   <div class="login-card">
-
-<div class="header-section">
-    <h1 class="title-text">Iniciar Sesion</h1>
-    <p class="login-subtext">Ingrese sus credenciales para continuar</p>
-</div>
-
-    <div class="form-container">
-        <div class="input-group">
-          <p class="field-label">Correo electronico</p>
-        <div class="input-item-box">
-          <input type="text" placeholder="Ingrese sus datos" class="native-input">
+  <div class="login-wrapper">
+    <div class="main-split-container">
+      
+      <!--Panel izquierdo-->
+      <div class="side-panel-left">
+        <div class="logo-box">
+          <img src="assets/img/logo.png" alt="Logo">
         </div>
+        <div class="side-panel-text">
+          <h2 class="panel-title">Acceso al Sistema</h2>
+          <p class="panel-description">
+            Inicia sesión con tus credenciales asignadas para acceder a las funciones correspondientes a tu rol.
+          </p>
+        </div>
+      </div>
+
+       <!--Panel derecho -->
+      <div class="login-card">
+
+        <div class="header-section">
+          <h1 class="title-text">Iniciar Sesion</h1>
+          <p class="login-subtext">Ingrese sus credenciales para continuar</p>
+        </div>
+
+        <div class="form-container">
+          <div class="input-group">
+            <p class="field-label">Número de reloj</p>
+            <div class="input-item-box">
+              <input type="text" placeholder="Ingrese sus datos" class="native-input">
+            </div>
+          </div>
+
+          <!--La primera vez que el usuario inicie sesion, entrara con la contraseña que se le dio cuando
+          lo registraron-->
+          <div class="input-group">
+
+            <div class="password-label-row">
+              <label class="field-label">Contraseña</label>
+              <span class="forgot-text">¿Olvidó sus datos?</span>
+            </div>
+
+            <div class="input-item-box">
+              <input 
+                [type]="showPassword ? 'text' : 'password'" 
+                placeholder="Ingrese su contraseña" 
+                class="native-input">
+
+              <ion-icon
+                [name]="showPassword ? 'eye-off-outline' : 'eye-outline'"
+                class="password-eye"
+                (click)="togglePassword()">
+              </ion-icon>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="button-section">
+          <button class="custom-login-button">
+            Iniciar sesion
+          </button>
+        </div>
+
+      </div>
+      
     </div>
-
-      <!--La primera vez que el usuario inicie sesion, entrara con la contraseña que se le dio cuando
-      lo registraron-->
-        <div class="input-group">
-
-          <div class="password-label-row">
-            <label class="field-label">Contraseña</label>
-            <span class="forgot-text">¿Olvidó sus datos?</span>
-          </div>
-
-          <div class="input-item-box">
-            <input 
-              [type]="showPassword ? 'text' : 'password'" 
-              placeholder="Ingrese su contraseña" 
-              class="native-input">
-
-            <ion-icon
-              [name]="showPassword ? 'eye-off-outline' : 'eye-outline'"
-              class="password-eye"
-              (click)="togglePassword()">
-            </ion-icon>
-          </div>
-
-        </div>
   </div>
-
-    <div class="button-section">
-      <button class="custom-login-button">
-        Iniciar sesion
-      </button>
-    </div>
-
- </div>
-</div>
 </ion-content>

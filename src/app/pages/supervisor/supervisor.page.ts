@@ -9,7 +9,8 @@ import {
   airplaneOutline, calendarOutline, banOutline,
   documentAttachOutline, alertCircleOutline, closeOutline, refreshOutline,
   ellipsisHorizontalCircleOutline, medicalOutline, lockClosedOutline,
-  keyOutline
+  keyOutline,
+  menuOutline, megaphoneOutline, shieldCheckmarkOutline, helpCircleOutline
 } from 'ionicons/icons';
 
 @Component({
@@ -48,7 +49,8 @@ export class SupervisorPage implements OnInit {
       airplaneOutline, calendarOutline, banOutline,
       documentAttachOutline, alertCircleOutline, closeOutline, refreshOutline,
       ellipsisHorizontalCircleOutline, medicalOutline, lockClosedOutline,
-      keyOutline 
+      keyOutline,
+      menuOutline, megaphoneOutline, shieldCheckmarkOutline, helpCircleOutline
     });
   }
 
@@ -58,7 +60,7 @@ export class SupervisorPage implements OnInit {
     this.fechaHoy = hoy.toUpperCase();
   }
 
-  //Logica para el cambio de vista//
+  //Lógica para el cambio de vista//
   setVista(nuevaVista: string) {
     this.vista = nuevaVista;
   }
@@ -97,8 +99,7 @@ export class SupervisorPage implements OnInit {
     this.esModoCancelacion = this.empleadoSeleccionado.claseEstado === tipo;
     const azulEmpresa = '#1A3D63';
 
-    //Logica para el control de excepciones, si el operador va estar de vacaciones, con permiso
-    //Incapacitado, o se le va a levantar un solicitud de suspension
+    //Lógica para el control de excepciones//
     const excepciones: any = {
       'vacaciones': { 
         nombre: 'vacaciones', 
