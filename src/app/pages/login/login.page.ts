@@ -9,7 +9,7 @@ import {
   IonItem, 
   IonInput, 
   IonButton, 
-  IonIcon, // <--- IMPORTANTE: Esto le falta a Leo
+  IonIcon,
   IonLabel 
 } from '@ionic/angular/standalone';
 
