@@ -2,113 +2,98 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="operator-wrapper">
+  <app-background-layout>
 
-    <!--Contenedor-->
-    <div class="main-split-container">
+<div class="operator-wrapper">
+  <div class="operator-card">
+    <div class="page-container">
 
-      <!--Panel izquierdo-->
-      <div class="side-panel-left">
-        <div class="logo-box">
-          <img src="assets/img/logo.png" alt="Logo">
-        </div>
+       <div class="welcome-header text-center">
+        <h1 class="user-name">Registrar Nuevo Usuario</h1>
+       </div>
 
-        <h2 class="panel-title">Registro de Personal</h2>
-        <p class="panel-text">
-          Ingresa los datos del nuevo usuario y asigna su rol dentro del sistema de manera segura.
-        </p>
-      </div>
+       <div class="status-section">
+        <form class="register-form">
 
-      <!--Panel derecho -->
-      <div class="operator-card">
-        <div class="page-container">
-
-          <div class="welcome-header text-center">
-            <h1 class="user-name">Registrar Nuevo Usuario</h1>
+          <div class="input-group">
+             <label class="input-label">Rol del Empleado</label>
+             <select class="custom-select" #rolSeleccionado (change)="0">
+                <option value="operador" selected>Operador de Producción</option>
+                <option value="jefe_grupo">Jefe de Grupo</option>
+                <option value="supervisor">Supervisor de Línea</option>
+                <option value="rrhh">Recursos Humanos (RRHH)</option>
+              </select>
           </div>
 
-          <div class="status-section">
-            <form class="register-form">
+           <div class="input-group">
+            <label class="input-label">Nombre Completo</label>
+            <input type="text" class="custom-input-field" placeholder="Ejemplo: Daniel Olivas">
+           </div>
 
+           <div class="input-row">
               <div class="input-group">
-                <label class="input-label">Rol del Empleado</label>
-                <select class="custom-select" #rolSeleccionado (change)="0">
-                  <option value="operador" selected>Operador de Producción</option>
-                  <option value="jefe_grupo">Jefe de Grupo</option>
-                  <option value="supervisor">Supervisor de Línea</option>
-                  <option value="rrhh">Recursos Humanos (RRHH)</option>
-                </select>
+                <label class="input-label">ID / Núm. Reloj</label>
+                <input type="number" class="custom-input-field" placeholder="26519">
               </div>
+           </div>
 
-              <div class="input-row">
-                <div class="input-group">
-                  <label class="input-label">Nombre Completo</label>
-                  <input type="text" class="custom-input-field" placeholder="Ejemplo: Daniel Olivas">
-                </div>
-
-                <div class="input-group">
-                  <label class="input-label">ID / Núm. Reloj</label>
-                  <input type="number" class="custom-input-field" placeholder="26519">
-                </div>
-              </div>
-
-              <!--Dependiendo del rol, se habilitaran o deshabilitaran las opciones para elegir
-              a que linea o que departamento pertence, o que lineas tiene a cargo, en el caso de 
-              los jefes de grupo y supervisores-->
-
-              <div class="input-group">
-                <label class="input-label" [class.disabled-label]="rolSeleccionado.value !== 'operador'">
-                  Linea de Trabajo
-                </label>
-                <input
-                  type="text"
+           <!--Dependiendo del rol, se habilitaran o deshabilitaran las opciones para elegir
+           a que linea o que departamento pertence, o que lineas tiene a cargo, en el caso de
+           los jefes de grupo y supervisores-->
+           <div class="input-group">
+             <label class="input-label" [class.disabled-label]="rolSeleccionado.value !== 'operador'">Linea de Trabajo</label>
+             <input type="text"
                   class="custom-input-field"
                   placeholder="Ej: Ensamble A"
                   [disabled]="rolSeleccionado.value !== 'operador'"
                   [style.background-color]="rolSeleccionado.value !== 'operador' ? '#f1f5f9' : '#fcfdfe'">
-              </div>
+           </div>
 
-              <div class="input-group">
-                <label
-                  class="input-label"
-                  [class.disabled-label]="rolSeleccionado.value !== 'supervisor' && rolSeleccionado.value !== 'jefe_grupo'">
-                  Líneas a Cargo (Supervisor / Jefe de Grupo)
-                </label>
-                <input
-                  type="text"
-                  class="custom-input-field"
-                  placeholder="Ej: A-1, A-2, B-1"
-                  [disabled]="rolSeleccionado.value !== 'supervisor'  && rolSeleccionado.value !== 'jefe_grupo'"
-                  [style.background-color]="(rolSeleccionado.value !== 'supervisor' && rolSeleccionado.value !== 'jefe_grupo') ? '#f1f5f9' : '#fcfdfe'">
-              </div>
+            <div class="input-group">
+              <label class="input-label" [class.disabled-label]="rolSeleccionado.value !== 'supervisor' && rolSeleccionado.value !== 'jefe_grupo'">
+                Líneas a Cargo (Supervisor / Jefe de Grupo)
+              </label>
+              <input
+                type="text"
+                class="custom-input-field"
+                placeholder="Ej: A-1, A-2, B-1"
+                [disabled]="rolSeleccionado.value !== 'supervisor'  && rolSeleccionado.value !== 'jefe_grupo'"
+                [style.background-color]="(rolSeleccionado.value !== 'supervisor' && rolSeleccionado.value !== 'jefe_grupo') ? '#f1f5f9' : '#fcfdfe'">
+            </div>
 
-              <div class="input-group">
-                <label class="input-label" [class.disabled-label]="rolSeleccionado.value !== 'rrhh'">
-                  Departamento Administrativo
-                </label>
-                <input
-                  type="text"
-                  class="custom-input-field"
-                  placeholder="Ej: Sistemas"
-                  [disabled]="rolSeleccionado.value !== 'rrhh'"
-                  [style.background-color]="rolSeleccionado.value !== 'rrhh' ? '#f1f5f9' : '#fcfdfe'">
-              </div>
+             <div class="input-group">
+              <label class="input-label" [class.disabled-label]="rolSeleccionado.value !== 'rrhh'">
+                Departamento Administrativo
+              </label>
+              <input
+                type="text"
+                class="custom-input-field"
+                placeholder="Ej: Sistemas"
+                [disabled]="rolSeleccionado.value !== 'rrhh'"
+                [style.background-color]="rolSeleccionado.value !== 'rrhh' ? '#f1f5f9' : '#fcfdfe'">
+            </div>
 
-              <div class="input-group">
-                <label class="input-label">Contraseña Temporal</label>
-                <input type="password" class="custom-input-field" placeholder="••••••••">
-                <p class="helper-text">El usuario deberá cambiarla en su primer inicio de sesión.</p>
-              </div>
+             <div class="input-group">
+              <label class="input-label">Correo Electrónico</label>
+              <input type="email" class="custom-input-field" placeholder="usuario@maquila.com">
+            </div>
 
-              <button type="button" class="register-button">
-                Crear Cuenta de Empleado
-              </button>
 
-            </form>
-          </div>
-        </div>
-      </div>
+            <div class="input-group">
+              <label class="input-label">Contraseña Temporal</label>
+              <input type="password" class="custom-input-field" placeholder="••••••••">
+              <p class="helper-text">El usuario deberá cambiarla en su primer inicio de sesión.</p>
+            </div>
 
+            <button type="button" class="register-button">
+              Crear Cuenta de Empleado
+            </button>
+
+        </form>
+       </div>
     </div>
   </div>
+</div>
+
+</app-background-layout>
 </ion-content>
