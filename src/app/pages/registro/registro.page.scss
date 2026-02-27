@@ -137,7 +137,7 @@
   padding: 12px 16px;
   border-radius: 12px;
   border: 1px solid #e2e8f0;
-  background: ion-background-color;
+  background: ion-text-color-step-300;
   font-size: 14px;
   color: ion-text-color;
   outline: none;
@@ -158,8 +158,8 @@
 
 .register-button {
   margin-top: 10px;
-  background: ion-background-color;
-  color: white;
+  background: ion-color-info;
+  color: ion-text-color;
   padding: 16px;
   border-radius: 14px;
   font-weight: 700;

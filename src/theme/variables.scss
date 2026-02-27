@@ -1,42 +1,50 @@
-/* Colores referente a la aplicacion, pronto se implementara un switch de cambio de temas*/
-
 :root {
-  /** Colores de Marca **/
+  /** Colores de Marca y Estados **/
   --ion-color-primary: #2c3e50;
-  --ion-color-primary-rgb: 44, 62, 80;
-  --ion-color-primary-contrast: #ffffff;
-
   --ion-color-secondary: #d35400;
-  --ion-color-secondary-rgb: 211, 84, 0;
-  --ion-color-secondary-contrast: #ffffff;
-
   --ion-color-tertiary: #16a085;
-  --ion-color-tertiary-rgb: 22, 160, 133;
-  --ion-color-tertiary-contrast: #ffffff;
-
+  --ion-color-info: #3498db;
   --ion-color-success: #27ae60;
   --ion-color-warning: #f39c12;
   --ion-color-danger: #c0392b;
 
-  /** Superficies y Fondos **/
+  /** Superficies, Fondos y Bordes **/
   --ion-background-color: #ebedf0;
   --ion-item-background: #ffffff;
+  --ion-text-title: #ffffff;
   --ion-text-color: #2c3e50;
+  --ion-text-color-step-300: #7f8c8d;
   --ion-border-color: #bdc3c7;
+  --ion-border-field: #3e3e3e;
+  --ion-border-radius: 8px;
+
+  /** Variables de Componentes para Formularios y Cards **/
+  --input-background-focused: #f4f7f6;
+  --input-border-width: 1px;
+  --card-background: #ffffff;
+  --: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --button-border-radius: 6px;
+  --button-background: #1b54b6;
+  --transition-speed: 0.3s;
 }
 
-/* Tema Oscuro  */
+/* Tema Oscuro */
 @media (prefers-color-scheme: dark) {
   body {
     --ion-color-primary: #95a5a6;
-    --ion-color-primary-rgb: 149, 165, 166;
     --ion-color-primary-contrast: #121212;
-
-    --ion-color-secondary: #e67e22;
-    --ion-color-secondary-rgb: 230, 126, 34;
 
     --ion-background-color: #1b1c1e;
     --ion-item-background: #252629;
+    --ion-text-title: #ffffff;
     --ion-text-color: #e9ecef;
+    --ion-text-color-step-300: #9ca3af;
+    --ion-border-field: #e2e8f0;
+    --ion-border-color: #3e444a;
+
+    /** Ajustes de Superficie Dark **/
+    --card-background: #2a2b2e;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --input-background-focused: #2c2d30;
   }
 }

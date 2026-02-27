@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BackgroundLayoutComponent } from '../../shared/background-layout/background-layout.component';
 import { FormsModule } from '@angular/forms';
-import { 
-  IonContent, 
-  IonHeader, 
-  IonTitle, 
-  IonToolbar, 
-  IonItem, 
-  IonInput, 
-  IonButton, 
-  IonIcon,
-  IonLabel 
+import {
+  IonContent,
+  IonHeader,
+  IonTitle,
+  IonToolbar,
+  IonItem,
+  IonInput,
+  IonButton,
+  IonIcon, // <--- IMPORTANTE: Esto le falta a Leo
+  IonLabel
 } from '@ionic/angular/standalone';
 
 @Component({
@@ -19,22 +20,23 @@ import {
   styleUrls: ['./login.page.scss'],
   standalone: true,
   imports: [
-    IonContent, 
-    IonHeader, 
-    IonTitle, 
-    IonToolbar, 
-    CommonModule, 
+    IonContent,
+    IonHeader,
+    IonTitle,
+    IonToolbar,
+    CommonModule,
     FormsModule,
     IonItem,
     IonInput,
     IonButton,
-    IonIcon, 
-    IonLabel
+    IonIcon,
+    IonLabel,
+    BackgroundLayoutComponent
   ]
 })
 export class LoginPage implements OnInit {
-  
-  showPassword = false; 
+
+  showPassword = false;
 
   constructor() { }
 

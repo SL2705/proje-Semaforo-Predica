@@ -2,9 +2,10 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+    <app-background-layout>
   <div class="login-wrapper">
     <div class="main-split-container">
-      
+
       <!--Panel izquierdo-->
       <div class="side-panel-left">
         <div class="logo-box">
@@ -44,9 +45,9 @@
             </div>
 
             <div class="input-item-box">
-              <input 
-                [type]="showPassword ? 'text' : 'password'" 
-                placeholder="Ingrese su contraseña" 
+              <input
+                [type]="showPassword ? 'text' : 'password'"
+                placeholder="Ingrese su contraseña"
                 class="native-input">
 
               <ion-icon
@@ -66,7 +67,8 @@
         </div>
 
       </div>
-      
+
     </div>
   </div>
+  </app-background-layout>
 </ion-content>

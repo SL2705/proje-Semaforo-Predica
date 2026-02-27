@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
+import { BackgroundLayoutComponent } from '../../shared/background-layout/background-layout.component';
 import { addIcons } from 'ionicons';
-import { 
-  logOutOutline, checkmarkCircle, timeOutline, 
+import {
+  logOutOutline, checkmarkCircle, timeOutline,
   documentTextOutline, keyOutline, arrowBackOutline,
   menuOutline, megaphoneOutline, shieldCheckmarkOutline,
-  helpCircleOutline, chevronForwardOutline, closeOutline
+  helpCircleOutline, chevronForwardOutline, closeOutline,
 } from 'ionicons/icons';
 
 @Component({
@@ -15,14 +16,14 @@ import {
   templateUrl: './operador.page.html',
   styleUrls: ['./operador.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule]
+  imports: [IonicModule, CommonModule, FormsModule, BackgroundLayoutComponent]
 })
 export class OperadorPage {
   view: string = 'dashboard';
 
   constructor() {
-    addIcons({ 
-      logOutOutline, checkmarkCircle, timeOutline, 
+    addIcons({
+      logOutOutline, checkmarkCircle, timeOutline,
       documentTextOutline, keyOutline, arrowBackOutline,
       menuOutline, megaphoneOutline, shieldCheckmarkOutline,
       helpCircleOutline, chevronForwardOutline, closeOutline
