@@ -1,0 +1,152 @@
+/* Convertimos el contenedor interno de ion-content en flex */
+ion-content::part(scroll) {
+  display: flex;
+}
+
+/* Layout */
+
+.login-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  background: linear-gradient(135deg, #e8edf5 0%, #f8fafc 100%);
+}
+
+/* Card */
+
+.login-card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 400px;
+  padding: 56px 32px;
+  border-radius: 32px;
+  box-shadow:
+    0 10px 30px rgba(15, 23, 42, 0.08),
+    0 2px 6px rgba(15, 23, 42, 0.04);
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.login-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 20px 50px rgba(15, 23, 42, 0.12),
+    0 4px 10px rgba(15, 23, 42, 0.05);
+}
+
+/* Header */
+
+.header-section {
+  margin-bottom: 36px;
+}
+
+.title-text {
+  font-size: 28px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.login-subtext {
+  font-size: 14px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+/* Inputs */
+
+.input-group {
+  margin-bottom: 26px;
+  text-align: left;
+}
+
+.field-label {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #334155;
+  display: block;
+}
+
+.input-item-box {
+  background: #f9fbfd;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.input-item-box:focus-within {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+  background: #ffffff;
+}
+
+ion-input {
+  --background: transparent;
+  --padding-start: 0;
+  --padding-end: 0;
+  --highlight-height: 0;
+  font-size: 14px;
+  color: #0f172a;
+  width: 100%;
+}
+
+/* Password */
+
+.password-wrapper ion-icon {
+  position: absolute;
+  right: 18px;
+  font-size: 20px;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.password-wrapper ion-icon:hover {
+  color: #2563eb;
+  transform: scale(1.1);
+}
+
+.password-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.forgot-text {
+  font-size: 12px;
+  color: #2563eb;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.forgot-text:hover {
+  opacity: 0.75;
+}
+
+/* Button */
+
+ion-button {
+  --border-radius: 999px;
+  height: 56px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive */
+
+@media (max-width: 420px) {
+  .login-card {
+    padding: 48px 22px;
+    border-radius: 24px;
+  }
+}

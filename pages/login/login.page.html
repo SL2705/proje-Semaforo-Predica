@@ -1,0 +1,51 @@
+<ion-content [fullscreen]="true">
+
+  <div class="login-wrapper">
+
+    <div class="login-card">
+
+      <div class="header-section">
+        <h1>Iniciar Sesión</h1>
+        <p>Ingrese su número de reloj y contraseña</p>
+      </div>
+
+      <!-- Número de reloj -->
+      <div class="input-group">
+        <ion-input
+          type="text"
+          placeholder="Número de reloj"
+          [(ngModel)]="numeroReloj">
+        </ion-input>
+      </div>
+
+      <!-- Contraseña -->
+      <div class="input-group password-wrapper">
+
+        <ion-input
+          [type]="showPassword ? 'text' : 'password'"
+          placeholder="Contraseña"
+          [(ngModel)]="password">
+        </ion-input>
+
+        <ion-icon
+          name="eye-outline"
+          (click)="togglePassword()">
+        </ion-icon>
+
+      </div>
+
+      <!-- Botón -->
+      <ion-button
+        expand="block"
+        (click)="login()"
+        [disabled]="!numeroReloj || !password">
+
+        Iniciar Sesión
+
+      </ion-button>
+
+    </div>
+
+  </div>
+
+</ion-content>

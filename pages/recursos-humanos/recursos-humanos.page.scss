@@ -1,0 +1,306 @@
+$azul-primario: #1A3D63;
+$gris-fondo: #f8fafc;
+$gris-suave: #f1f5f9;
+$gris-texto-secundario: #94a3b8;
+$gris-texto-label: #475569;
+$gris-border: #e2e8f0;
+$rojo: #ef4444;
+$amarillo: #f59e0b;
+$verde: #10b981;
+$gris-iconos: #b4bfcd;
+
+.field-label { 
+  font-size: 13px; 
+  font-weight: 700; 
+  margin-bottom: 12px; 
+  color: $gris-texto-label; 
+}
+
+.fecha-subtitle { 
+  font-size: 11px; 
+  font-weight: 700; 
+  color: #94a3b8; 
+  text-transform: uppercase; 
+  margin-bottom: 30px; 
+}
+
+.background-wrapper {
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  min-height: 100%;
+  padding: 20px; 
+  background: $gris-fondo;
+
+  .main-card {
+    background: white; 
+    width: 100%; 
+    max-width: 400px; 
+    padding: 30px 25px;
+    border-radius: 32px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  }
+}
+
+
+.user-greeting h1 { 
+  font-size: 26px; 
+  font-weight: 800; 
+  color: $azul-primario; 
+  margin-bottom: 5px; 
+}
+
+.header-container { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: flex-start; 
+}
+
+.logout-icon { 
+  color: $rojo; 
+  font-size: 24px; 
+  cursor: pointer; 
+}
+
+//Solicitudes y suspendidos// 
+.solicitud-card {
+  background: white; 
+  border: 1px solid $gris-border; 
+  border-radius: 16px; 
+  padding: 15px;
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  margin-bottom: 12px;
+
+  .sol-info { 
+    .name { 
+      display: block; 
+      font-size: 14px; 
+      font-weight: 700; 
+      color: $azul-primario; 
+    } 
+    .meta { 
+      font-size: 11px; 
+      color: #64748b; 
+    } 
+  }
+
+  .btn-revisar { 
+    background: $azul-primario; 
+    color: white; 
+    border: none; 
+    padding: 8px 12px; 
+    border-radius: 10px; 
+    font-size: 9px; 
+    font-weight: 800; 
+  }
+
+  .btn-susp { 
+    background: #fee2e2; 
+    color: $rojo; 
+    border: none; 
+    padding: 8px 12px; 
+    border-radius: 10px; 
+    font-size: 9px; 
+    font-weight: 800; 
+  }
+}
+
+//Semaforos//
+.segment-container {
+  display: flex; 
+  background: $gris-suave; 
+  padding: 5px; 
+  border-radius: 12px; 
+  margin-bottom: 25px;
+
+  button {
+    flex: 1; 
+    border: none; 
+    padding: 10px; 
+    border-radius: 10px; 
+    font-weight: 800; 
+    font-size: 10px; 
+    color: #64748b;
+
+    &.active-red { background: $rojo; color: white; }
+    &.active-yellow { background: $amarillo; color: white; }
+    &.active-green { background: $verde; color: white; }
+  }
+}
+
+//Operadores//
+.employee-card {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 16px;
+  background: white; 
+  border: 1px solid $gris-border; 
+  border-radius: 16px; 
+  margin-bottom: 12px;
+
+  .indicator { 
+    width: 10px; 
+    height: 10px; 
+    border-radius: 50%; 
+    margin-right: 12px; 
+    &.rojo { background: $rojo; } 
+    &.amarillo { background: $amarillo; } 
+    &.verde { background: $verde; } 
+  }
+
+  .employee-info { 
+    flex: 1; 
+    .nombre-operador { 
+      font-size: 14px; 
+      font-weight: 700; 
+      color: $azul-primario; 
+    } 
+    .reloj-text { 
+      font-size: 11px; 
+      color: #64748b; 
+    } 
+  }
+
+  .chevron-icon { 
+    color: $azul-primario; 
+    font-size: 18px; 
+  }
+}
+
+.info-card-blue {
+  background: $azul-primario; 
+  padding: 30px 20px; 
+  border-radius: 24px; 
+  color: white; 
+  margin-bottom: 25px;
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  
+  h2 { font-size: 24px; font-weight: 800; margin: 12px 0; }
+
+  .reloj-tag { 
+    background: rgba(255,255,255,0.15); 
+    padding: 4px 14px; 
+    border-radius: 8px; 
+    font-size: 12px; 
+  }
+
+  .semaforo-pill { 
+    padding: 4px 12px; 
+    border-radius: 20px; 
+    font-size: 10px; 
+    font-weight: 800; 
+    &.rojo { background: $rojo; } 
+    &.amarillo { background: $amarillo; } 
+    &.verde { background: $verde; } 
+  }
+}
+
+//Historial//
+.history-card { 
+  border: 1px solid $gris-border; 
+  border-radius: 20px; 
+  padding: 5px 20px; 
+  margin-bottom: 15px; 
+}
+
+.history-item {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 15px 0;
+  
+  &:not(:last-child) { 
+    border-bottom: 1px solid #f1f5f9; 
+  }
+
+  .history-label { 
+    font-size: 11px; 
+    color: $gris-texto-secundario; 
+    font-weight: 700; 
+  }
+
+  .history-value { 
+    font-size: 12px; 
+    color: $azul-primario; 
+    font-weight: 800; 
+    text-transform: uppercase; 
+  }
+
+  ion-icon {
+    font-size: 20px;
+  }
+}
+
+
+.black-icon { color: #000000; }
+.red-icon { color: $rojo; }
+.green-icon { color: $verde; }
+.orange-icon { color: $amarillo; }
+.pending-icon { color: $gris-iconos; }
+
+//botones//
+.kardex-btn {
+  width: 100%; 
+  background: white; 
+  border: 1.5px dashed #cbd5e0; 
+  padding: 12px;
+  border-radius: 14px; 
+  color: $azul-primario; 
+  font-size: 10px; 
+  font-weight: 800;
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  gap: 8px;
+}
+
+.decision-footer {
+  display: flex; 
+  flex-direction: column; 
+  gap: 10px; 
+  margin-top: 25px;
+
+  .btn-action { 
+    padding: 16px; 
+    border-radius: 16px; 
+    border: none; 
+    color: white; 
+    font-weight: 800; 
+    font-size: 12px; 
+    
+    &.approve { background: $verde; } 
+    &.reject { background: $rojo; }
+    &.reactivate { background: $azul-primario; }
+  }
+}
+
+.back-nav { 
+  display: flex; 
+  align-items: center; 
+  gap: 8px; 
+  color: $azul-primario; 
+  font-weight: 800; 
+  margin-bottom: 20px; 
+  cursor: pointer; 
+}
+
+.footer-btn, .action-footer-btn {
+  background: #edf2f7; 
+  color: $azul-primario; 
+  width: 100%; 
+  border-radius: 40px;
+  padding: 18px; 
+  font-weight: 800; 
+  font-size: 12px; 
+  margin-top: 25px; 
+  border: none;
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  gap: 10px;
+}

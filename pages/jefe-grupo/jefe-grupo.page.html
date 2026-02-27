@@ -1,0 +1,149 @@
+<ion-content [fullscreen]="true">
+  <div class="login-wrapper">
+    <div class="login-card">
+      
+      <ng-container *ngIf="vista === 'lista'">
+        <div class="header-container">
+          <div class="user-greeting">
+            <!--El nombre debe de cambiar dependiendo del usuario que inicie sesion-->
+            <h1 class="title-text">
+              ¡Hola, {{usuario.nombre}}!
+            </h1>
+            <p class="fecha-subtitle">{{fechaHoy}}</p>
+          </div>
+          <ion-icon name="log-out-outline" class="logout-icon" (click)="cerrarSesion()"></ion-icon>
+        </div>
+
+          <!--Se muestran cuantos operadores lleva registrados en la asistencia de ese dia-->
+        <div class="avance-box">
+          <p class="field-label">Avance Asistencia</p>
+          <div class="avance-status">
+            <span class="count">{{conteoListos}}</span>
+            <span class="total">/ {{aptosParaRegistro.length}} Activos</span>
+          </div>
+        </div>
+
+        <!--El jefe de grupo podra cambiar las lineas que tiene a cargo para ver a los 
+        operadores de cada linea-->
+        <div class="selector-linea-box">
+          <button *ngFor="let l of LINEAS" 
+                  (click)="lineaSeleccionada = l" 
+                  [class.active]="lineaSeleccionada === l">
+            {{l}}
+          </button>
+        </div>
+
+        <div class="form-container">
+          <p class="field-label">Personal en línea</p>
+          <div class="lista-operadores">
+            <div *ngFor="let op of filtrados" class="operador-item" (click)="abrirRegistro(op)">
+              <div class="info">
+                <p class="nombre">{{op.nombre}}</p>
+                <p class="sub-id">No. Reloj: {{op.id}}</p>
+              </div>
+              
+              <div class="status-indicator">
+                <ion-icon *ngIf="op.listo" name="checkmark-circle" class="check-icon"></ion-icon>
+                <span *ngIf="op.estado !== 'activo'" class="badge" [ngClass]="op.estado.toLowerCase()">
+                  {{op.estado}}
+                </span>
+                <ion-icon *ngIf="!op.listo && op.estado === 'activo'" name="chevron-forward-outline" class="chevron-icon"></ion-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="button-section" style="margin-top: 20px;">
+          <button class="action-footer-btn" (click)="setVista('password')">
+            <ion-icon name="key-outline"></ion-icon>
+            CAMBIAR CONTRASEÑA
+          </button>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="vista === 'registro'">
+        <div class="header-section">
+          <div class="back-nav" (click)="vista = 'lista'">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+            <span>REGRESAR</span>
+          </div>
+        </div>
+
+        <div class="info-card-blue">
+          <p class="label-white">Operador Seleccionado</p>
+          <h2>{{operadorActual?.nombre}}</h2>
+          <div class="reloj-tag">No. Reloj: {{operadorActual?.id}}</div>
+        </div>
+
+        <div class="form-container">
+          <div class="input-group">
+            <p class="field-label-center">Asistencia Hoy</p>
+            <div class="pills-container">
+              <label>
+                <input type="radio" name="asist" [(ngModel)]="asistenciaSeleccionada" [value]="true">
+                <span>SÍ</span>
+              </label>
+              <label>
+                <input type="radio" name="asist" [(ngModel)]="asistenciaSeleccionada" [value]="false">
+                <span>NO</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <p class="field-label-center" [style.opacity]="!asistenciaSeleccionada ? '0.5' : '1'">Puntualidad</p>
+            <div class="pills-container">
+              <label>
+                <input type="radio" name="punt" [disabled]="!asistenciaSeleccionada" checked>
+                <span [style.opacity]="!asistenciaSeleccionada ? '0.5' : '1'">A TIEMPO</span>
+              </label>
+              <label>
+                <input type="radio" name="punt" [disabled]="!asistenciaSeleccionada">
+                <span [style.opacity]="!asistenciaSeleccionada ? '0.5' : '1'">RETARDO</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="button-section">
+            <button class="custom-login-button" (click)="guardar($event)">
+              Confirmar Registro
+            </button>
+          </div>
+        </div>
+      </ng-container>
+
+      <div class="page-container" *ngIf="vista === 'password'">
+        <div class="header-with-back">
+          <button class="back-btn" (click)="setVista('lista')">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+          </button>
+          <div style="text-align: left;">
+            <h1 class="user-name-pass">Nueva Contraseña</h1>
+            <p class="user-id-pass">Asegura tu cuenta</p>
+          </div>
+        </div>
+
+        <form class="password-form" (submit)="$event.preventDefault()">
+          <div class="input-group-pass">
+            <label>Contraseña Actual</label>
+            <input type="password" placeholder="••••••••">
+          </div>
+          <div class="input-group-pass">
+            <label>Nueva Contraseña</label>
+            <input type="password" placeholder="Mínimo 8 caracteres">
+          </div>
+          <div class="input-group-pass">
+            <label>Confirmar Nueva Contraseña</label>
+            <input type="password" placeholder="Repite tu contraseña">
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="submit-btn">Actualizar Contraseña</button>
+            <button type="button" class="cancel-btn" (click)="setVista('lista')">Cancelar</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</ion-content>

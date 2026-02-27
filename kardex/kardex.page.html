@@ -1,0 +1,66 @@
+<ion-content [fullscreen]="true" class="kardex-wrapper" *ngIf="kardexData">
+
+  <div class="kardex-container">
+
+    <!-- HEADER -->
+    <div class="kardex-header">
+      <div class="header-left">
+        <h1 class="kardex-title">Kardex del Operador</h1>
+        <p class="kardex-subtitle">
+          {{ kardexData.nombre }} • {{ kardexData.numero_reloj }}
+        </p>
+      </div>
+
+      <ion-button fill="outline" (click)="volver()">
+        Volver
+      </ion-button>
+    </div>
+
+    <!-- INFO CARD -->
+    <div class="info-card">
+      <div class="info-item">
+        <span class="label">Rol</span>
+        <strong>{{ kardexData.rol }}</strong>
+      </div>
+
+      <div class="info-item">
+        <span class="label">Registros</span>
+        <strong>{{ kardexData?.historial?.length || 0 }}</strong>
+      </div>
+    </div>
+
+    <!-- TABLE -->
+    <div class="table-wrapper">
+      <table class="kardex-table">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of kardexData?.historial || []">
+            <td>{{ item.fecha }}</td>
+            <td>
+              <span
+                [ngClass]="{
+                  'badge-green': item.estado === 'PUNTUAL' || item.estado === 'REGISTRADO',
+                  'badge-orange': item.estado === 'RETARDO',
+                  'badge-red': item.estado === 'FALTA'
+                }">
+                {{ item.estado }}
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- DOWNLOAD BUTTON -->
+    <ion-button expand="block" size="large" class="download-btn" (click)="descargarKardex()">
+      Descargar PDF
+    </ion-button>
+
+  </div>
+
+</ion-content>

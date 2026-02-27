@@ -1,0 +1,144 @@
+<ion-content [fullscreen]="true">
+  <div class="operator-wrapper">
+    <div class="operator-card">
+
+      <!-- DASHBOARD -->
+      <div class="page-container" *ngIf="view === 'dashboard'">
+
+        <header class="welcome-header">
+          <h1 class="user-name">
+            ¡Hola, {{ usuario?.nombre }}!
+          </h1>
+          <p class="user-id">
+            ID: {{ usuario?.id }} • Rol: {{ usuario?.rol }}
+          </p>
+
+          <ion-icon
+            name="log-out-outline"
+            class="logout-icon"
+            (click)="cerrarSesion()">
+          </ion-icon>
+        </header>
+
+        <div class="status-section">
+          <div class="light-circle stable"></div>
+
+          <div class="status-text-box">
+            <h2 class="status-title">Estado: Estable</h2>
+            <p class="status-msg">¡Sigue Así!</p>
+          </div>
+        </div>
+
+        <p class="field-label">Historial Reciente</p>
+
+        <div class="history-card">
+          <div class="history-item">
+            <span class="history-label">HOY</span>
+            <strong class="history-value">REGISTRADO</strong>
+            <ion-icon name="checkmark-circle" class="green-icon"></ion-icon>
+          </div>
+
+          <div class="history-item">
+            <span class="history-label">AYER</span>
+            <strong class="history-value">PUNTUAL</strong>
+            <ion-icon name="checkmark-circle" class="green-icon"></ion-icon>
+          </div>
+
+          <div class="history-item">
+            <span class="history-label">04 FEB</span>
+            <strong class="history-value">RETARDO</strong>
+            <ion-icon name="time-outline" class="orange-icon"></ion-icon>
+          </div>
+        </div>
+
+       <ion-button expand="block" (click)="verKardex()">
+  Ver Kardex Completo
+</ion-button>
+
+<div *ngIf="isKardexOpen && kardexData">
+
+  <h2>{{ kardexData.nombre }}</h2>
+  <p>Número: {{ kardexData.numero_reloj }}</p>
+  <p>Rol: {{ kardexData.rol }}</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of kardexData.historial">
+        <td>{{ item.fecha }}</td>
+        <td>{{ item.estado }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ion-button expand="block" (click)="descargarKardex()">
+    Descargar PDF
+  </ion-button>
+
+</div>
+
+        <div class="button-section">
+          <button class="action-footer-btn" (click)="setView('password')">
+            <ion-icon name="key-outline"></ion-icon>
+            CAMBIAR CONTRASEÑA
+          </button>
+        </div>
+
+      </div>
+
+      <!-- PASSWORD VIEW -->
+      <div class="page-container" *ngIf="view === 'password'">
+
+        <header class="header-with-back">
+          <button class="back-btn" (click)="setView('dashboard')">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+          </button>
+
+          <div>
+            <h1 class="user-name">Nueva Contraseña</h1>
+            <p class="user-id">Asegura tu cuenta</p>
+          </div>
+        </header>
+
+        <form class="password-form" (submit)="$event.preventDefault()">
+
+          <div class="input-group-pass">
+            <label>Contraseña Actual</label>
+            <input type="password" placeholder="••••••••">
+          </div>
+
+          <div class="input-group-pass">
+            <label>Nueva Contraseña</label>
+            <input type="password" placeholder="Mínimo 8 caracteres">
+          </div>
+
+          <div class="input-group-pass">
+            <label>Confirmar Nueva Contraseña</label>
+            <input type="password" placeholder="Repite tu contraseña">
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="submit-btn">
+              Actualizar Contraseña
+            </button>
+
+            <button
+              type="button"
+              class="cancel-btn"
+              (click)="setView('dashboard')">
+              Cancelar
+            </button>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+</ion-content>
