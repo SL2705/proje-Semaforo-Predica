@@ -1,0 +1,77 @@
+<ion-content class="admin-wrapper">
+
+  <div class="header-admin">
+  <h1 class="title">Administración de Usuarios</h1>
+  <button class="btn-logout" (click)="cerrarSesion()">Salir</button>
+  </div>
+  <table class="admin-table">
+
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>N° Reloj</th>
+        <th>Rol</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let u of usuarios">
+
+        <td>{{ u.id }}</td>
+
+        <td>
+          <span *ngIf="usuarioEditando?.id !== u.id">
+            {{ u.nombre_completo }}
+          </span>
+
+          <input *ngIf="usuarioEditando?.id === u.id"
+                 [(ngModel)]="usuarioEditando.nombre_completo" />
+        </td>
+
+        <td>
+            <span *ngIf="usuarioEditando?.id !== u.id">
+              {{ u.numero_reloj }}
+            </span>
+
+            <input *ngIf="usuarioEditando?.id === u.id"
+                  [(ngModel)]="usuarioEditando.numero_reloj"
+                  type="number" />
+      </td>
+
+        <td>
+          <span *ngIf="usuarioEditando?.id !== u.id">
+            {{ u.rol }}
+          </span>
+
+          <select *ngIf="usuarioEditando?.id === u.id"
+                  [(ngModel)]="usuarioEditando.rol">
+            <option value="operador">Operador</option>
+            <option value="jefe_grupo">Jefe de Grupo</option>
+            <option value="supervisor">Supervisor</option>
+            <option value="rrhh">RRHH</option>
+            <option value="sistemas">Sistemas</option>
+          </select>
+        </td>
+
+        <td class="acciones">
+
+          <ng-container *ngIf="usuarioEditando?.id !== u.id">
+            <button class="btn-edit" (click)="editar(u)">Editar</button>
+            <button class="btn-delete" (click)="eliminar(u.id)">Eliminar</button>
+          </ng-container>
+
+          <ng-container *ngIf="usuarioEditando?.id === u.id">
+            <button class="btn-edit" (click)="guardarCambios()">Guardar</button>
+            <button class="btn-delete" (click)="usuarioEditando = null">Cancelar</button>
+          </ng-container>
+
+        </td>
+
+      </tr>
+    </tbody>
+
+  </table>
+
+</ion-content>
