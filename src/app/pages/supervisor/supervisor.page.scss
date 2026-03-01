@@ -1,236 +1,1164 @@
-$azul-primario: #1A3D63;
-$gris-fondo: #f8fafc;
-$gris-suave: #f1f5f9;
-$gris-texto-secundario: #94a3b8;
-$gris-texto-label: #475569;
-$gris-border: #e2e8f0;
-
-$color-registrado-bg: #dcfce7;
-$color-registrado-txt: #166534;
-$color-permiso-bg: #fef3c7;
-$color-permiso-txt: #92400e;
-$color-incapacidad-bg: #fee2e2;
-$color-incapacidad-txt: #991b1b;
-$color-suspension-bg: #e0f2fe;
-$color-suspension-txt: #075985;
+// Algunos de los botones se batalla para presionar en ciertas pantallas. Igual dudo que alguien de iphone 6 lo vaya
+// usar asi que anyways
 
 .field-label {
-  font-size: 13px; font-weight: 700; margin-bottom: 12px; color: $gris-texto-label; text-align: left;
-}
-.field-label-center { @extend .field-label; text-align: center; margin-top: 30px; margin-bottom: 20px; }
-.fecha-subtitle { font-size: 11px; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 30px; }
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: ion-text-color;
+  text-align: left;
 
-.background-wrapper {
-  display: flex; flex-direction: column; align-items: center; min-height: 100%;
-  padding: 20px; background: $gris-fondo;
-  .main-card {
-    background: white; width: 100%; max-width: 400px; padding: 30px 25px;
-    border-radius: 32px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  @media screen and (max-width: 480px) {
+    font-size: 0.85rem;
+    margin-bottom: 10px;
   }
 }
 
-.user-greeting h1 { font-size: 26px; font-weight: 800; color: $azul-primario; margin-bottom: 5px; }
-.header-container { display: flex; justify-content: space-between; align-items: flex-start; }
-.logout-icon { color: #ef4444; font-size: 24px; cursor: pointer; }
+.field-label-center {
+  @extend .field-label;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+
+  @media screen and (max-width: 480px) {
+    margin-top: 25px;
+    margin-bottom: 15px;
+  }
+}
+
+.fecha-subtitle {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: ion-color-primary;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 30px;
+
+  @media screen and (max-width: 480px) {
+    font-size: 0.75rem;
+    margin-bottom: 20px;
+  }
+}
+
+.background-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100%;
+  padding: 20px;
+  background: ion-background-color;
+
+  @media screen and (max-width: 480px) {
+    padding: 12px;
+  }
+
+  @media screen and (max-width: 360px) {
+    padding: 8px;
+  }
+
+  .main-card {
+    background: ion-border-color;
+    width: 100%;
+    max-width: 400px;
+    padding: 30px 25px;
+    border-radius: 32px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+
+    @media screen and (max-width: 480px) {
+      padding: 25px 20px;
+      border-radius: 28px;
+    }
+
+    @media screen and (max-width: 360px) {
+      padding: 20px 16px;
+      border-radius: 24px;
+    }
+  }
+}
+
+.user-greeting h1 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: ion-color-primary;
+  margin-bottom: 5px;
+
+  @media screen and (max-width: 480px) {
+    font-size: 1.5rem;
+  }
+
+  @media screen and (max-width: 360px) {
+    font-size: 1.3rem;
+  }
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  @media screen and (max-width: 480px) {
+    margin-bottom: 5px;
+  }
+}
+
+.logout-icon {
+  color: #c0392b;
+  font-size: 24px;
+  cursor: pointer;
+
+  @media screen and (max-width: 480px) {
+    font-size: 22px;
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    padding: 8px;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
 
 .menu-icon {
-  color: $azul-primario;
-  font-size: 30px;
+  color: ion-text-color;
+  font-size: 2.5rem;
   cursor: pointer;
   padding: 5px;
   transition: opacity 0.15s;
+
+  @media screen and (max-width: 480px) {
+    font-size: 2.2rem;
+  }
+
+  @media screen and (max-width: 360px) {
+    font-size: 2rem;
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    padding: 8px;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   &:active { opacity: 0.6; }
 }
 
 .segment-container {
-  display: flex; background: $gris-suave; padding: 5px; border-radius: 12px; margin-bottom: 25px;
+  display: flex;
+  background: ion-background-color;
+  padding: 5px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+
+  @media screen and (max-width: 480px) {
+    margin-bottom: 20px;
+  }
+
+  @media screen and (max-width: 360px) {
+    flex-direction: column;
+    gap: 5px;
+  }
+
   button {
-    flex: 1; border: none; padding: 10px; border-radius: 10px; font-weight: 700; font-size: 12px;
-    color: #64748b; background: transparent;
-    &.active { background: white; color: $azul-primario; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    flex: 1;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.68rem;
+    color: ion-color-primary;
+    background: transparent;
+
+    @media screen and (max-width: 480px) {
+      padding: 8px;
+      font-size: 0.65rem;
+    }
+
+    @media screen and (max-width: 360px) {
+      width: 100%;
+    }
+
+    @media (hover: none) and (pointer: coarse) {
+      min-height: 44px;
+    }
+
+    &.active {
+      background: #3e444a;
+      color: #f4f7f6;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
   }
 }
 
 .employee-card {
-  display: flex; justify-content: space-between; align-items: center; padding: 16px;
-  background: white; border: 1px solid $gris-border; border-radius: 16px; margin-bottom: 12px;
-  .nombre-operador { font-size: 14px; font-weight: 700; color: $azul-primario; margin: 0; }
-  .reloj-text { font-size: 11px; color: #64748b; }
-  .chevron-icon { color: $azul-primario; font-size: 18px; }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: ion-border-color;
+  border: 1px solid;
+  border-radius: 16px;
+  margin-bottom: 12px;
+
+  @media screen and (max-width: 480px) {
+    padding: 14px;
+    border-radius: 14px;
+    margin-bottom: 10px;
+  }
+
+  @media screen and (max-width: 360px) {
+    padding: 12px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    min-height: 70px;
+  }
+
+  .nombre-operador {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: ion-text-title;
+    margin: 0;
+
+    @media screen and (max-width: 480px) {
+      font-size: 0.9rem;
+    }
+  }
+
+  .reloj-text {
+    font-size: 0.75rem;
+    color: ion-text-color;
+    font-weight: 800;
+
+    @media screen and (max-width: 480px) {
+      font-size: 0.7rem;
+    }
+  }
+
+  .chevron-icon {
+    color: ion-text-title;
+    font-size: 1.1rem;
+
+    @media screen and (max-width: 480px) {
+      font-size: 1rem;
+    }
+  }
 }
 
 //Asigne un color, para cada estado del operador y si tiene una excepcion, ya sea vacaciones,
 //permiso, incapacidad o suspencion
 .status-badge {
-  padding: 5px 12px; border-radius: 8px; font-size: 10px; font-weight: 800;
-  &.registrado { background: $color-registrado-bg; color: $color-registrado-txt; }
-  &.pendiente { background: #f1f5f9; color: #64748b; }
-  &.vacaciones { background: #e0f2fe; color: $azul-primario; }
-  &.permiso { background: $color-permiso-bg; color: $color-permiso-txt; }
-  &.incapacidad { background: $color-incapacidad-bg; color: $color-incapacidad-txt; }
-  &.suspension { background: #000000; color: #ffffff; }
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 800;
+
+  @media screen and (max-width: 480px) {
+    padding: 4px 10px;
+    font-size: 9px;
+  }
+
+  &.registrado { background: #ebedf0; color: #16a085; }
+  &.pendiente { background: #ebedf0; color: #7f8c8b; }
+  &.vacaciones { background: #ebedf0; color: #3498db; }
+  &.permiso { background: #ebedf0; color: #f39c12; }
+  &.incapacidad { background: #ebedf0; color: #c0392b; }
+  &.suspension { background: ion-background-color; color: ion-text-color; }
 }
 
 .info-card-blue {
-  background: $azul-primario; padding: 30px 20px; border-radius: 24px; color: white; margin-bottom: 25px;
-  display: flex; flex-direction: column; align-items: center; text-align: center;
-  h2 { font-size: 24px; font-weight: 800; margin: 12px 0; }
-  .label-white { font-size: 11px; opacity: 0.8; text-transform: uppercase; font-weight: 600; }
-  .reloj-tag { background: rgba(255,255,255,0.15); padding: 4px 14px; border-radius: 8px; font-size: 12px; }
+  background: ion-text-color;
+  padding: 30px 20px;
+  border-radius: 24px;
+  color: ion-background-color;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  @media screen and (max-width: 480px) {
+    padding: 25px 15px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+
+  @media screen and (max-width: 360px) {
+    padding: 20px 12px;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 12px 0;
+
+    @media screen and (max-width: 480px) {
+      font-size: 1.6rem;
+      margin: 10px 0;
+    }
+
+    @media screen and (max-width: 360px) {
+      font-size: 1.4rem;
+    }
+  }
+
+  .label-white {
+    font-size: 0.75rem;
+    opacity: 0.8;
+    text-transform: uppercase;
+    font-weight: 800;
+
+    @media screen and (max-width: 480px) {
+      font-size: 0.7rem;
+    }
+  }
+
+  .reloj-tag {
+    background: rgba(255,255,255,0.15);
+    padding: 4px 14px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+
+    @media screen and (max-width: 480px) {
+      font-size: 0.7rem;
+      padding: 4px 12px;
+    }
+  }
 }
 
-.history-card { border: 1px solid $gris-border; border-radius: 20px; padding: 5px 20px; margin-bottom: 15px; }
+.history-card {
+  border: 2px solid #ebedf0;
+  border-radius: 20px;
+  padding: 5px 20px;
+  margin-bottom: 15px;
+
+  @media screen and (max-width: 480px) {
+    padding: 5px 16px;
+    border-radius: 18px;
+    margin-bottom: 12px;
+  }
+}
+
 .history-item {
-  display: flex; justify-content: space-between; align-items: center; padding: 12px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+
+  @media screen and (max-width: 480px) {
+    padding: 10px 0;
+  }
+
+  @media screen and (max-width: 360px) {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
   &:not(:last-child) { border-bottom: 1px solid #f1f5f9; }
-  .history-label { font-size: 11px; color: $gris-texto-secundario; font-weight: 700; }
-  .history-value { font-size: 12px; color: $azul-primario; font-weight: 800; text-transform: uppercase; }
+
+  .history-label {
+    font-size: 0.75rem;
+    color: ion-text-color;
+    font-weight: 700;
+
+    @media screen and (max-width: 480px) {
+      font-size: 0.7rem;
+    }
+  }
+
+  .history-value {
+    font-size: 12px;
+    color: ion-text-title;
+    font-weight: 800;
+    text-transform: uppercase;
+
+    @media screen and (max-width: 480px) {
+      font-size: 11px;
+    }
+  }
 }
 
 .kardex-btn {
-  width: 100%; background: white; border: 1.5px dashed #cbd5e0; padding: 12px;
-  border-radius: 14px; color: $azul-primario; font-size: 10px; font-weight: 800;
-  display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 10px;
+  width: 100%;
+  background: ion-item-background;
+  border: 2.5px dashed #cbd5e0;
+  padding: 12px;
+  border-radius: 14px;
+  color: ion-text-color;
+  font-size: 0.65rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 10px;
+
+  @media screen and (max-width: 480px) {
+    padding: 10px;
+    font-size: 0.6rem;
+    border-radius: 12px;
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    min-height: 48px;
+  }
 }
 
 .grid-actions {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+
+  @media screen and (max-width: 360px) {
+    gap: 8px;
+  }
+
   .action-box {
-    background: white; border: 1px solid $gris-border; border-radius: 20px; padding: 20px 10px;
-    display: flex; flex-direction: column; align-items: center; cursor: pointer;
-    ion-icon { font-size: 28px; margin-bottom: 8px; color: $azul-primario; }
-    p { font-size: 9px; font-weight: 800; color: #94a3b8; margin: 0; text-transform: uppercase; text-align: center; }
-    &.active-blue { border: 2px solid $azul-primario; p { color: $azul-primario; } }
-    &.disabled { opacity: 0.3; pointer-events: none; }
+    background: ion-item-background;
+    border: 2px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+
+    @media screen and (max-width: 480px) {
+      padding: 15px 8px;
+      border-radius: 16px;
+    }
+
+    @media screen and (max-width: 360px) {
+      padding: 12px 6px;
+    }
+
+    @media (hover: none) and (pointer: coarse) {
+      min-height: 100px;
+    }
+
+    ion-icon {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+      color: #3498db;
+
+      @media screen and (max-width: 480px) {
+        font-size: 1.5rem;
+        margin-bottom: 6px;
+      }
+    }
+
+    p {
+      font-size: 0.65rem;
+      font-weight: 800;
+      color: #94a3b8;
+      margin: 0;
+      text-transform: uppercase;
+      text-align: center;
+
+      @media screen and (max-width: 480px) {
+        font-size: 0.6rem;
+      }
+    }
+
+    &.active-blue {
+      border: 2px solid ion-text-color;
+      p { color: ion-text-color; }
+    }
+
+    &.disabled {
+      opacity: 0.3;
+      pointer-events: none;
+    }
   }
 }
 
 .footer-btn {
-  background: #edf2f7; color: $azul-primario; width: 100%; border-radius: 28px;
-  padding: 18px; font-weight: 800; font-size: 12px; margin-top: 25px; border: none;
-  display: flex; align-items: center; justify-content: center; gap: 10px;
-  &.locked { background: #f1f5f9; color: #94a3b8; }
+  background: ion-background-color;
+  color: ion-text-color;
+  width: 100%;
+  border-radius: 28px;
+  padding: 18px;
+  font-weight: 800;
+  font-size: 12px;
+  margin-top: 25px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  @media screen and (max-width: 480px) {
+    padding: 16px;
+    font-size: 11px;
+    margin-top: 20px;
+    border-radius: 24px;
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    min-height: 52px;
+  }
+
+  &.locked {
+    background: #ebedf0;
+    color: #94a3b8;
+  }
 }
 
-.back-nav { display: flex; align-items: center; gap: 8px; color: $azul-primario; font-weight: 800; margin-bottom: 20px; cursor: pointer; }
+.back-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: ion-text-color;
+  font-weight: 800;
+  margin-bottom: 20px;
+  cursor: pointer;
 
-.blue-icon { color: $azul-primario; }
-.green-icon { color: #4CAF50; font-size: 18px;}
-.orange-icon { color: #FF9800; font-size: 18px;}
-.gray-icon { color: #B0BEC5; font-size: 18px;}
-.blue-text { color: $azul-primario !important; }
+  @media screen and (max-width: 480px) {
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    padding: 10px 0;
+    min-height: 44px;
+  }
+}
+
+.blue-icon {
+  color: #3498db;
+  font-size: 1.3rem;
+
+  @media screen and (max-width: 480px) {
+    font-size: 1.2rem;
+  }
+}
+
+.green-icon {
+  color: #27ae60;
+  font-size: 1.3rem;
+
+  @media screen and (max-width: 480px) {
+    font-size: 1.2rem;
+  }
+}
+
+.orange-icon {
+  color: #f39c12;
+  font-size: 1.3rem;
+
+  @media screen and (max-width: 480px) {
+    font-size: 1.2rem;
+  }
+}
+
+.gray-icon {
+  color: #7f8c8d;
+  font-size: 1.3rem;
+
+  @media screen and (max-width: 480px) {
+    font-size: 1.2rem;
+  }
+}
+
+.blue-text { color: #3498db !important; }
 
 .custom-exception-modal {
-  --height: auto; --width: 90%; --max-width: 380px; --border-radius: 28px;
+  --height: auto;
+  --width: 90%;
+  --max-width: 380px;
+  --border-radius: 28px;
+
+  @media screen and (max-width: 480px) {
+    --max-width: 350px;
+    --border-radius: 24px;
+  }
+
   .modal-content {
     padding: 25px;
-    .modal-header { display: flex; justify-content: space-between; .main-icon { font-size: 50px; } }
-    .modal-body {
-      margin-top: 15px;
-      h2 { color: $azul-primario; font-weight: 800; font-size: 22px; margin-bottom: 8px; }
-      p { color: #64748b; font-size: 14px; line-height: 1.5; }
-      .warning-text {
-        display: flex; align-items: center; gap: 8px; margin-top: 15px; padding: 10px;
-        background: #fff7ed; border-radius: 10px;
-        ion-icon { color: #FF9800; }
-        span { font-size: 11px; color: #9a3412; font-weight: 700; }
+
+    @media screen and (max-width: 480px) {
+      padding: 20px;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+
+      .main-icon {
+        font-size: 3.5rem;
+
+        @media screen and (max-width: 480px) {
+          font-size: 3rem;
+        }
       }
     }
+
+    .modal-body {
+      margin-top: 15px;
+
+      @media screen and (max-width: 480px) {
+        margin-top: 12px;
+      }
+
+      h2 {
+        color: ion-text-title;
+        font-weight: 800;
+        font-size: 1.4rem;
+        margin-bottom: 8px;
+
+        @media screen and (max-width: 480px) {
+          font-size: 1.2rem;
+        }
+      }
+
+      p {
+        color: ion-text-color;
+        font-size: 0.95rem;
+        line-height: 1.5;
+
+        @media screen and (max-width: 480px) {
+          font-size: 0.85rem;
+        }
+      }
+
+      .warning-text {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 15px;
+        padding: 10px;
+        background: #ebedf0;
+        border-radius: 10px;
+
+        @media screen and (max-width: 480px) {
+          padding: 8px;
+          margin-top: 12px;
+        }
+
+        ion-icon {
+          color: #f39c12;
+          font-size: 1.5rem;
+
+          @media screen and (max-width: 480px) {
+            font-size: 1.3rem;
+          }
+        }
+
+        span {
+          font-size: 0.80rem;
+          color: #c0392b;
+          font-weight: 700;
+
+          @media screen and (max-width: 480px) {
+            font-size: 0.75rem;
+          }
+        }
+      }
+    }
+
     .modal-footer {
-      margin-top: 25px; display: flex; flex-direction: column; gap: 10px;
-      .confirm-btn { color: white; border: none; padding: 16px; border-radius: 14px; font-weight: 800; font-size: 12px; }
-      .cancel-link { background: transparent; color: $gris-texto-secundario; font-weight: 700; font-size: 11px; border: none; }
+      margin-top: 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      @media screen and (max-width: 480px) {
+        margin-top: 20px;
+      }
+
+      .confirm-btn {
+        background: ion-background-color;
+        color: #ffffff;
+        border: none;
+        padding: 16px;
+        border-radius: 14px;
+        font-weight: 800;
+        font-size: 0.80rem;
+
+        @media screen and (max-width: 480px) {
+          padding: 14px;
+          font-size: 0.75rem;
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+          min-height: 52px;
+        }
+      }
+
+      .cancel-link {
+        background: transparent;
+        color: #95a5a6;
+        font-weight: 700;
+        font-size: 0.70rem;
+        border: none;
+
+        @media screen and (max-width: 480px) {
+          font-size: 0.65rem;
+          padding: 12px;
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+          min-height: 44px;
+        }
+      }
     }
   }
 }
-
 
 .action-footer-btn {
-  background: #f1f5f9; color: $azul-primario; width: 100%; height: 55px;
-  border-radius: 18px; border: none; font-weight: 800; font-size: 13px;
-  display: flex; align-items: center; justify-content: center; gap: 12px;
-  ion-icon { font-size: 20px; }
-}
+  background: ion-item-background;
+  color: ion-text-title;
+  width: 100%;
+  height: 55px;
+  border-radius: 18px;
+  border: none;
+  font-weight: 800;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
 
-.page-container { display: flex; flex-direction: column; gap: 15px; }
-.header-with-back { display: flex; align-items: center; gap: 15px; margin-bottom: 10px; }
-.back-btn { 
-  background: #f1f5f9; border: none; width: 40px; height: 40px; 
-  border-radius: 12px; color: $azul-primario; font-size: 20px;
-}
+  @media screen and (max-width: 480px) {
+    height: 50px;
+    font-size: 12px;
+    border-radius: 16px;
+    gap: 10px;
+  }
 
-.user-name-pass { font-size: 24px; font-weight: 800; color: $azul-primario; margin: 0; }
-.user-id-pass { font-size: 11px; font-weight: 700; color: #94a3b8; text-transform: uppercase; margin: 0; }
+  @media screen and (max-width: 360px) {
+    height: 46px;
+    font-size: 11px;
+  }
 
-.password-form {
-  display: flex; flex-direction: column; gap: 15px;
-  .input-group-pass {
-    display: flex; flex-direction: column; gap: 5px; text-align: left;
-    label { font-size: 13px; font-weight: 700; color: #475569; }
-    input { 
-      padding: 14px; border-radius: 12px; border: 1px solid #e2e8f0; 
-      background: $gris-suave; font-size: 15px;
+  @media (hover: none) and (pointer: coarse) {
+    min-height: 52px;
+  }
+
+  ion-icon {
+    font-size: 1.1rem;
+
+    @media screen and (max-width: 480px) {
+      font-size: 1rem;
     }
   }
 }
 
-.form-actions { display: flex; flex-direction: column; gap: 5px; }
-.submit-btn {
-  background: $azul-primario; color: white; border: none; padding: 16px;
-  border-radius: 16px; font-size: 15px; font-weight: 700; margin-top: 10px;
+.page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  @media screen and (max-width: 480px) {
+    gap: 12px;
+  }
 }
-.cancel-btn { background: transparent; color: $gris-texto-secundario; border: none; font-weight: 600; padding: 10px; }
+
+.header-with-back {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+
+  @media screen and (max-width: 480px) {
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+}
+
+.back-btn {
+  background: ion-item-background;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  color: ion-text-title;
+  font-size: 20px;
+
+  @media screen and (max-width: 480px) {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+    border-radius: 10px;
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.user-name-pass {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: ion-text-title;
+  margin: 0;
+
+  @media screen and (max-width: 480px) {
+    font-size: 1.3rem;
+  }
+}
+
+.user-id-pass {
+  font-size: 11px;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  margin: 0;
+
+  @media screen and (max-width: 480px) {
+    font-size: 10px;
+  }
+}
+
+.password-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  @media screen and (max-width: 480px) {
+    gap: 12px;
+  }
+
+  .input-group-pass {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: left;
+
+    label {
+      font-size: 13px;
+      font-weight: 700;
+      color: #475569;
+
+      @media screen and (max-width: 480px) {
+        font-size: 12px;
+      }
+    }
+
+    input {
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      background: ion-item-background;
+      font-size: 1rem;
+
+      @media screen and (max-width: 480px) {
+        padding: 12px;
+        font-size: 16px; // Evita zoom en iOS
+        border-radius: 10px;
+      }
+    }
+  }
+}
+
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.submit-btn {
+  background: ion-item-background;
+  color: ion-text-title;
+  border: none;
+  padding: 16px;
+  border-radius: 16px;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 10px;
+
+  @media screen and (max-width: 480px) {
+    padding: 14px;
+    font-size: 0.95rem;
+    border-radius: 14px;
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    min-height: 52px;
+  }
+}
+
+.cancel-btn {
+  background: transparent;
+  color: ion-text-title;
+  border: none;
+  font-weight: 600;
+  padding: 10px;
+
+  @media screen and (max-width: 480px) {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    min-height: 44px;
+  }
+}
 
 //MENU HAMBURGUESA//
-
-.header-section { margin-bottom: 10px; }
+.header-section {
+  margin-bottom: 10px;
+}
 
 .header-with-back {
   display: flex;
   align-items: center;
   gap: 15px;
   margin-bottom: 20px;
+
+  @media screen and (max-width: 480px) {
+    gap: 12px;
+    margin-bottom: 15px;
+  }
+
   .regresar-text {
-    color: $azul-primario;
+    color: ion-text-color;
     font-weight: 800;
     font-size: 14px;
     letter-spacing: 0.5px;
+
+    @media screen and (max-width: 480px) {
+      font-size: 13px;
+    }
   }
 }
 
-.cabecera-anuncios { display:flex; align-items:center; gap:10px; margin-bottom:15px; }
-.icono-azul { color:#2563eb; font-size:20px; }
-.titulo-tablon { color:#2563eb; font-weight:900; font-size:12px; letter-spacing:1px; }
+.cabecera-anuncios {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
 
-.seccion-anuncios { background: transparent; margin-bottom: 18px; }
-.lista-tarjetas { display:flex; flex-direction:column; }
+  @media screen and (max-width: 480px) {
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+}
+
+.icono-azul {
+  color: #3498db;
+  font-size: 1.1rem;
+
+  @media screen and (max-width: 480px) {
+    font-size: 1rem;
+  }
+}
+
+.titulo-tablon {
+  color: #3498db;
+  font-weight: 900;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+
+  @media screen and (max-width: 480px) {
+    font-size: 0.75rem;
+  }
+}
+
+.seccion-anuncios {
+  background: transparent;
+  margin-bottom: 18px;
+
+  @media screen and (max-width: 480px) {
+    margin-bottom: 15px;
+  }
+}
+
+.lista-tarjetas {
+  display: flex;
+  flex-direction: column;
+}
 
 .tarjeta-info {
-  background:#f8fafc; padding:15px; border-radius:16px; border:1px solid $gris-border; margin-bottom:12px; text-align:left;
-  .fila-superior { display:flex; justify-content:space-between; align-items:center; }
-  .tag { font-size:9px; font-weight:700; padding:2px 8px; border-radius:4px; background:#eff6ff; color:#2563eb; }
-  .fecha { font-size:10px; color:$gris-texto-secundario; }
-  .titulo-nota { font-weight:700; font-size:14px; color:$azul-primario; margin:8px 0 0; }
+  background: ion-background-color;
+  padding: 15px;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 12px;
+  text-align: left;
+
+  @media screen and (max-width: 480px) {
+    padding: 12px;
+    border-radius: 14px;
+    margin-bottom: 10px;
+  }
+
+  .fila-superior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media screen and (max-width: 360px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+    }
+  }
+
+  .tag {
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: ion-item-background;
+    color: #3498db;
+
+    @media screen and (max-width: 480px) {
+      font-size: 0.6rem;
+    }
+  }
+
+  .fecha {
+    font-size: 0.75rem;
+    color: ion-text-color;
+
+    @media screen and (max-width: 480px) {
+      font-size: 0.7rem;
+    }
+  }
+
+  .titulo-nota {
+    font-weight: 700;
+    font-size: 1rem;
+    color: ion-text-color;
+    margin: 8px 0 0;
+
+    @media screen and (max-width: 480px) {
+      font-size: 0.9rem;
+      margin: 6px 0 0;
+    }
+  }
 }
 
-.subtitulo-gris { font-size:11px; font-weight:800; color:$gris-texto-secundario; margin:25px 0 10px; text-align:left; }
+.subtitulo-gris {
+  font-size: 0.90rem;
+  font-weight: 800;
+  color: ion-text-color;
+  margin: 25px 0 10px;
+  text-align: left;
+
+  @media screen and (max-width: 480px) {
+    font-size: 0.8rem;
+    margin: 20px 0 8px;
+  }
+}
 
 .enlace-recurso {
-  display:flex; justify-content:space-between; align-items:center; padding:15px; border-bottom:1px solid #f1f5f9;
-  font-size:13px; color:$gris-texto-secundario; font-weight:600;
-}
-.flechita { color:$azul-primario; font-size:16px; }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 0.75rem;
+  color: ion-text-color;
+  font-weight: 600;
 
-.menu-footer { margin-top:auto; padding-top:20px; display:flex; flex-direction:column; gap:10px; }
+  @media screen and (max-width: 480px) {
+    padding: 12px;
+    font-size: 0.7rem;
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    min-height: 52px;
+  }
+}
+
+.flechita {
+  color: ion-text-color;
+  font-size: 1rem;
+
+  @media screen and (max-width: 480px) {
+    font-size: 0.9rem;
+  }
+}
+
+.menu-footer {
+  margin-top: auto;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  @media screen and (max-width: 480px) {
+    padding-top: 15px;
+    gap: 8px;
+  }
+}
 
 .logout-menu-btn {
   @extend .action-footer-btn;
-  background:#fee2e2; color:#ef4444; display:flex; align-items:center; justify-content:center; gap:8px;
-  border-radius:16px; padding:12px; font-weight:800;
+  background: #ebedf0;
+  color: #c0392b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 16px;
+  padding: 12px;
+  font-weight: 800;
+
+  @media screen and (max-width: 480px) {
+    font-size: 12px;
+    padding: 10px;
+  }
 }
 
-@media (max-width:420px) {
-  .main-card { padding:30px 18px; }
-  .menu-icon { font-size:26px; }
-  .logout-menu-btn { font-size:13px; padding:10px; }
+// Media queries
+@media screen and (max-width: 420px) {
+  .main-card {
+    padding: 25px 16px;
+  }
+  .menu-icon {
+    font-size: 24px;
+  }
+  .logout-menu-btn {
+    font-size: 12px;
+    padding: 10px;
+  }
+}
+
+@media screen and (min-width: 421px) and (max-width: 768px) {
+  .main-card {
+    max-width: 450px;
+    padding: 35px 30px;
+  }
+
+  .user-greeting h1 {
+    font-size: 2rem;
+  }
+}
+
+// Mejora para el scroll area
+.scroll-area {
+  max-height: 350px;
+  overflow-y: auto;
+  padding-right: 4px;
+
+  @media screen and (max-width: 480px) {
+    max-height: 300px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
 }

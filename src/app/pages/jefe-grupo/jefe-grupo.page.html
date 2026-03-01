@@ -1,8 +1,8 @@
-```html
 <ion-content [fullscreen]="true">
+      <app-background-layout>
   <div class="login-wrapper">
     <div class="login-card">
-      
+
       <ng-container *ngIf="vista === 'lista'">
         <div class="header-container">
           <div class="user-greeting">
@@ -22,11 +22,11 @@
           </div>
         </div>
 
-        <!--El jefe de grupo podra cambiar las lineas que tiene a cargo para ver a los 
+        <!--El jefe de grupo podra cambiar las lineas que tiene a cargo para ver a los
         operadores de cada linea-->
         <div class="selector-linea-box">
-          <button *ngFor="let l of LINEAS" 
-                  (click)="lineaSeleccionada = l" 
+          <button *ngFor="let l of LINEAS"
+                  (click)="lineaSeleccionada = l"
                   [class.active]="lineaSeleccionada === l">
             {{l}}
           </button>
@@ -40,7 +40,7 @@
                 <p class="nombre">{{op.nombre}}</p>
                 <p class="sub-id">No. Reloj: {{op.id}}</p>
               </div>
-              
+
               <div class="status-indicator">
                 <ion-icon *ngIf="op.listo" name="checkmark-circle" class="check-icon"></ion-icon>
                 <span *ngIf="op.estado !== 'activo'" class="badge" [ngClass]="op.estado.toLowerCase()">
@@ -212,4 +212,5 @@
 
     </div>
   </div>
+  </app-background-layout>
 </ion-content>

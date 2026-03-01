@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
+import { BackgroundLayoutComponent } from '../../shared/background-layout/background-layout.component';
 import { addIcons } from 'ionicons';
 import {
   logOutOutline, chevronForwardOutline, arrowBackOutline,
@@ -18,7 +19,7 @@ import {
   templateUrl: './supervisor.page.html',
   styleUrls: ['./supervisor.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule]
+  imports: [IonicModule, CommonModule, FormsModule, BackgroundLayoutComponent]
 })
 export class SupervisorPage implements OnInit {
   vista: string = 'lista';
@@ -70,20 +71,20 @@ export class SupervisorPage implements OnInit {
   }
 
   cambiarLinea(linea: string) { this.lineaSeleccionada = linea; }
-  
-  abrirDetalle(persona: any) { 
-    this.empleadoSeleccionado = persona; 
-    this.vista = 'detalle'; 
+
+  abrirDetalle(persona: any) {
+    this.empleadoSeleccionado = persona;
+    this.vista = 'detalle';
   }
 
-  tieneExcepcionActiva(): boolean { 
-    return this.excepcionesKeys.includes(this.empleadoSeleccionado?.claseEstado); 
+  tieneExcepcionActiva(): boolean {
+    return this.excepcionesKeys.includes(this.empleadoSeleccionado?.claseEstado);
   }
 
   getIconoEstadoHoy() {
     const estado = this.empleadoSeleccionado?.claseEstado;
     if (estado === 'pendiente') return 'ellipsis-horizontal-circle-outline';
-    if (this.excepcionesKeys.includes(estado)) return 'alert-circle-outline'; 
+    if (this.excepcionesKeys.includes(estado)) return 'alert-circle-outline';
     return 'checkmark-circle';
   }
 
@@ -101,41 +102,41 @@ export class SupervisorPage implements OnInit {
 
     //Lógica para el control de excepciones//
     const excepciones: any = {
-      'vacaciones': { 
-        nombre: 'vacaciones', 
-        icono: 'airplane-outline', 
-        color: azulEmpresa, 
+      'vacaciones': {
+        nombre: 'vacaciones',
+        icono: 'airplane-outline',
+        color: azulEmpresa,
         msg: 'El operador quedará marcado como vacaciones y no podrá ser registrado en asistencia mientras esta excepción esté activa.',
         msgCancel: 'Se eliminará el estado de vacaciones del operador y podrá volver a ser registrado en asistencia.'
       },
-      'permiso': { 
-        nombre: 'permiso', 
-        icono: 'calendar-outline', 
-        color: azulEmpresa, 
+      'permiso': {
+        nombre: 'permiso',
+        icono: 'calendar-outline',
+        color: azulEmpresa,
         msg: 'El operador quedará marcado con permiso autorizado y no podrá ser registrado en asistencia mientras esta excepción esté activa.',
         msgCancel: 'Se eliminará el estado de permiso del operador y podrá volver a ser registrado en asistencia.'
       },
-      'incapacidad': { 
-        nombre: 'incapacidad', 
-        icono: 'medical-outline', 
-        color: azulEmpresa, 
+      'incapacidad': {
+        nombre: 'incapacidad',
+        icono: 'medical-outline',
+        color: azulEmpresa,
         msg: 'El operador quedará marcado como incapacitado y no podrá ser registrado en asistencia mientras esta excepción esté activa.',
         msgCancel: 'Se eliminará el estado de incapacidad del operador y podrá volver a ser registrado en asistencia.'
       },
-      'suspension': { 
-        nombre: 'suspensión', 
-        icono: 'ban-outline', 
-        color: azulEmpresa, 
+      'suspension': {
+        nombre: 'suspensión',
+        icono: 'ban-outline',
+        color: azulEmpresa,
         msg: 'Se enviará una solicitud de suspensión a Recursos Humanos.<br>Mientras esté pendiente o activa, el operador no podrá ser registrado en asistencia.',
         msgCancel: 'Se eliminará el estado de suspensión del operador y podrá volver a ser registrado en asistencia.'
       }
     };
 
     const data = excepciones[tipo];
-    
+
     if (this.esModoCancelacion) {
       const tituloCancel = tipo === 'suspension' ? `Cancelar ${data.nombre}` : 'Terminar estado';
-      
+
       this.modalData = {
         ...data,
         titulo: tituloCancel,
@@ -151,7 +152,7 @@ export class SupervisorPage implements OnInit {
       this.modalData = {
         ...data,
         titulo: `${prefijo} ${data.nombre}`,
-        mensaje: data.msg, 
+        mensaje: data.msg,
         advertencia: 'Solo puede existir una excepción activa a la vez.',
         boton: tipo === 'suspension' ? 'SOLICITAR' : 'CONFIRMAR'
       };

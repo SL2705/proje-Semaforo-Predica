@@ -1,9 +1,4 @@
-$azul-primario: #1A3D63;
-$gris-suave: #f8fafc;
-$gris-texto: #64748b;
-
 //CONTENEDORES GENERALES//
-
 .login-wrapper {
   display: flex;
   flex-direction: column;
@@ -11,225 +6,695 @@ $gris-texto: #64748b;
   justify-content: center;
   min-height: 100%;
   padding: 20px;
-  background: #f8fafc;
+  background: ion-background-color;
+
+  @media screen and (max-width: 480px) {
+    padding: 12px;
+  }
+
+  @media screen and (max-width: 360px) {
+    padding: 8px;
+  }
 
   .login-card {
-    background: white;
+    background: ion-item-background;
     width: 100%;
     max-width: 400px;
     padding: 40px 25px;
     border-radius: 32px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
     text-align: center;
+
+    @media screen and (max-width: 480px) {
+      padding: 30px 20px;
+      border-radius: 28px;
+    }
+
+    @media screen and (max-width: 360px) {
+      padding: 25px 16px;
+      border-radius: 24px;
+    }
   }
 }
-
 
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   text-align: left;
+
+  @media screen and (max-width: 480px) {
+    margin-bottom: 5px;
+  }
 }
 
 .logout-icon {
-  color: #ef4444;
-  font-size: 24px;
+  color: #c0392b;
+  font-size: 2rem;
   cursor: pointer;
   padding: 5px;
   transition: opacity 0.2s;
+
+  @media screen and (max-width: 480px) {
+    font-size: 1.8rem;
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    padding: 8px;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   &:active { opacity: 0.5; }
 }
 
 .menu-icon {
-  color: $azul-primario;
-  font-size: 30px;
+  color: ion-text-color;
+  font-size: 2.4rem;
   cursor: pointer;
   padding: 5px;
   transition: opacity 0.15s;
+
+  @media screen and (max-width: 480px) {
+    font-size: 2.2rem;
+  }
+
+  @media screen and (max-width: 360px) {
+    font-size: 2rem;
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    padding: 8px;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   &:active { opacity: 0.6; }
 }
 
-
 .title-text {
-  font-size: 26px;
+  font-size: 1.8rem;
   font-weight: 800;
-  color: #1A3D63;
+  color: ion-text-title;
   margin-bottom: 5px;
+
+  @media screen and (max-width: 480px) {
+    font-size: 1.5rem;
+  }
+
+  @media screen and (max-width: 360px) {
+    font-size: 1.3rem;
+  }
 }
 
 .fecha-subtitle {
-  font-size: 11px;
+  font-size: 0.67rem;
   font-weight: 700;
-  color: #94a3b8;
+  color: ion-color-primary;
   text-transform: uppercase;
   letter-spacing: 0.8px;
   margin-top: 0;
   margin-bottom: 30px;
+
+  @media screen and (max-width: 480px) {
+    font-size: 0.6rem;
+    margin-bottom: 20px;
+  }
 }
 
-
 .field-label {
-  font-size: 13px;
+  font-size: 0.79rem;
   font-weight: 700;
   margin-bottom: 10px;
-  color: #475569;
+  color: ion-text-color-step-300;
   text-align: left;
+
+  @media screen and (max-width: 480px) {
+    font-size: 0.75rem;
+    margin-bottom: 8px;
+  }
 }
 
 .field-label-center {
   @extend .field-label;
   text-align: center;
   margin-top: 20px;
+
+  @media screen and (max-width: 480px) {
+    margin-top: 15px;
+  }
 }
 
-
 .avance-box {
-  background: #f8fafc;
+  background: ion-item-background;
   border: 1px solid #e2e8f0;
   border-radius: 16px;
   padding: 15px;
   margin-bottom: 20px;
   text-align: left;
+
+  @media screen and (max-width: 480px) {
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 14px;
+  }
+
   .avance-status {
-    .count { font-size: 24px; font-weight: 800; color: #1A3D63; }
-    .total { font-size: 14px; color: #94a3b8; font-weight: 600; }
+    .count {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #3498db;
+
+      @media screen and (max-width: 480px) {
+        font-size: 1.2rem;
+      }
+    }
+
+    .total {
+      font-size: 0.85rem;
+      color: #95a5a6;
+      font-weight: 600;
+
+      @media screen and (max-width: 480px) {
+        font-size: 0.8rem;
+      }
+    }
   }
 }
 
 .selector-linea-box {
   display: flex;
-  background: #f1f5f9;
+  background: ion-item-background;
   padding: 5px;
   border-radius: 12px;
   margin-bottom: 25px;
+
+  @media screen and (max-width: 480px) {
+    margin-bottom: 20px;
+  }
+
+  @media screen and (max-width: 360px) {
+    flex-direction: column;
+    gap: 5px;
+  }
+
   button {
-    flex: 1; border: none; padding: 10px; border-radius: 10px;
-    font-weight: 700; font-size: 12px; color: #64748b; background: transparent;
-    &.active { background: white; color: #1A3D63; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    flex: 1;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #2c3e50;
+    background: transparent;
+
+    @media screen and (max-width: 480px) {
+      font-size: 0.8rem;
+      padding: 8px;
+    }
+
+    @media screen and (max-width: 360px) {
+      width: 100%;
+    }
+
+    @media (hover: none) and (pointer: coarse) {
+      min-height: 44px;
+    }
+
+    &.active {
+      background: #ebedf0;
+      color: #2c3e50;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
   }
 }
-
 
 .operador-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px;
-  background: #f8fafc;
+  background: ion-item-background;
   border: 1px solid #e2e8f0;
   border-radius: 12px;
   margin-bottom: 10px;
   text-align: left;
 
-  .nombre { font-size: 14px; font-weight: 700; color: #1A3D63; margin: 0; }
-  .sub-id { font-size: 11px; color: #64748b; margin: 0; }
+  @media screen and (max-width: 480px) {
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  @media screen and (max-width: 360px) {
+    padding: 10px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    min-height: 70px;
+  }
+
+  .info {
+    flex: 1;
+    min-width: 0; // Para evitar desbordamiento
+
+    .nombre {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: ion-text-color;
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      @media screen and (max-width: 480px) {
+        font-size: 0.8rem;
+      }
+    }
+
+    .sub-id {
+      font-size: 0.70rem;
+      color: #95a5a6;
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      @media screen and (max-width: 480px) {
+        font-size: 0.65rem;
+      }
+    }
+  }
+
+  .status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+
+    @media screen and (max-width: 360px) {
+      width: 100%;
+      justify-content: flex-end;
+    }
+  }
 
   .badge {
-    padding: 4px 10px; border-radius: 8px; font-size: 10px; font-weight: 700;
-    &.vacaciones { background: #e0f2fe; color: #0369a1; }
-    &.permiso { background: #fef3c7; color: #b45309; }
-    &.incapacidad { background: #fee2e2; color: #b91c1c; }
-  }
-  .check-icon { color: #10b981; font-size: 18px; }
-}
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 0.755rem;
+    font-weight: 700;
 
+    @media screen and (max-width: 480px) {
+      padding: 3px 8px;
+      font-size: 0.7rem;
+    }
+
+    &.vacaciones { background: #ebedf0; color: #3498db; }
+    &.permiso { background: #ebedf0; color: #d35400; }
+    &.incapacidad { background: #ebedf0; color: #c0392b; }
+  }
+
+  .check-icon {
+    color: #16a085;
+    font-size: 1.1rem;
+
+    @media screen and (max-width: 480px) {
+      font-size: 1rem;
+    }
+  }
+}
 
 .info-card-blue {
-  background: #1A3D63;
+  background: #1b54b6;
   padding: 25px;
   border-radius: 18px;
-  color: white;
+  color: ion-text-color;
   margin-bottom: 25px;
-  h2 { font-size: 22px; font-weight: 800; margin: 10px 0; }
-  .label-white { font-size: 11px; opacity: 0.8; font-weight: 600; text-transform: uppercase; }
-  .reloj-tag { background: rgba(255,255,255,0.1); display: inline-block; padding: 4px 12px; border-radius: 8px; font-size: 12px; }
-}
 
+  @media screen and (max-width: 480px) {
+    padding: 20px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+  }
 
-.pills-container {
-  display: flex; gap: 10px;
-  label {
-    flex: 1; input { display: none; }
-    span {
-      display: block; padding: 15px; background: #f8fafc;
-      border: 1px solid #e2e8f0; border-radius: 12px;
-      font-weight: 700; color: #64748b; transition: 0.2s;
+  @media screen and (max-width: 360px) {
+    padding: 16px;
+  }
+
+  h2 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin: 10px 0;
+
+    @media screen and (max-width: 480px) {
+      font-size: 1.2rem;
+      margin: 8px 0;
     }
-    input:checked + span {
-      background: #1A3D63; color: white; border-color: #1A3D63;
+  }
+
+  .label-white {
+    font-size: 11px;
+    opacity: 0.8;
+    font-weight: 800;
+    text-transform: uppercase;
+
+    @media screen and (max-width: 480px) {
+      font-size: 10px;
+    }
+  }
+
+  .reloj-tag {
+    background: rgba(255,255,255,0.1);
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+
+    @media screen and (max-width: 480px) {
+      font-size: 0.75rem;
+      padding: 4px 10px;
     }
   }
 }
 
+.pills-container {
+  display: flex;
+  gap: 1.2rem;
+  font-size: 0.85rem;
+
+  @media screen and (max-width: 480px) {
+    gap: 0.8rem;
+  }
+
+  @media screen and (max-width: 360px) {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  label {
+    flex: 1;
+
+    input { display: none; }
+
+    span {
+      display: block;
+      padding: 0.85rem;
+      background: ion-item-background;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      font-weight: 600;
+      color: ion-text-color;
+      transition: 0.2s;
+
+      @media screen and (max-width: 480px) {
+        padding: 0.75rem;
+        font-size: 0.8rem;
+      }
+
+      @media screen and (max-width: 360px) {
+        padding: 0.7rem;
+        text-align: center;
+      }
+    }
+
+    input:checked + span {
+      background: #1b54b6;
+      color: ion-text-color;
+      border-color: #1A3D63;
+    }
+  }
+}
 
 .custom-login-button {
-  background: #1A3D63 !important;
-  color: white !important;
+  background: #1b54b6 !important;
+  color: ion-text-color !important;
   width: 100%;
   max-width: 260px;
   height: 54px;
   border-radius: 27px;
   border: none;
+  font-size: 0.95rem;
   font-weight: 700;
   margin-top: 30px;
   box-shadow: 0 6px 15px rgba(26, 61, 99, 0.3);
-}
 
+  @media screen and (max-width: 480px) {
+    max-width: 220px;
+    height: 48px;
+    font-size: 0.9rem;
+    margin-top: 25px;
+  }
+
+  @media screen and (max-width: 360px) {
+    max-width: 100%;
+    height: 46px;
+    font-size: 0.85rem;
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    min-height: 52px;
+  }
+}
 
 .back-nav {
-  display: flex; align-items: center; gap: 10px; color: #1A3D63;
-  font-weight: 800; cursor: pointer; margin-bottom: 20px;
-}
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: ion-text-color;
+  font-weight: 800;
+  cursor: pointer;
+  margin-bottom: 20px;
 
+  @media screen and (max-width: 480px) {
+    gap: 8px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    padding: 10px 0;
+    min-height: 44px;
+  }
+}
 
 .chevron-icon {
-  color: #1A3D63;
-  font-size: 20px;
-}
+  color: ion-item-background;
+  font-size: 1.2rem;
 
+  @media screen and (max-width: 480px) {
+    font-size: 1.1rem;
+  }
+}
 
 .action-footer-btn {
-  background: #f1f5f9; color: $azul-primario; width: 100%; height: 55px;
-  border-radius: 18px; border: none; font-weight: 800; font-size: 13px;
-  display: flex; align-items: center; justify-content: center; gap: 12px;
-  ion-icon { font-size: 20px; }
-}
+  background: ion-item-background;
+  color: ion-text-color;
+  width: 100%;
+  height: 55px;
+  border-radius: 18px;
+  border: none;
+  font-weight: 800;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
 
+  @media screen and (max-width: 480px) {
+    height: 50px;
+    font-size: 12px;
+    border-radius: 16px;
+    gap: 10px;
+  }
 
-.page-container { display: flex; flex-direction: column; gap: 15px; }
-.header-with-back { display: flex; align-items: center; gap: 15px; margin-bottom: 10px; }
-.back-btn {
-  background: #f1f5f9; border: none; width: 40px; height: 40px;
-  border-radius: 12px; color: $azul-primario; font-size: 20px;
-}
+  @media screen and (max-width: 360px) {
+    height: 46px;
+    font-size: 11px;
+  }
 
-//CONTRASEÑA//
+  @media (hover: none) and (pointer: coarse) {
+    min-height: 52px;
+  }
 
-.user-name-pass { font-size: 24px; font-weight: 800; color: $azul-primario; margin: 0; }
-.user-id-pass { font-size: 11px; font-weight: 700; color: #94a3b8; text-transform: uppercase; margin: 0; }
+  ion-icon {
+    font-size: 20px;
 
-.password-form {
-  display: flex; flex-direction: column; gap: 15px;
-  .input-group-pass {
-    display: flex; flex-direction: column; gap: 5px; text-align: left;
-    label { font-size: 13px; font-weight: 700; color: #475569; }
-    input {
-      padding: 14px; border-radius: 12px; border: 1px solid #e2e8f0;
-      background: $gris-suave; font-size: 15px;
+    @media screen and (max-width: 480px) {
+      font-size: 18px;
     }
   }
 }
 
-.form-actions { display: flex; flex-direction: column; gap: 5px; }
-.submit-btn {
-  background: $azul-primario; color: white; border: none; padding: 16px;
-  border-radius: 16px; font-size: 15px; font-weight: 700; margin-top: 10px;
+.page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  @media screen and (max-width: 480px) {
+    gap: 12px;
+  }
 }
-.cancel-btn { background: transparent; color: $gris-texto; border: none; font-weight: 600; padding: 10px; }
+
+.header-with-back {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+
+  @media screen and (max-width: 480px) {
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+}
+
+.back-btn {
+  background: ion-item-background;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  color: ion-text-title;
+  font-size: 20px;
+
+  @media screen and (max-width: 480px) {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+    border-radius: 10px;
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+//CONTRASEÑA//
+.user-name-pass {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: ion-text-title;
+  margin: 0;
+
+  @media screen and (max-width: 480px) {
+    font-size: 1.2rem;
+  }
+
+  @media screen and (max-width: 360px) {
+    font-size: 1.1rem;
+  }
+}
+
+.user-id-pass {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #95a5a6;
+  text-transform: uppercase;
+  margin: 0;
+
+  @media screen and (max-width: 480px) {
+    font-size: 0.7rem;
+  }
+}
+
+.password-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  @media screen and (max-width: 480px) {
+    gap: 12px;
+  }
+
+  .input-group-pass {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: left;
+
+    label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #95a5a6;
+
+      @media screen and (max-width: 480px) {
+        font-size: 0.8rem;
+      }
+    }
+
+    input {
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      background: ion-item-background;
+      font-size: 1rem;
+
+      @media screen and (max-width: 480px) {
+        padding: 12px;
+        font-size: 16px; // Evita zoom en iOS
+        border-radius: 10px;
+      }
+    }
+  }
+}
+
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.submit-btn {
+  background: #1b54b6;
+  color: ion-text-color;
+  border: none;
+  padding: 16px;
+  font-size: 0.95rem;
+  border-radius: 16px;
+  font-size: 15px;
+  font-weight: 700;
+  margin-top: 10px;
+
+  @media screen and (max-width: 480px) {
+    padding: 14px;
+    font-size: 14px;
+    border-radius: 14px;
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    min-height: 52px;
+  }
+}
+
+.cancel-btn {
+  background: transparent;
+  color: ion-text-color-step-300;
+  border: none;
+  font-weight: 600;
+  padding: 10px;
+  font-size: 0.95rem;
+
+  @media screen and (max-width: 480px) {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    min-height: 44px;
+  }
+}
 
 //MENU HAMBURGUESA//
-
 .header-section {
   margin-bottom: 10px;
 }
@@ -239,11 +704,21 @@ $gris-texto: #64748b;
   align-items: center;
   gap: 15px;
   margin-bottom: 20px;
+
+  @media screen and (max-width: 480px) {
+    gap: 12px;
+    margin-bottom: 15px;
+  }
+
   .regresar-text {
-    color: $azul-primario;
+    color: ion-text-color;
     font-weight: 800;
-    font-size: 14px;
+    font-size: 0.9rem;
     letter-spacing: 0.5px;
+
+    @media screen and (max-width: 480px) {
+      font-size: 0.85rem;
+    }
   }
 }
 
@@ -253,23 +728,40 @@ $gris-texto: #64748b;
   align-items: center;
   gap: 10px;
   margin-bottom: 15px;
+
+  @media screen and (max-width: 480px) {
+    gap: 8px;
+    margin-bottom: 12px;
+  }
 }
 
 .icono-azul {
-  color: #2563eb;
-  font-size: 20px;
+  color: #3498db;
+  font-size: 1.5rem;
+
+  @media screen and (max-width: 480px) {
+    font-size: 1.3rem;
+  }
 }
 
 .titulo-tablon {
-  color: #2563eb;
+  color: #3498db;
   font-weight: 900;
-  font-size: 12px;
+  font-size: 0.85rem;
   letter-spacing: 1px;
+
+  @media screen and (max-width: 480px) {
+    font-size: 0.8rem;
+  }
 }
 
 .seccion-anuncios {
   background: transparent;
   margin-bottom: 18px;
+
+  @media screen and (max-width: 480px) {
+    margin-bottom: 15px;
+  }
 }
 
 .lista-tarjetas {
@@ -278,47 +770,78 @@ $gris-texto: #64748b;
 }
 
 .tarjeta-info {
-  background: #f8fafc;
+  background: ion-item-background;
   padding: 15px;
   border-radius: 16px;
   border: 1px solid #e2e8f0;
   margin-bottom: 12px;
   text-align: left;
 
+  @media screen and (max-width: 480px) {
+    padding: 12px;
+    border-radius: 14px;
+    margin-bottom: 10px;
+  }
+
   .fila-superior {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media screen and (max-width: 360px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+    }
   }
 
   .tag {
-    font-size: 9px;
+    font-size: 0.75rem;
     font-weight: 700;
     padding: 2px 8px;
     border-radius: 4px;
-    background: #eff6ff;
-    color: #2563eb;
+    background: ion-background-color;
+    color: #3498db;
+
+    @media screen and (max-width: 480px) {
+      font-size: 0.7rem;
+      padding: 2px 6px;
+    }
   }
 
   .fecha {
-    font-size: 10px;
-    color: #94a3b8;
+    font-size: 0.85rem;
+    color: ion-text-color;
+
+    @media screen and (max-width: 480px) {
+      font-size: 0.8rem;
+    }
   }
 
   .titulo-nota {
     font-weight: 700;
-    font-size: 14px;
-    color: $azul-primario;
+    font-size: 0.95rem;
+    color: ion-text-color;
     margin: 8px 0 0;
+
+    @media screen and (max-width: 480px) {
+      font-size: 0.9rem;
+      margin: 6px 0 0;
+    }
   }
 }
 
 .subtitulo-gris {
-  font-size: 11px;
+  font-size: 0.85rem;
   font-weight: 800;
-  color: #94a3b8;
+  color: ion-text-color-step-300;
   margin: 25px 0 10px;
   text-align: left;
+
+  @media screen and (max-width: 480px) {
+    font-size: 0.8rem;
+    margin: 20px 0 8px;
+  }
 }
 
 .enlace-recurso {
@@ -328,8 +851,17 @@ $gris-texto: #64748b;
   padding: 15px;
   border-bottom: 1px solid #f1f5f9;
   font-size: 13px;
-  color: $gris-texto;
+  color: #9ca3af;
   font-weight: 600;
+
+  @media screen and (max-width: 480px) {
+    padding: 12px;
+    font-size: 12px;
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    min-height: 52px;
+  }
 }
 
 .menu-footer {
@@ -338,25 +870,79 @@ $gris-texto: #64748b;
   display: flex;
   flex-direction: column;
   gap: 10px;
+
+  @media screen and (max-width: 480px) {
+    padding-top: 15px;
+    gap: 8px;
+  }
 }
 
 .logout-menu-btn {
   @extend .action-footer-btn;
-  background: #fee2e2;
-  color: #ef4444;
+  background: ion-item-background;
+  color: #c0392b;
   display: flex;
+  font-size: 1rem;
   align-items: center;
   justify-content: center;
   gap: 8px;
   border-radius: 16px;
   padding: 12px;
   font-weight: 800;
+
+  @media screen and (max-width: 480px) {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
 }
 
-@media (max-width: 420px) {
+// Media queries específicas
+@media screen and (max-width: 420px) {
   .login-card {
-    padding: 30px 18px;
+    padding: 25px 16px;
   }
-  .menu-icon { font-size: 26px; }
-  .logout-menu-btn { font-size: 13px; padding: 10px; }
+  .menu-icon {
+    font-size: 24px;
+  }
+  .logout-menu-btn {
+    font-size: 13px;
+    padding: 10px;
+  }
+}
+
+@media screen and (min-width: 421px) and (max-width: 768px) {
+  .login-card {
+    max-width: 450px;
+    padding: 35px 30px;
+  }
+
+  .title-text {
+    font-size: 2rem;
+  }
+}
+
+
+// Mejora para el scroll area de operadores
+.lista-operadores {
+  max-height: 350px;
+  overflow-y: auto;
+  padding-right: 4px;
+
+  @media screen and (max-width: 480px) {
+    max-height: 300px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
 }

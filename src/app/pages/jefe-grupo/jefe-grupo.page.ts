@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { BackgroundLayoutComponent } from '../../shared/background-layout/background-layout.component';
 import { IonicModule } from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import {
@@ -15,7 +16,7 @@ import {
   templateUrl: './jefe-grupo.page.html',
   styleUrls: ['./jefe-grupo.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule]
+  imports: [IonicModule, CommonModule, FormsModule, BackgroundLayoutComponent]
 })
 export class JefeGrupoPage implements OnInit {
   vista: string = 'lista';

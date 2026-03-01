@@ -1,4 +1,5 @@
 <ion-content [fullscreen]="true">
+        <app-background-layout>
   <div class="background-wrapper">
     <div class="main-card">
 
@@ -39,7 +40,7 @@
           </div>
         </div>
 
-        <!--Rh va poder cambiar, la lista de semaforos 
+        <!--Rh va poder cambiar, la lista de semaforos
         para poder ver los que estan en rojo, amarrillo y verde,
         pero se va mostrar primero la lista de los qu eestan en rojo-->
         <div class="section-container">
@@ -60,7 +61,7 @@
               <ion-icon name="chevron-forward-outline" class="chevron-icon"></ion-icon>
             </div>
           </div>
-          
+
           <button class="footer-btn">
             <ion-icon name="document-attach-outline"></ion-icon>
             GENERAR REPORTE {{filtroSemaforo.toUpperCase()}}
@@ -160,7 +161,7 @@
         </div>
 
         <p class="field-label">Historial Reciente</p>
-        
+
         <div class="history-card">
           <div class="history-item" *ngFor="let log of operadorSeleccionado?.historial">
             <span class="history-label">{{log.fecha}}</span>
@@ -168,7 +169,7 @@
             <ion-icon [name]="log.icono" [class]="log.claseIcono"></ion-icon>
           </div>
         </div>
-        
+
         <!--Se muestra primero el kardex para que recursos se base en el para aceptar o
         rechazar la solicitud-->
         <button class="kardex-btn">
@@ -220,4 +221,5 @@
 
     </div>
   </div>
+  </app-background-layout>
 </ion-content>

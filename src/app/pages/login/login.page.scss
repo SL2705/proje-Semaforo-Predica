@@ -1,3 +1,5 @@
+// Puede que ciertos ajustes cambien si en todas la pantallas, el formulario no se adapte bien idk
+
 .main-split-container {
   display: flex;
   width: 100%;
@@ -6,6 +8,19 @@
   overflow: hidden;
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
   margin: auto;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    border-radius: 30px;
+    margin: 15px;
+    width: calc(100% - 30px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  }
+  @media screen and (max-width: 480px) {
+    border-radius: 20px;
+    margin: 10px;
+    width: calc(100% - 20px);
+  }
 }
 
 .side-panel-left {
@@ -17,6 +32,17 @@
   padding: 40px;
   border-right: 1px solid #e2e8f0;
 
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    padding: 30px 20px;
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  @media screen and (max-width: 480px) {
+    padding: 20px 15px;
+  }
+
+
   .logo-box {
     width: 150px;
     height: 150px;
@@ -27,7 +53,11 @@
     justify-content: center;
     padding: 15px;
     margin-bottom: 25px;
-
+    @media screen and (max-width: 480px) {
+      width: 50%;
+      height: 50%;
+      margin-bottom: 5%;
+    }
     img {
       max-width: 100%;
       height: auto;
@@ -37,6 +67,9 @@
   .side-panel-text {
     text-align: center;
     max-width: 240px;
+    @media screen and (max-width: 768px) {
+      max-width: 100%;
+    }
   }
 
   .panel-title {
@@ -44,6 +77,12 @@
     font-weight: 800;
     color: ion-text-title;
     margin: 0 0 8px;
+    @media screen and (max-width: 768px) {
+      font-size: 1.8rem;
+    }
+    @media screen and (max-width: 480px) {
+      font-size: 1.5rem;
+    }
   }
 
   .panel-description {
@@ -53,6 +92,9 @@
     color: ion-border-color;
     line-height: 1.5;
     margin: 0;
+    @media screen and (max-width: 480px) {
+      font-size: 0.85rem;
+    }
   }
 }
 
@@ -65,6 +107,18 @@
   min-height: 100%;
   padding: 5rem;
 
+  @media screen and (max-width: 1024px) {
+    padding: 3rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 1rem;
+  }
+
+  @media screen and (max-width: 480px) {
+    padding: 0.5rem;
+  }
+
   .login-card {
     background: card-background;
     width: 30rem;
@@ -72,6 +126,21 @@
     padding: 40px 45px;
     justify-content: center;
     text-align: center;
+
+    @media screen and (max-width: 1024px) {
+      width: 28rem;
+      padding: 35px 40px;
+    }
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      max-width: 100%;
+      padding: 30px 25px;
+    }
+
+    @media screen and (max-width: 480px) {
+      padding: 25px 20px;
+    }
   }
 }
 
@@ -81,6 +150,14 @@
     font-weight: 800;
     color: ion-text-color;
     margin-bottom: 4px;
+
+    @media screen and (max-width: 768px) {
+      font-size: 2.2rem;
+    }
+
+    @media screen and (max-width: 480px) {
+      font-size: 1.8rem;
+    }
   }
 }
 
@@ -89,6 +166,10 @@
   font-weight: 700;
   color: ion-text-color-step-300;
   margin-top: 6px;
+
+  @media screen and (max-width: 480px) {
+    font-size: 0.9rem;
+  }
 }
 
 .input-group {
@@ -100,6 +181,10 @@
     font-weight: 700;
     margin-bottom: 8px;
     color: ion-color-primary;
+
+    @media screen and (max-width: 480px) {
+      font-size: 0.85rem;
+    }
   }
 
   .input-item-box {
@@ -112,16 +197,27 @@
     font-size: 0.8rem;
     padding: 0 15px;
 
+     @media screen and (max-width: 768px) {
+      height: 48px;
+    }
+
+    @media screen and (max-width: 480px) {
+      height: 44px;
+      padding: 0 12px;
+    }
+
     .native-input {
       width: 100%;
       border: none;
       background: transparent;
       outline: none;
+      @media screen and (max-width: 768px) {
+        font-size: 1rem; // Evita el zoom en ciertas pantallas
+      }
     }
   }
 }
 
-// Boton
 .custom-login-button {
   background: ion-border-color !important;
   color: ion-text-color !important;
@@ -136,6 +232,18 @@
   cursor: pointer;
   transition: transform 0.2s ease;
 
+    @media screen and (max-width: 768px) {
+    max-width: 220px;
+    height: 48px;
+    font-size: 1.1rem;
+  }
+
+  @media screen and (max-width: 480px) {
+    max-width: 100%;
+    height: 44px;
+    font-size: 1rem;
+  }
+
   &:active {
     transform: scale(0.98);
   }
@@ -148,13 +256,28 @@
   font-weight: 700;
   font-size: 1.1rem;
   cursor: pointer;
+
+  @media screen and (max-width: 480px) {
+    font-size: 0.9rem;
+  }
 }
 
 .register-section {
   margin-top: 30px;
+
+  @media screen and (max-width: 480px) {
+    margin-top: 20px;
+  }
   .no-account-text {
     color: ion-color-primary-contrast;
     font-size: 1.7rem;
+    @media screen and (max-width: 768px) {
+      font-size: 1.4rem;
+    }
+
+    @media screen and (max-width: 480px) {
+      font-size: 1.2rem;
+    }
   }
 }
 
@@ -164,6 +287,12 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+  @media screen and (max-width: 768px) {
+    font-size: 1.8rem;
+  }
+  @media screen and (max-width: 480px) {
+    font-size: 1.5rem;
+  }
 }
 
 .password-label-row {
@@ -171,9 +300,28 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 8px;
+
+  @media screen and (max-width: 360px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
 }
 
 .password-label-row .forgot-text {
   margin: 0;
   font-size: 12px;
+
+  @media screen and (max-width: 360px) {
+    font-size: 11px;
+  }
+}
+
+ion-content {
+  --overflow: auto;
+  // Ajustes del fondo en pantallas mas chicas
+  @media screen and (max-width: 768px) {
+    --padding-top: 0;
+    --padding-bottom: 0;
+  }
 }

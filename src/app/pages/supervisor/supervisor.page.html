@@ -1,4 +1,5 @@
 <ion-content [fullscreen]="true">
+      <app-background-layout>
   <div class="background-wrapper">
     <div class="main-card">
 
@@ -12,7 +13,7 @@
           <ion-icon name="menu-outline" class="menu-icon" (click)="setVista('menu')"></ion-icon>
         </div>
 
-          <!--El supervisor tambien podra cambiar las lineas que tiene a cargo para ver a los 
+          <!--El supervisor tambien podra cambiar las lineas que tiene a cargo para ver a los
         operadores de cada linea-->
 
         <div class="segment-container">
@@ -21,7 +22,7 @@
         </div>
 
         <p class="field-label">Personal en línea</p>
-        
+
         <div class="scroll-area">
           <div class="employee-card" *ngFor="let persona of personalFiltrado" (click)="abrirDetalle(persona)">
             <div class="employee-info">
@@ -148,9 +149,9 @@
           <!--El supervisor podra cambiar el estado de un operador, con la gestion de excepciones
           haciendo que el operador este de vacaciones, con permiso, o regiustrando su incapacidad-->
         <p class="field-label-center">Gestión de Excepciones</p>
-        
+
         <div class="grid-actions">
-          <div class="action-box" 
+          <div class="action-box"
                [ngClass]="{'active-blue': empleadoSeleccionado?.claseEstado === 'vacaciones', 'disabled': tieneExcepcionActiva() && empleadoSeleccionado?.claseEstado !== 'vacaciones'}"
                (click)="(!tieneExcepcionActiva() || empleadoSeleccionado?.claseEstado === 'vacaciones') && abrirModalExcepcion('vacaciones')">
             <ion-icon [name]="empleadoSeleccionado?.claseEstado === 'vacaciones' ? 'refresh-outline' : 'airplane-outline'" class="blue-icon"></ion-icon>
@@ -177,13 +178,13 @@
                  'disabled': tieneExcepcionActiva()
                }"
                (click)="!tieneExcepcionActiva() ? abrirModalExcepcion('suspension') : null">
-            
+
             <ion-icon [name]="empleadoSeleccionado?.claseEstado === 'suspension' ? 'time-outline' : 'ban-outline'" class="blue-icon"></ion-icon>
-            
+
             <p>
-              {{ 
-                empleadoSeleccionado?.estado === 'SUSPENSIÓN' 
-                ? 'SUSPENSIÓN CONFIRMADA POR RH' 
+              {{
+                empleadoSeleccionado?.estado === 'SUSPENSIÓN'
+                ? 'SUSPENSIÓN CONFIRMADA POR RH'
                 : (empleadoSeleccionado?.claseEstado === 'suspension' ? 'SUSPENSIÓN PENDIENTE DE RH' : 'SOLICITAR SUSPENSIÓN')
               }}
             </p>
@@ -257,4 +258,5 @@
       </div>
     </ng-template>
   </ion-modal>
+  </app-background-layout>
 </ion-content>

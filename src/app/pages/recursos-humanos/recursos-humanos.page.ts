@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
+import { BackgroundLayoutComponent } from '../../shared/background-layout/background-layout.component';
 import { addIcons } from 'ionicons';
 import {
   menuOutline,
@@ -26,7 +27,7 @@ import {
   templateUrl: './recursos-humanos.page.html',
   styleUrls: ['./recursos-humanos.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule]
+  imports: [IonicModule, CommonModule, FormsModule, BackgroundLayoutComponent]
 })
 export class RecursosHumanosPage implements OnInit {
   vista: string = 'lista';
