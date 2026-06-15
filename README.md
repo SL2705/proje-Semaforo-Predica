@@ -1,4 +1,4 @@
-# 🚦Vitalis 🚦 - Sistema de Prevención de Rotación Temprana
+# 🚦Vitalis🚦- Sistema de Prevención de Rotación Temprana
 
 Este proyecto es una solución tecnológica diseñada para identificar y mitigar la rotación prematura de personal en el sector maquilador. A través de un análisis de indicadores clave, el sistema permite a Recursos Humanos actuar de forma preventiva antes de que el empleado decida renunciar.
 
