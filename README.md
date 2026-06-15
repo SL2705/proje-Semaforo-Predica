@@ -109,4 +109,4 @@ El sistema implementa medidas estrictas para garantizar la protección de datos:
   
 ---
 
-### Proyecto Desarrollado por UTCJ - Grupo: IDSM11 - Materia: Seguridad Informatica
+### Proyecto Desarrollado por UTCJ - Grupo: IDSM21 - Materia: Seguridad En El Desarrollo De Aplicaciones
