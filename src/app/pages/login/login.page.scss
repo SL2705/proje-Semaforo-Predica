@@ -24,13 +24,14 @@
 }
 
 .side-panel-left {
-  width: 40%;
+width: 40%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 40px;
-  border-right: 1px solid #e2e8f0;
+  border-right: 1px solid var(--ion-color-step-150, #e2e8f0);
+  background: var(--ion-color-light, #f8f9fa);
 
   @media screen and (max-width: 768px) {
     width: 100%;
@@ -42,8 +43,7 @@
     padding: 20px 15px;
   }
 
-
-  .logo-box {
+.logo-box {
     width: 150px;
     height: 150px;
     background: transparent;
@@ -53,10 +53,11 @@
     justify-content: center;
     padding: 15px;
     margin-bottom: 25px;
+
     @media screen and (max-width: 480px) {
-      width: 50%;
-      height: 50%;
-      margin-bottom: 5%;
+      width: 120px;
+      height: 120px;
+      margin-bottom: 15px;
     }
     img {
       max-width: 100%;
@@ -145,6 +146,8 @@
 }
 
 .header-section {
+  text-align: center;
+  margin-bottom: 24px;
   .title-text {
     font-size: 2.8rem;
     font-weight: 800;
@@ -164,7 +167,7 @@
 .login-subtext {
   font-size: 1rem;
   font-weight: 700;
-  color: ion-text-color-step-300;
+  color: var(--ion-color-step-300, #999999);
   margin-top: 6px;
 
   @media screen and (max-width: 480px) {
@@ -177,10 +180,11 @@
   text-align: left;
 
   .field-label {
-    font-size: 0.9rem;
+font-size: 0.9rem;
     font-weight: 700;
     margin-bottom: 8px;
-    color: ion-color-primary;
+    display: block;
+    color: var(--ion-color-primary, #3880ff);
 
     @media screen and (max-width: 480px) {
       font-size: 0.85rem;
@@ -198,12 +202,15 @@
     padding: 0 15px;
 
      @media screen and (max-width: 768px) {
-      height: 48px;
+    max-width: 220px;
+    height: 48px;
+    font-size: 1.1rem;
     }
 
     @media screen and (max-width: 480px) {
+      max-width: 100%;
       height: 44px;
-      padding: 0 12px;
+      font-size: 1rem;
     }
 
     .native-input {
@@ -219,8 +226,8 @@
 }
 
 .custom-login-button {
-  background: ion-border-color !important;
-  color: ion-text-color !important;
+  background: var(--ion-color-primary, #3880ff) !important;
+  color: var(--ion-color-primary-contrast, #ffffff) !important;
   font-size: 1.2rem;
   width: 100%;
   max-width: 260px;
@@ -228,9 +235,11 @@
   border-radius: 27px;
   border: none;
   font-weight: 700;
-  box-shadow: 0 6px 15px rgba(26, 61, 99, 0.3);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  margin: 0 auto;
+  display: block;
 
     @media screen and (max-width: 768px) {
     max-width: 220px;
@@ -242,17 +251,21 @@
     max-width: 100%;
     height: 44px;
     font-size: 1rem;
-  }
+}
 
   &:active {
     transform: scale(0.98);
   }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
 }
 
 .forgot-text {
-  margin-top: 15px;
-  text-align: left;
-  color: #3498db;
+  color: var(--ion-color-secondary, #3498db);
   font-weight: 700;
   font-size: 1.1rem;
   cursor: pointer;
@@ -283,13 +296,16 @@
 
 .password-eye {
   font-size: 2.1rem;
-  color: ion-text-color-step-300;
+  color: var(--ion-color-step-300, #999999);
   cursor: pointer;
   display: flex;
   align-items: center;
+  padding-left: 10px;
+
   @media screen and (max-width: 768px) {
     font-size: 1.8rem;
   }
+
   @media screen and (max-width: 480px) {
     font-size: 1.5rem;
   }
