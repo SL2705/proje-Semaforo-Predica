@@ -1,0 +1,114 @@
+<ion-content [fullscreen]="true" class="kardex-wrapper" *ngIf="kardexData">
+
+<div class="kardex-document">
+
+  <div class="doc-header">
+
+    <div class="logo-box">
+      <img src="./assets/logo.png" alt="Logo Predica" class="logo-img">
+    </div>
+
+    <div class="title-box">
+      Kardex - Control de Auditoría Operativa
+    </div>
+
+  </div>
+
+  <div class="employee-grid">
+
+    <div class="cell">
+      <strong>EMPLEADO:</strong> {{ kardexData.nombre }}
+    </div>
+
+    <div class="cell">
+      <strong>ID RELOJ:</strong> {{ kardexData.numero_reloj }}
+    </div>
+
+    <div class="cell">
+      <strong>PUESTO:</strong> {{ kardexData.rol }}
+    </div>
+
+    <div class="cell">
+      <strong>FECHA REPORTE:</strong> {{ today | date:'yyyy-MM-dd' }}
+    </div>
+
+  </div>
+
+
+  <table class="kardex-table">
+
+    <thead>
+      <tr>
+        <th>FECHA</th>
+        <th>ESTADO</th>
+        <th>SEMÁFORO</th>
+        <th>OBSERVACIONES / INCIDENCIAS</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <tr *ngFor="let item of kardexData?.historial || []">
+
+        <td>{{ item.fecha | date:'yyyy-MM-dd' }}</td>
+
+        <td>{{ item.estado }}</td>
+
+        <td>
+
+          <span
+            [ngClass]="{
+              'status-green': item.estado === 'PUNTUAL' || item.estado === 'REGISTRADO',
+              'status-orange': item.estado === 'RETARDO',
+              'status-red': item.estado === 'FALTA'
+            }">
+
+            {{
+              item.estado === 'RETARDO'
+              ? 'ADVERTENCIA'
+              : item.estado === 'FALTA'
+              ? 'CRÍTICO'
+              : 'ÓPTIMO'
+            }}
+
+          </span>
+
+        </td>
+
+        <td class="observacion">
+
+          {{
+            item.estado === 'RETARDO'
+            ? 'Retraso registrado en la jornada.'
+            : item.estado === 'FALTA'
+            ? 'Inasistencia no justificada.'
+            : 'Ingreso registrado en tiempo y forma.'
+          }}
+
+        </td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+
+  <div class="doc-footer">
+
+    <p>
+      <strong>Validación Técnica:</strong>
+      Este documento es una representación fiel de los registros digitales
+      alojados en el servidor de control de asistencia.
+    </p>
+
+  </div>
+
+
+  <ion-button expand="block" class="download-btn" (click)="descargarKardex()">
+    Descargar PDF
+  </ion-button>
+
+</div>
+
+</ion-content>
