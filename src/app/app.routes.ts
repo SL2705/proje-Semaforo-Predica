@@ -28,32 +28,32 @@ export const routes: Routes = [
 
   {
     path: 'kardex/:reloj',
-    canActivate: [AuthGuard],
-    data: { roles: ['operador', 'supervisor'] },
+    // canActivate: [AuthGuard],
+    // data: { roles: ['operador', 'supervisor'] },
     loadComponent: () =>
       import('./kardex/kardex.page').then(m => m.KardexPage)
   },
 
   {
     path: 'operador',
-    canActivate: [AuthGuard],
-    data: { roles: ['operador'] },
+    // canActivate: [AuthGuard],
+    // data: { roles: ['operador'] },
     loadComponent: () =>
       import('./pages/operador/operador.page').then(m => m.OperadorPage)
   },
 
   {
     path: 'supervisor',
-    canActivate: [AuthGuard],
-    data: { roles: ['supervisor'] },
+    // canActivate: [AuthGuard],
+    // data: { roles: ['supervisor'] },
     loadComponent: () =>
       import('./pages/supervisor/supervisor.page').then(m => m.SupervisorPage)
   },
 
   {
     path: 'rrhh',
-    canActivate: [AuthGuard],
-    data: { roles: ['rrhh'] },
+    // canActivate: [AuthGuard],
+    // data: { roles: ['rrhh'] },
     loadComponent: () =>
       import('./pages/recursos-humanos/recursos-humanos.page')
         .then(m => m.RecursosHumanosPage)
@@ -61,8 +61,8 @@ export const routes: Routes = [
 
   {
     path: 'jefe',
-    canActivate: [AuthGuard],
-    data: { roles: ['jefe'] },
+    // canActivate: [AuthGuard],
+    // data: { roles: ['jefe'] },
     loadComponent: () =>
       import('./pages/jefe-grupo/jefe-grupo.page')
         .then(m => m.JefeGrupoPage)
@@ -70,8 +70,8 @@ export const routes: Routes = [
 
   {
     path: 'sistemas',
-    canActivate: [AuthGuard],
-    data: { roles: ['sistemas'] },
+    // canActivate: [AuthGuard],
+    // data: { roles: ['sistemas'] },
     loadComponent: () =>
       import('./pages/sistemas/sistemas.page')
         .then(m => m.SistemasPage)
