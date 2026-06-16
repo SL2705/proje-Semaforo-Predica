@@ -1,20 +1,177 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
+<ion-header class="ion-no-border">
+    <ion-toolbar color="light">
+        <ion-title class="header-title">Control de Sistemas</ion-title>
+        <ion-buttons slot="end">
+            <ion-button>
+                <ion-icon name="settings-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="home-content" color="light">
+    
+    <!-- Background Decorations -->
+    <div class="bg-decoration">
+        <div class="decoration-circle circle-1"></div>
+        <div class="decoration-circle circle-2"></div>
+        <div class="decoration-circle circle-3"></div>
+        <div class="decoration-shape shape-1"></div>
+        <div class="decoration-shape shape-2"></div>
+        <div class="decoration-dots dots-1"></div>
+        <div class="decoration-dots dots-2"></div>
+    </div>
+    
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-pattern"></div>
+        <div class="hero-content">
+            <div class="logo-circle">
+                <ion-icon name="server"></ion-icon>
+            </div>
+            <h1 class="hero-title">Bienvenido</h1>
+            <p class="hero-subtitle">Sistema de Control de Acceso y Gestión de Usuarios</p>
+        </div>
+    </div>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <!-- Alert Section -->
+    <ion-card class="alert-card" color="warning">
+        <ion-card-header>
+            <div class="alert-header">
+                <ion-icon name="shield-checkmark"></ion-icon>
+                <ion-card-title>Acceso Restringido</ion-card-title>
+            </div>
+        </ion-card-header>
+        <ion-card-content>
+            <p>Solo personal autorizado puede acceder a estas funciones.</p>
+        </ion-card-content>
+    </ion-card>
+
+    <!-- Stats Section -->
+    <div class="stats-container">
+        <div class="stat-card">
+            <div class="stat-icon users">
+                <ion-icon name="people"></ion-icon>
+            </div>
+            <div class="stat-content">
+                <h3>Usuarios Activos</h3>
+                <p class="stat-value">{{ activeUsers | async }}</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon roles">
+                <ion-icon name="shield"></ion-icon>
+            </div>
+            <div class="stat-content">
+                <h3>Roles Configurados</h3>
+                <p class="stat-value">{{ totalRoles | async }}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Actions Section -->
+    <div class="actions-section">
+        <h2 class="section-title">Acciones Principales</h2>
+
+        <ion-card class="action-card" button (click)="navigateTo('/registro')">
+            <ion-card-content class="card-content">
+                <div class="action-icon user-plus">
+                    <ion-icon name="person-add"></ion-icon>
+                </div>
+                <div class="action-text">
+                    <h3>Registrar Usuario</h3>
+                    <p>Crear nuevo usuario con ID y rol</p>
+                </div>
+                <ion-icon class="arrow" name="chevron-forward"></ion-icon>
+            </ion-card-content>
+        </ion-card>
+
+        <ion-card class="action-card" button (click)="showRestrictedAccess('Kardex')">
+            <ion-card-content class="card-content">
+                <div class="action-icon kardex">
+                    <ion-icon name="document-text"></ion-icon>
+                </div>
+                <div class="action-text">
+                    <h3>Kardex</h3>
+                    <p>Ver y gestionar kardex de usuarios</p>
+                </div>
+                <ion-icon class="arrow" name="chevron-forward"></ion-icon>
+            </ion-card-content>
+        </ion-card>
+
+        <ion-card class="action-card" button (click)="showRestrictedAccess('Gestionar Roles')">
+            <ion-card-content class="card-content">
+                <div class="action-icon roles-manage">
+                    <ion-icon name="settings"></ion-icon>
+                </div>
+                <div class="action-text">
+                    <h3>Gestionar Roles</h3>
+                    <p>Configurar permisos y roles</p>
+                </div>
+                <ion-icon class="arrow" name="chevron-forward"></ion-icon>
+            </ion-card-content>
+        </ion-card>
+
+        <ion-card class="action-card" button (click)="showRestrictedAccess('Listar Usuarios')">
+            <ion-card-content class="card-content">
+                <div class="action-icon users-manage">
+                    <ion-icon name="people"></ion-icon>
+                </div>
+                <div class="action-text">
+                    <h3>Listar Usuarios</h3>
+                    <p>Ver todos los usuarios registrados</p>
+                </div>
+                <ion-icon class="arrow" name="chevron-forward"></ion-icon>
+            </ion-card-content>
+        </ion-card>
+
+        <ion-card class="action-card" button (click)="navigateTo('/login')">
+            <ion-card-content class="card-content">
+                <div class="action-icon login-action">
+                    <ion-icon name="log-in"></ion-icon>
+                </div>
+                <div class="action-text">
+                    <h3>Ir a Login</h3>
+                    <p>Volver a la pantalla de inicio de sesión</p>
+                </div>
+                <ion-icon class="arrow" name="chevron-forward"></ion-icon>
+            </ion-card-content>
+        </ion-card>
+    </div>
+
+    <!-- Quick Links Section -->
+    <div class="quick-links-section">
+        <div class="section-header">
+            <h2 class="section-title">Accesos Rápidos</h2>
+            <p class="section-subtitle">Herramientas y utilidades del sistema</p>
+        </div>
+
+        <div class="links-grid">
+            <!-- Centro de Ayuda -->
+            <div class="quick-card" (click)="openHelp()">
+                <div class="card-icon help">
+                    <ion-icon name="help-circle"></ion-icon>
+                </div>
+                <div class="card-content">
+                    <h3>Centro de Ayuda</h3>
+                    <p>Guías y soporte</p>
+                </div>
+                <ion-icon class="card-arrow" name="chevron-forward"></ion-icon>
+            </div>
+
+            <!-- Documentación -->
+            <div class="quick-card" (click)="openDocumentation()">
+                <div class="card-icon docs">
+                    <ion-icon name="document-text"></ion-icon>
+                </div>
+                <div class="card-content">
+                    <h3>Documentación</h3>
+                    <p>Manuales y guías</p>
+                </div>
+                <ion-icon class="card-arrow" name="chevron-forward"></ion-icon>
+            </div>
+        </div>
+    </div>
+
 </ion-content>
