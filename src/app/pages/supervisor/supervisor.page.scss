@@ -1,1164 +1,779 @@
-// Algunos de los botones se batalla para presionar en ciertas pantallas. Igual dudo que alguien de iphone 6 lo vaya
-// usar asi que anyways
-
-.field-label {
-  font-size: 0.95rem;
-  font-weight: 700;
-  margin-bottom: 12px;
-  color: ion-text-color;
-  text-align: left;
-
-  @media screen and (max-width: 480px) {
-    font-size: 0.85rem;
-    margin-bottom: 10px;
-  }
-}
-
-.field-label-center {
-  @extend .field-label;
-  text-align: center;
-  margin-top: 30px;
-  margin-bottom: 20px;
-
-  @media screen and (max-width: 480px) {
-    margin-top: 25px;
-    margin-bottom: 15px;
-  }
-}
-
-.fecha-subtitle {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: ion-color-primary;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  margin-bottom: 30px;
-
-  @media screen and (max-width: 480px) {
-    font-size: 0.75rem;
-    margin-bottom: 20px;
-  }
-}
+// Supervisor page styles
+$primary-color: #1A3D63;
+$secondary-color: #4A90E2;
+$background: #f8fafc;
+$surface: #ffffff;
+$text-muted: #64748b;
+$shadow: rgba(0, 0, 0, 0.08);
+$success: #2ecc40;
+$warning: #ffb300;
+$danger: #e74c3c;
+$info: #3498db;
 
 .background-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100%;
-  padding: 20px;
-  background: ion-background-color;
-
-  @media screen and (max-width: 480px) {
-    padding: 12px;
-  }
-
-  @media screen and (max-width: 360px) {
-    padding: 8px;
-  }
-
-  .main-card {
-    background: ion-border-color;
-    width: 100%;
-    max-width: 400px;
-    padding: 30px 25px;
-    border-radius: 32px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-
-    @media screen and (max-width: 480px) {
-      padding: 25px 20px;
-      border-radius: 28px;
-    }
-
-    @media screen and (max-width: 360px) {
-      padding: 20px 16px;
-      border-radius: 24px;
-    }
-  }
+  min-height: 100vh;
+  background: $background;
+  padding: 1.5rem;
 }
 
-.user-greeting h1 {
-  font-size: 1.75rem;
-  font-weight: 800;
-  color: ion-color-primary;
-  margin-bottom: 5px;
-
-  @media screen and (max-width: 480px) {
-    font-size: 1.5rem;
-  }
-
-  @media screen and (max-width: 360px) {
-    font-size: 1.3rem;
-  }
+.main-card {
+  background: $surface;
+  border-radius: 28px;
+  box-shadow: 0 14px 35px $shadow;
+  padding: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-
-  @media screen and (max-width: 480px) {
-    margin-bottom: 5px;
-  }
+  gap: 1rem;
+  margin-bottom: 1.25rem;
 }
 
-.logout-icon {
-  color: #c0392b;
-  font-size: 24px;
-  cursor: pointer;
-
-  @media screen and (max-width: 480px) {
-    font-size: 22px;
-  }
-
-  @media (hover: none) and (pointer: coarse) {
-    padding: 8px;
-    min-width: 44px;
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+.user-greeting h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: $primary-color;
+  font-weight: 700;
 }
 
-.menu-icon {
-  color: ion-text-color;
-  font-size: 2.5rem;
-  cursor: pointer;
-  padding: 5px;
-  transition: opacity 0.15s;
-
-  @media screen and (max-width: 480px) {
-    font-size: 2.2rem;
-  }
-
-  @media screen and (max-width: 360px) {
-    font-size: 2rem;
-  }
-
-  @media (hover: none) and (pointer: coarse) {
-    padding: 8px;
-    min-width: 44px;
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  &:active { opacity: 0.6; }
+.fecha-subtitle {
+  display: block;
+  margin-top: 0.5rem;
+  color: $text-muted;
+  font-size: 0.85rem;
+  font-weight: 700;
 }
 
 .segment-container {
   display: flex;
-  background: ion-background-color;
-  padding: 5px;
+  gap: 0.5rem;
+  background: #f1f5f9;
+  border-radius: 14px;
+  padding: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.segment-container button {
+  flex: 1;
+  border: none;
   border-radius: 12px;
-  margin-bottom: 25px;
+  background: transparent;
+  color: $text-muted;
+  font-weight: 700;
+  padding: 0.9rem 0.8rem;
+  transition: all 0.3s ease;
+}
 
-  @media screen and (max-width: 480px) {
-    margin-bottom: 20px;
-  }
+.segment-container button.active {
+  background: $surface;
+  color: $primary-color;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
 
-  @media screen and (max-width: 360px) {
-    flex-direction: column;
-    gap: 5px;
-  }
+.field-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: $primary-color;
+  margin-bottom: 1rem;
+}
 
-  button {
-    flex: 1;
-    border: none;
-    padding: 10px;
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: 0.68rem;
-    color: ion-color-primary;
-    background: transparent;
+.field-label-center {
+  font-size: 1rem;
+  font-weight: 600;
+  color: $primary-color;
+  margin-bottom: 1rem;
+  text-align: center;
+}
 
-    @media screen and (max-width: 480px) {
-      padding: 8px;
-      font-size: 0.65rem;
-    }
-
-    @media screen and (max-width: 360px) {
-      width: 100%;
-    }
-
-    @media (hover: none) and (pointer: coarse) {
-      min-height: 44px;
-    }
-
-    &.active {
-      background: #3e444a;
-      color: #f4f7f6;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-  }
+.scroll-area {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 1rem;
 }
 
 .employee-card {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px;
-  background: ion-border-color;
-  border: 1px solid;
-  border-radius: 16px;
-  margin-bottom: 12px;
-
-  @media screen and (max-width: 480px) {
-    padding: 14px;
-    border-radius: 14px;
-    margin-bottom: 10px;
-  }
-
-  @media screen and (max-width: 360px) {
-    padding: 12px;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  @media (hover: none) and (pointer: coarse) {
-    min-height: 70px;
-  }
-
-  .nombre-operador {
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: ion-text-title;
-    margin: 0;
-
-    @media screen and (max-width: 480px) {
-      font-size: 0.9rem;
-    }
-  }
-
-  .reloj-text {
-    font-size: 0.75rem;
-    color: ion-text-color;
-    font-weight: 800;
-
-    @media screen and (max-width: 480px) {
-      font-size: 0.7rem;
-    }
-  }
-
-  .chevron-icon {
-    color: ion-text-title;
-    font-size: 1.1rem;
-
-    @media screen and (max-width: 480px) {
-      font-size: 1rem;
-    }
-  }
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 18px;
+  background: #f8fafc;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  margin-bottom: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-//Asigne un color, para cada estado del operador y si tiene una excepcion, ya sea vacaciones,
-//permiso, incapacidad o suspencion
+.employee-card:hover {
+  background: #e2e8f0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.employee-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.nombre-operador {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: $primary-color;
+}
+
+.reloj-text {
+  margin: 0.25rem 0 0;
+  font-size: 0.85rem;
+  color: $text-muted;
+}
+
 .status-badge {
-  padding: 5px 12px;
-  border-radius: 8px;
-  font-size: 10px;
-  font-weight: 800;
-
-  @media screen and (max-width: 480px) {
-    padding: 4px 10px;
-    font-size: 9px;
-  }
-
-  &.registrado { background: #ebedf0; color: #16a085; }
-  &.pendiente { background: #ebedf0; color: #7f8c8b; }
-  &.vacaciones { background: #ebedf0; color: #3498db; }
-  &.permiso { background: #ebedf0; color: #f39c12; }
-  &.incapacidad { background: #ebedf0; color: #c0392b; }
-  &.suspension { background: ion-background-color; color: ion-text-color; }
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
-.info-card-blue {
-  background: ion-text-color;
-  padding: 30px 20px;
-  border-radius: 24px;
-  color: ion-background-color;
-  margin-bottom: 25px;
+.status-badge.activo {
+  background: $success;
+  color: white;
+}
+
+.status-badge.inactivo {
+  background: $danger;
+  color: white;
+}
+
+.status-badge.pausa {
+  background: $warning;
+  color: white;
+}
+
+.chevron-icon {
+  color: $text-muted;
+  font-size: 1.2rem;
+}
+
+.button-section {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-
-  @media screen and (max-width: 480px) {
-    padding: 25px 15px;
-    border-radius: 20px;
-    margin-bottom: 20px;
-  }
-
-  @media screen and (max-width: 360px) {
-    padding: 20px 12px;
-  }
-
-  h2 {
-    font-size: 2rem;
-    font-weight: 800;
-    margin: 12px 0;
-
-    @media screen and (max-width: 480px) {
-      font-size: 1.6rem;
-      margin: 10px 0;
-    }
-
-    @media screen and (max-width: 360px) {
-      font-size: 1.4rem;
-    }
-  }
-
-  .label-white {
-    font-size: 0.75rem;
-    opacity: 0.8;
-    text-transform: uppercase;
-    font-weight: 800;
-
-    @media screen and (max-width: 480px) {
-      font-size: 0.7rem;
-    }
-  }
-
-  .reloj-tag {
-    background: rgba(255,255,255,0.15);
-    padding: 4px 14px;
-    border-radius: 8px;
-    font-size: 0.75rem;
-
-    @media screen and (max-width: 480px) {
-      font-size: 0.7rem;
-      padding: 4px 12px;
-    }
-  }
-}
-
-.history-card {
-  border: 2px solid #ebedf0;
-  border-radius: 20px;
-  padding: 5px 20px;
-  margin-bottom: 15px;
-
-  @media screen and (max-width: 480px) {
-    padding: 5px 16px;
-    border-radius: 18px;
-    margin-bottom: 12px;
-  }
-}
-
-.history-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 0;
-
-  @media screen and (max-width: 480px) {
-    padding: 10px 0;
-  }
-
-  @media screen and (max-width: 360px) {
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  &:not(:last-child) { border-bottom: 1px solid #f1f5f9; }
-
-  .history-label {
-    font-size: 0.75rem;
-    color: ion-text-color;
-    font-weight: 700;
-
-    @media screen and (max-width: 480px) {
-      font-size: 0.7rem;
-    }
-  }
-
-  .history-value {
-    font-size: 12px;
-    color: ion-text-title;
-    font-weight: 800;
-    text-transform: uppercase;
-
-    @media screen and (max-width: 480px) {
-      font-size: 11px;
-    }
-  }
-}
-
-.kardex-btn {
-  width: 100%;
-  background: ion-item-background;
-  border: 2.5px dashed #cbd5e0;
-  padding: 12px;
-  border-radius: 14px;
-  color: ion-text-color;
-  font-size: 0.65rem;
-  font-weight: 800;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 10px;
-
-  @media screen and (max-width: 480px) {
-    padding: 10px;
-    font-size: 0.6rem;
-    border-radius: 12px;
-  }
-
-  @media (hover: none) and (pointer: coarse) {
-    min-height: 48px;
-  }
-}
-
-.grid-actions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-
-  @media screen and (max-width: 360px) {
-    gap: 8px;
-  }
-
-  .action-box {
-    background: ion-item-background;
-    border: 2px solid #e2e8f0;
-    border-radius: 20px;
-    padding: 20px 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-
-    @media screen and (max-width: 480px) {
-      padding: 15px 8px;
-      border-radius: 16px;
-    }
-
-    @media screen and (max-width: 360px) {
-      padding: 12px 6px;
-    }
-
-    @media (hover: none) and (pointer: coarse) {
-      min-height: 100px;
-    }
-
-    ion-icon {
-      font-size: 1.8rem;
-      margin-bottom: 8px;
-      color: #3498db;
-
-      @media screen and (max-width: 480px) {
-        font-size: 1.5rem;
-        margin-bottom: 6px;
-      }
-    }
-
-    p {
-      font-size: 0.65rem;
-      font-weight: 800;
-      color: #94a3b8;
-      margin: 0;
-      text-transform: uppercase;
-      text-align: center;
-
-      @media screen and (max-width: 480px) {
-        font-size: 0.6rem;
-      }
-    }
-
-    &.active-blue {
-      border: 2px solid ion-text-color;
-      p { color: ion-text-color; }
-    }
-
-    &.disabled {
-      opacity: 0.3;
-      pointer-events: none;
-    }
-  }
-}
-
-.footer-btn {
-  background: ion-background-color;
-  color: ion-text-color;
-  width: 100%;
-  border-radius: 28px;
-  padding: 18px;
-  font-weight: 800;
-  font-size: 12px;
-  margin-top: 25px;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-
-  @media screen and (max-width: 480px) {
-    padding: 16px;
-    font-size: 11px;
-    margin-top: 20px;
-    border-radius: 24px;
-  }
-
-  @media (hover: none) and (pointer: coarse) {
-    min-height: 52px;
-  }
-
-  &.locked {
-    background: #ebedf0;
-    color: #94a3b8;
-  }
-}
-
-.back-nav {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: ion-text-color;
-  font-weight: 800;
-  margin-bottom: 20px;
-  cursor: pointer;
-
-  @media screen and (max-width: 480px) {
-    margin-bottom: 15px;
-    font-size: 0.9rem;
-  }
-
-  @media (hover: none) and (pointer: coarse) {
-    padding: 10px 0;
-    min-height: 44px;
-  }
-}
-
-.blue-icon {
-  color: #3498db;
-  font-size: 1.3rem;
-
-  @media screen and (max-width: 480px) {
-    font-size: 1.2rem;
-  }
-}
-
-.green-icon {
-  color: #27ae60;
-  font-size: 1.3rem;
-
-  @media screen and (max-width: 480px) {
-    font-size: 1.2rem;
-  }
-}
-
-.orange-icon {
-  color: #f39c12;
-  font-size: 1.3rem;
-
-  @media screen and (max-width: 480px) {
-    font-size: 1.2rem;
-  }
-}
-
-.gray-icon {
-  color: #7f8c8d;
-  font-size: 1.3rem;
-
-  @media screen and (max-width: 480px) {
-    font-size: 1.2rem;
-  }
-}
-
-.blue-text { color: #3498db !important; }
-
-.custom-exception-modal {
-  --height: auto;
-  --width: 90%;
-  --max-width: 380px;
-  --border-radius: 28px;
-
-  @media screen and (max-width: 480px) {
-    --max-width: 350px;
-    --border-radius: 24px;
-  }
-
-  .modal-content {
-    padding: 25px;
-
-    @media screen and (max-width: 480px) {
-      padding: 20px;
-    }
-
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-
-      .main-icon {
-        font-size: 3.5rem;
-
-        @media screen and (max-width: 480px) {
-          font-size: 3rem;
-        }
-      }
-    }
-
-    .modal-body {
-      margin-top: 15px;
-
-      @media screen and (max-width: 480px) {
-        margin-top: 12px;
-      }
-
-      h2 {
-        color: ion-text-title;
-        font-weight: 800;
-        font-size: 1.4rem;
-        margin-bottom: 8px;
-
-        @media screen and (max-width: 480px) {
-          font-size: 1.2rem;
-        }
-      }
-
-      p {
-        color: ion-text-color;
-        font-size: 0.95rem;
-        line-height: 1.5;
-
-        @media screen and (max-width: 480px) {
-          font-size: 0.85rem;
-        }
-      }
-
-      .warning-text {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        margin-top: 15px;
-        padding: 10px;
-        background: #ebedf0;
-        border-radius: 10px;
-
-        @media screen and (max-width: 480px) {
-          padding: 8px;
-          margin-top: 12px;
-        }
-
-        ion-icon {
-          color: #f39c12;
-          font-size: 1.5rem;
-
-          @media screen and (max-width: 480px) {
-            font-size: 1.3rem;
-          }
-        }
-
-        span {
-          font-size: 0.80rem;
-          color: #c0392b;
-          font-weight: 700;
-
-          @media screen and (max-width: 480px) {
-            font-size: 0.75rem;
-          }
-        }
-      }
-    }
-
-    .modal-footer {
-      margin-top: 25px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-
-      @media screen and (max-width: 480px) {
-        margin-top: 20px;
-      }
-
-      .confirm-btn {
-        background: ion-background-color;
-        color: #ffffff;
-        border: none;
-        padding: 16px;
-        border-radius: 14px;
-        font-weight: 800;
-        font-size: 0.80rem;
-
-        @media screen and (max-width: 480px) {
-          padding: 14px;
-          font-size: 0.75rem;
-        }
-
-        @media (hover: none) and (pointer: coarse) {
-          min-height: 52px;
-        }
-      }
-
-      .cancel-link {
-        background: transparent;
-        color: #95a5a6;
-        font-weight: 700;
-        font-size: 0.70rem;
-        border: none;
-
-        @media screen and (max-width: 480px) {
-          font-size: 0.65rem;
-          padding: 12px;
-        }
-
-        @media (hover: none) and (pointer: coarse) {
-          min-height: 44px;
-        }
-      }
-    }
-  }
+  gap: 1rem;
 }
 
 .action-footer-btn {
-  background: ion-item-background;
-  color: ion-text-title;
-  width: 100%;
-  height: 55px;
-  border-radius: 18px;
-  border: none;
-  font-weight: 800;
-  font-size: 13px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 0.5rem;
+  background: $primary-color;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
-  @media screen and (max-width: 480px) {
-    height: 50px;
-    font-size: 12px;
-    border-radius: 16px;
-    gap: 10px;
-  }
+.action-footer-btn:hover {
+  background: darken($primary-color, 10%);
+}
 
-  @media screen and (max-width: 360px) {
-    height: 46px;
-    font-size: 11px;
-  }
+.logout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: $danger;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
 
-  @media (hover: none) and (pointer: coarse) {
-    min-height: 52px;
-  }
-
-  ion-icon {
-    font-size: 1.1rem;
-
-    @media screen and (max-width: 480px) {
-      font-size: 1rem;
-    }
-  }
+.logout-btn:hover {
+  background: darken($danger, 10%);
 }
 
 .page-container {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  min-height: 100vh;
+}
 
-  @media screen and (max-width: 480px) {
-    gap: 12px;
-  }
+.header-section {
+  margin-bottom: 2rem;
 }
 
 .header-with-back {
   display: flex;
   align-items: center;
-  gap: 15px;
-  margin-bottom: 10px;
-
-  @media screen and (max-width: 480px) {
-    gap: 12px;
-    margin-bottom: 8px;
-  }
+  gap: 0.5rem;
+  cursor: pointer;
 }
 
 .back-btn {
-  background: ion-item-background;
+  background: none;
   border: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  color: ion-text-title;
-  font-size: 20px;
-
-  @media screen and (max-width: 480px) {
-    width: 36px;
-    height: 36px;
-    font-size: 18px;
-    border-radius: 10px;
-  }
-
-  @media (hover: none) and (pointer: coarse) {
-    min-width: 44px;
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-.user-name-pass {
+  color: $primary-color;
   font-size: 1.5rem;
-  font-weight: 800;
-  color: ion-text-title;
-  margin: 0;
-
-  @media screen and (max-width: 480px) {
-    font-size: 1.3rem;
-  }
+  cursor: pointer;
 }
 
-.user-id-pass {
-  font-size: 11px;
-  font-weight: 700;
-  color: #94a3b8;
-  text-transform: uppercase;
-  margin: 0;
-
-  @media screen and (max-width: 480px) {
-    font-size: 10px;
-  }
-}
-
-.password-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-
-  @media screen and (max-width: 480px) {
-    gap: 12px;
-  }
-
-  .input-group-pass {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    text-align: left;
-
-    label {
-      font-size: 13px;
-      font-weight: 700;
-      color: #475569;
-
-      @media screen and (max-width: 480px) {
-        font-size: 12px;
-      }
-    }
-
-    input {
-      padding: 14px;
-      border-radius: 12px;
-      border: 1px solid #e2e8f0;
-      background: ion-item-background;
-      font-size: 1rem;
-
-      @media screen and (max-width: 480px) {
-        padding: 12px;
-        font-size: 16px; // Evita zoom en iOS
-        border-radius: 10px;
-      }
-    }
-  }
-}
-
-.form-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.submit-btn {
-  background: ion-item-background;
-  color: ion-text-title;
-  border: none;
-  padding: 16px;
-  border-radius: 16px;
-  font-size: 1rem;
-  font-weight: 700;
-  margin-top: 10px;
-
-  @media screen and (max-width: 480px) {
-    padding: 14px;
-    font-size: 0.95rem;
-    border-radius: 14px;
-  }
-
-  @media (hover: none) and (pointer: coarse) {
-    min-height: 52px;
-  }
-}
-
-.cancel-btn {
-  background: transparent;
-  color: ion-text-title;
-  border: none;
+.regresar-text {
   font-weight: 600;
-  padding: 10px;
-
-  @media screen and (max-width: 480px) {
-    padding: 12px;
-    font-size: 0.9rem;
-  }
-
-  @media (hover: none) and (pointer: coarse) {
-    min-height: 44px;
-  }
+  color: $primary-color;
 }
 
-//MENU HAMBURGUESA//
-.header-section {
-  margin-bottom: 10px;
-}
-
-.header-with-back {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 20px;
-
-  @media screen and (max-width: 480px) {
-    gap: 12px;
-    margin-bottom: 15px;
-  }
-
-  .regresar-text {
-    color: ion-text-color;
-    font-weight: 800;
-    font-size: 14px;
-    letter-spacing: 0.5px;
-
-    @media screen and (max-width: 480px) {
-      font-size: 13px;
-    }
-  }
+.seccion-anuncios {
+  margin-bottom: 2rem;
 }
 
 .cabecera-anuncios {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 15px;
-
-  @media screen and (max-width: 480px) {
-    gap: 8px;
-    margin-bottom: 12px;
-  }
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .icono-azul {
-  color: #3498db;
-  font-size: 1.1rem;
-
-  @media screen and (max-width: 480px) {
-    font-size: 1rem;
-  }
+  color: $secondary-color;
+  font-size: 1.5rem;
 }
 
 .titulo-tablon {
-  color: #3498db;
-  font-weight: 900;
-  font-size: 0.8rem;
-  letter-spacing: 1px;
-
-  @media screen and (max-width: 480px) {
-    font-size: 0.75rem;
-  }
-}
-
-.seccion-anuncios {
-  background: transparent;
-  margin-bottom: 18px;
-
-  @media screen and (max-width: 480px) {
-    margin-bottom: 15px;
-  }
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: $primary-color;
 }
 
 .lista-tarjetas {
   display: flex;
   flex-direction: column;
+  gap: 1rem;
 }
 
 .tarjeta-info {
-  background: ion-background-color;
-  padding: 15px;
-  border-radius: 16px;
-  border: 1px solid #e2e8f0;
-  margin-bottom: 12px;
-  text-align: left;
+  background: $surface;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px $shadow;
+}
 
-  @media screen and (max-width: 480px) {
-    padding: 12px;
-    border-radius: 14px;
-    margin-bottom: 10px;
-  }
+.fila-superior {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
 
-  .fila-superior {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.tag {
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
 
-    @media screen and (max-width: 360px) {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 5px;
-    }
-  }
+.tag-seguridad {
+  background: $danger;
+  color: white;
+}
 
-  .tag {
-    font-size: 0.65rem;
-    font-weight: 700;
-    padding: 2px 8px;
-    border-radius: 4px;
-    background: ion-item-background;
-    color: #3498db;
+.tag-sistemas {
+  background: $info;
+  color: white;
+}
 
-    @media screen and (max-width: 480px) {
-      font-size: 0.6rem;
-    }
-  }
+.tag-rh {
+  background: $success;
+  color: white;
+}
 
-  .fecha {
-    font-size: 0.75rem;
-    color: ion-text-color;
+.fecha {
+  font-size: 0.8rem;
+  color: $text-muted;
+}
 
-    @media screen and (max-width: 480px) {
-      font-size: 0.7rem;
-    }
-  }
+.titulo-nota {
+  font-size: 1rem;
+  font-weight: 600;
+  color: $primary-color;
+  margin: 0;
+}
 
-  .titulo-nota {
-    font-weight: 700;
-    font-size: 1rem;
-    color: ion-text-color;
-    margin: 8px 0 0;
-
-    @media screen and (max-width: 480px) {
-      font-size: 0.9rem;
-      margin: 6px 0 0;
-    }
-  }
+.seccion-recursos {
+  margin-bottom: 2rem;
 }
 
 .subtitulo-gris {
-  font-size: 0.90rem;
-  font-weight: 800;
-  color: ion-text-color;
-  margin: 25px 0 10px;
-  text-align: left;
-
-  @media screen and (max-width: 480px) {
-    font-size: 0.8rem;
-    margin: 20px 0 8px;
-  }
+  font-size: 0.9rem;
+  color: $text-muted;
+  font-weight: 600;
+  margin-bottom: 1rem;
 }
 
 .enlace-recurso {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px;
-  border-bottom: 1px solid #f1f5f9;
-  font-size: 0.75rem;
-  color: ion-text-color;
-  font-weight: 600;
+  padding: 1rem;
+  background: $surface;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px $shadow;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
-  @media screen and (max-width: 480px) {
-    padding: 12px;
-    font-size: 0.7rem;
-  }
-
-  @media (hover: none) and (pointer: coarse) {
-    min-height: 52px;
-  }
+.enlace-recurso:hover {
+  background: #f1f5f9;
 }
 
 .flechita {
-  color: ion-text-color;
-  font-size: 1rem;
-
-  @media screen and (max-width: 480px) {
-    font-size: 0.9rem;
-  }
+  color: $text-muted;
 }
 
 .menu-footer {
   margin-top: auto;
-  padding-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-
-  @media screen and (max-width: 480px) {
-    padding-top: 15px;
-    gap: 8px;
-  }
+  padding-top: 2rem;
 }
 
 .logout-menu-btn {
-  @extend .action-footer-btn;
-  background: #ebedf0;
-  color: #c0392b;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  border-radius: 16px;
-  padding: 12px;
-  font-weight: 800;
-
-  @media screen and (max-width: 480px) {
-    font-size: 12px;
-    padding: 10px;
-  }
+  gap: 0.5rem;
+  background: $danger;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem;
+  font-weight: 700;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-// Media queries
-@media screen and (max-width: 420px) {
+.logout-menu-btn:hover {
+  background: darken($danger, 10%);
+}
+
+.back-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  color: $primary-color;
+  font-weight: 600;
+}
+
+.info-card-blue {
+  background: linear-gradient(135deg, $primary-color, $secondary-color);
+  color: white;
+  border-radius: 18px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.centered-info h2 {
+  margin: 0.5rem 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.label-white {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 0.5rem;
+}
+
+.reloj-tag {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.history-card {
+  background: $surface;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px $shadow;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.history-item:last-child {
+  border-bottom: none;
+}
+
+.history-label {
+  font-size: 0.9rem;
+  color: $text-muted;
+  font-weight: 600;
+}
+
+.history-value {
+  font-weight: 700;
+}
+
+.blue-text {
+  color: $warning;
+}
+
+.green-text {
+  color: $success;
+}
+
+.orange-icon {
+  color: $warning;
+}
+
+.green-icon {
+  color: $success;
+}
+
+.red-icon {
+  color: $danger;
+}
+
+.kardex-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: $secondary-color;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem;
+  font-weight: 700;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.kardex-btn:hover {
+  background: darken($secondary-color, 10%);
+}
+
+.grid-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.action-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background: $surface;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px $shadow;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.action-box:hover {
+  background: #f1f5f9;
+  transform: translateY(-2px);
+}
+
+.action-box p {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: $primary-color;
+  text-align: center;
+}
+
+.blue-icon {
+  color: $secondary-color;
+  font-size: 2rem;
+}
+
+.footer-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: $primary-color;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem;
+  font-weight: 700;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.footer-btn:hover:not(.locked) {
+  background: darken($primary-color, 10%);
+}
+
+.footer-btn.locked {
+  background: $text-muted;
+  cursor: not-allowed;
+}
+
+.mensaje-error {
+  color: $danger;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.password-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.input-group-pass {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-group-pass label {
+  font-weight: 600;
+  color: $primary-color;
+}
+
+.input-group-pass input {
+  padding: 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.input-group-pass input:focus {
+  outline: none;
+  border-color: $secondary-color;
+  box-shadow: 0 0 0 2px rgba($secondary-color, 0.2);
+}
+
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.submit-btn {
+  background: $success;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: darken($success, 10%);
+}
+
+.cancel-btn {
+  background: $text-muted;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cancel-btn:hover {
+  background: darken($text-muted, 10%);
+}
+
+.user-name-pass {
+  margin: 0;
+  font-size: 1.5rem;
+  color: $primary-color;
+  font-weight: 700;
+}
+
+.user-id-pass {
+  margin: 0.25rem 0 0;
+  color: $text-muted;
+  font-size: 0.9rem;
+}
+
+// Modal styles
+.custom-exception-modal {
+  --backdrop-opacity: 0.5;
+}
+
+.modal-content {
+  background: $surface;
+  border-radius: 20px;
+  padding: 0;
+  max-width: 400px;
+  margin: auto;
+  box-shadow: 0 20px 40px $shadow;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.main-icon {
+  font-size: 2.5rem;
+}
+
+.close-btn {
+  --color: $text-muted;
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+.modal-body h2 {
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+  color: $primary-color;
+  font-weight: 700;
+}
+
+.input-group {
+  margin-bottom: 1rem;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: $primary-color;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: $secondary-color;
+  box-shadow: 0 0 0 2px rgba($secondary-color, 0.2);
+}
+
+.error-message {
+  color: $danger;
+  font-size: 0.8rem;
+}
+
+.warning-text {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: $warning;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.confirm-btn {
+  background: $success;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.confirm-btn:hover {
+  background: darken($success, 10%);
+}
+
+.modal-footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #e2e8f0;
+  text-align: center;
+}
+
+.cancel-link {
+  background: none;
+  border: none;
+  color: $text-muted;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.cancel-link:hover {
+  color: $primary-color;
+}
+
+@media (max-width: 640px) {
+  .background-wrapper {
+    padding: 1rem;
+  }
+
   .main-card {
-    padding: 25px 16px;
-  }
-  .menu-icon {
-    font-size: 24px;
-  }
-  .logout-menu-btn {
-    font-size: 12px;
-    padding: 10px;
-  }
-}
-
-@media screen and (min-width: 421px) and (max-width: 768px) {
-  .main-card {
-    max-width: 450px;
-    padding: 35px 30px;
+    padding: 1rem;
   }
 
-  .user-greeting h1 {
-    font-size: 2rem;
-  }
-}
-
-// Mejora para el scroll area
-.scroll-area {
-  max-height: 350px;
-  overflow-y: auto;
-  padding-right: 4px;
-
-  @media screen and (max-width: 480px) {
-    max-height: 300px;
+  .header-container {
+    flex-direction: column;
+    align-items: stretch;
   }
 
-  &::-webkit-scrollbar {
-    width: 4px;
+  .segment-container {
+    flex-direction: column;
   }
 
-  &::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 4px;
+  .employee-card {
+    flex-direction: column;
+    align-items: stretch;
   }
 
-  &::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 4px;
+  .grid-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column;
   }
 }

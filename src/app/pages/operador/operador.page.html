@@ -1,155 +1,119 @@
 <ion-content [fullscreen]="true">
-      <app-background-layout>
+
+  <app-background-layout></app-background-layout>
+
   <div class="operator-wrapper">
     <div class="operator-card">
 
       <div class="page-container" *ngIf="view === 'dashboard'">
-        <header class="header-main">
-          <div class="welcome-header">
-            <h1 class="user-name">¡Hola, Daniel Olivas!</h1>
-            <p class="user-id">ID: 26519 • Linea Ensamble A</p>
+
+        <header class="welcome-header">
+          <div class="profile-panel">
+            <div class="profile-text">
+              <p class="subtitle">Bienvenido de nuevo</p>
+              <h1 class="user-name">¡Hola, {{ usuario?.nombre }}!</h1>
+              <p class="user-id">ID: {{ usuario?.id }} • Rol: {{ usuario?.rol }}</p>
+            </div>
           </div>
-          <ion-icon name="menu-outline" class="menu-icon" (click)="setView('menu')"></ion-icon>
+
+          <div class="status-card">
+            <div class="indicator-wrapper">
+              <div class="light-circle" [ngClass]="semaforo"></div>
+            </div>
+            <div class="status-text-box">
+              <h2 class="status-title">Estado: {{ estadoActual }}</h2>
+              <p class="status-msg">Último registro de asistencia</p>
+            </div>
+          </div>
         </header>
 
-        <div class="status-section">
-          <div class="light-circle stable"></div>
-          <div class="status-text-box">
-            <h2 class="status-title">Estado: Estable</h2>
-            <p class="status-msg">¡Sigue Así!</p>
+        <section class="history-section">
+          <div class="section-title-row">
+            <p class="field-label">Historial Reciente</p>
+            <span class="history-count">{{ historialReciente.length }} registros</span>
           </div>
-        </div>
 
-        <p class="field-label-header">Historial Reciente</p>
-        <div class="history-card">
-          <div class="history-item">
-            <span class="history-label">HOY</span>
-            <strong class="history-value">REGISTRADO</strong>
-            <ion-icon name="checkmark-circle" class="green-icon"></ion-icon>
+          <div class="history-card">
+            <div class="history-item" *ngFor="let item of historialReciente">
+              <span class="history-label">{{ item.fecha | date:'dd/MM/yyyy' }}</span>
+              <strong class="history-value">{{ item.estado }}</strong>
+            </div>
+            <div class="empty-state" *ngIf="historialReciente.length === 0">
+              No hay registros recientes disponibles.
+            </div>
           </div>
-          <div class="history-item">
-            <span class="history-label">AYER</span>
-            <strong class="history-value">PUNTUAL</strong>
-            <ion-icon name="checkmark-circle" class="green-icon"></ion-icon>
-          </div>
-          <div class="history-item">
-            <span class="history-label">04 FEB</span>
-            <strong class="history-value">RETARDO</strong>
-            <ion-icon name="time-outline" class="orange-icon"></ion-icon>
-          </div>
-        </div>
-
-        <button class="kardex-btn">
-          <ion-icon name="document-text-outline"></ion-icon> VER KARDEX COMPLETO
-        </button>
+        </section>
 
         <div class="button-section">
-          <button class="action-footer-btn" (click)="setView('password')">
-            <ion-icon name="key-outline"></ion-icon>
-            CAMBIAR CONTRASEÑA
-          </button>
+          <ion-button expand="block" class="primary-btn" (click)="verKardex()">
+            Ver Kardex Completo
+          </ion-button>
+
+          <ion-button expand="block" fill="outline" class="secondary-btn" (click)="setView('password')">
+            <ion-icon slot="start" name="key-outline"></ion-icon>
+            Cambiar contraseña
+          </ion-button>
+
+          <ion-button expand="block" class="danger-btn" (click)="cerrarSesion()">
+            <ion-icon slot="start" name="log-out-outline"></ion-icon>
+            Cerrar sesión
+          </ion-button>
         </div>
+
       </div>
 
-      <div class="page-container" *ngIf="view === 'menu'">
-  <div class="header-section">
-    <div class="header-with-back" (click)="setView('dashboard')" style="cursor: pointer;">
-      <button class="back-btn">
-        <ion-icon name="arrow-back-outline"></ion-icon>
-      </button>
-      <span class="regresar-text">REGRESAR</span>
-    </div>
-  </div>
+      <div class="page-container password-view" *ngIf="view === 'password'">
 
-        <div class="seccion-anuncios">
-          <div class="cabecera-anuncios">
-            <ion-icon name="megaphone-outline" class="icono-azul"></ion-icon>
-            <span class="titulo-tablon">ANUNCIOS</span>
-          </div>
+        <header class="header-with-back">
 
-          <div class="lista-tarjetas">
-            <div class="tarjeta-info">
-              <div class="fila-superior">
-                <span class="tag tag-seguridad">SEGURIDAD</span>
-                <span class="fecha">Hoy</span>
-              </div>
-              <p class="titulo-nota">Aviso de seguridad</p>
-            </div>
-
-            <div class="tarjeta-info">
-              <div class="fila-superior">
-                <span class="tag tag-sistemas">SISTEMAS</span>
-                <span class="fecha">Mañana</span>
-              </div>
-              <p class="titulo-nota">Mantenimiento Programado</p>
-            </div>
-
-            <div class="tarjeta-info">
-              <div class="fila-superior">
-                <span class="tag tag-rh">RH</span>
-                <span class="fecha">25 Feb</span>
-              </div>
-              <p class="titulo-nota">Nuevos Horarios de Comedor</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="seccion-recursos">
-          <p class="subtitulo-gris">RECURSOS DE CONSULTA</p>
-          <div class="enlace-recurso">
-            <span><ion-icon name="document-text-outline"></ion-icon> Manual de Usuario</span>
-            <ion-icon name="chevron-forward-outline" class="flechita"></ion-icon>
-          </div>
-          <div class="enlace-recurso">
-            <span><ion-icon name="shield-checkmark-outline"></ion-icon> Reglamento Interno</span>
-            <ion-icon name="chevron-forward-outline" class="flechita"></ion-icon>
-          </div>
-          <div class="enlace-recurso">
-            <span><ion-icon name="help-circle-outline"></ion-icon> Soporte Técnico</span>
-            <ion-icon name="chevron-forward-outline" class="flechita"></ion-icon>
-          </div>
-        </div>
-
-        <div class="menu-footer" style="margin-top: auto; padding-top: 20px;">
-          <button class="logout-menu-btn" (click)="cerrarSesion()">
-            <ion-icon name="log-out-outline"></ion-icon> Cerrar Sesión
-          </button>
-        </div>
-      </div>
-
-      <div class="page-container" *ngIf="view === 'password'">
-        <div class="header-with-back">
           <button class="back-btn" (click)="setView('dashboard')">
             <ion-icon name="arrow-back-outline"></ion-icon>
           </button>
-          <div style="text-align: left;">
-            <h1 class="user-name-pass">Nueva Contraseña</h1>
-            <p class="user-id-pass">Asegura tu cuenta</p>
-          </div>
-        </div>
 
-        <form class="password-form" (submit)="$event.preventDefault()">
+          <div>
+            <h1 class="user-name">Nueva Contraseña</h1>
+            <p class="user-id">Asegura tu cuenta</p>
+          </div>
+
+        </header>
+
+        <form class="password-form" (submit)="cambiarPassword()">
+
           <div class="input-group-pass">
             <label>Contraseña Actual</label>
-            <input type="password" placeholder="••••••••">
+            <input type="password" [(ngModel)]="passwordActual" name="actual">
           </div>
+
           <div class="input-group-pass">
             <label>Nueva Contraseña</label>
-            <input type="password" placeholder="Mínimo 8 caracteres">
+            <input type="password" [(ngModel)]="passwordNueva" name="nueva">
           </div>
+
           <div class="input-group-pass">
             <label>Confirmar Nueva Contraseña</label>
-            <input type="password" placeholder="Repite tu contraseña">
+            <input type="password" [(ngModel)]="passwordConfirmar" name="confirmar">
           </div>
 
           <div class="form-actions">
-            <button type="submit" class="submit-btn">Actualizar Contraseña</button>
-            <button type="button" class="cancel-btn" (click)="setView('dashboard')">Cancelar</button>
+
+            <button type="submit" class="submit-btn">
+              Actualizar Contraseña
+            </button>
+
+            <button
+              type="button"
+              class="cancel-btn"
+              (click)="setView('dashboard')">
+              Cancelar
+            </button>
+
           </div>
+
         </form>
+
       </div>
 
     </div>
   </div>
-  </app-background-layout>
+
 </ion-content>

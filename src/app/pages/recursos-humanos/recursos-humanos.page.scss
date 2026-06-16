@@ -1,10 +1,8 @@
-// Se necesita refectorizar ciertas cosas pero creo que la mayoria se visualiza bien
-
 .field-label {
   font-size: 0.65rem;
   font-weight: 700;
   margin-bottom: 12px;
-  color: ion-text-color-step-300;
+  color: var(--ion-text-color-step-300, #718096);
 
   @media screen and (max-width: 480px) {
     font-size: 0.6rem;
@@ -19,7 +17,7 @@
 .fecha-subtitle {
   font-size: 11px;
   font-weight: 700;
-  color: ion-border-color;
+  color: var(--ion-color-step-400, #a0aec0);
   text-transform: uppercase;
   margin-bottom: 30px;
 
@@ -35,7 +33,7 @@
   align-items: center;
   min-height: 100%;
   padding: 20px;
-  background: ion-background-color;
+  background: transparent !important; // Fuerza la transparencia para revelar el layout inferior
 
   @media screen and (max-width: 480px) {
     padding: 12px;
@@ -46,12 +44,14 @@
   }
 
   .main-card {
-    background: card-background;
+    // Se añade un respaldo oscuro (--ion-background-color) para cuando el tema cambie
+    background: var(--ion-card-background, var(--ion-item-background, var(--ion-background-color, #ffffff)));
     width: 100%;
     max-width: 400px;
     padding: 30px 25px;
     border-radius: 32px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
 
     @media screen and (max-width: 480px) {
       padding: 25px 20px;
@@ -68,8 +68,8 @@
 .user-greeting h1 {
   font-size: 1.75rem;
   font-weight: 800;
-  color: ion-text-title;
-  margin-bottom: 5px;
+  color: var(--ion-text-color, #1a202c);
+  margin: 0 0 5px 0;
 
   @media screen and (max-width: 480px) {
     font-size: 1.5rem;
@@ -84,33 +84,11 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-
-  @media screen and (max-width: 480px) {
-    margin-bottom: 5px;
-  }
-}
-
-.logout-icon {
-  color: ion-color-danger;
-  font-size: 1.6rem;
-  cursor: pointer;
-
-  @media screen and (max-width: 480px) {
-    font-size: 1.4rem;
-  }
-
-  @media (hover: none) and (pointer: coarse) {
-    padding: 8px;
-    min-width: 44px;
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  margin-bottom: 15px;
 }
 
 .menu-icon {
-  color: ion-text-color-step-300;
+  color: var(--ion-text-color-step-300, #4a5568);
   font-size: 2rem;
   cursor: pointer;
   padding: 5px;
@@ -124,28 +102,22 @@
     font-size: 1.6rem;
   }
 
-  @media (hover: none) and (pointer: coarse) {
-    padding: 8px;
-    min-width: 44px;
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
   &:active { opacity: 0.6; }
 }
 
-//SOLICITUDES Y SUSPENDIDOS//
 .solicitud-card {
-  background: ion-color-primary;
-  border: 1px solid #3e444a;
+  background: var(--ion-color-light, #f7fafc);
+  border: 1px solid var(--ion-border-color, #e2e8f0);
   border-radius: 16px;
   padding: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 12px;
+
+  &.suspended-border {
+    border-left: 4px solid #ef4444;
+  }
 
   @media screen and (max-width: 480px) {
     padding: 12px;
@@ -161,139 +133,83 @@
   }
 
   .sol-info {
+    display: flex;
+    flex-direction: column;
+
     .name {
-      display: block;
       font-size: 0.95rem;
       font-weight: 700;
-      color: ion-text-color;
-
-      @media screen and (max-width: 480px) {
-        font-size: 0.9rem;
-      }
+      color: var(--ion-text-color, #2d3748);
     }
 
     .meta {
-      font-size: 0.815rem;
-      color: ion-color-primary;
-
-      @media screen and (max-width: 480px) {
-        font-size: 0.75rem;
-      }
+      font-size: 0.8rem;
+      color: var(--ion-color-step-600, #718096);
+      margin-top: 2px;
     }
   }
 
   .btn-revisar {
-    background: ion-item-background;
-    color: ion-text-color;
+    background: var(--ion-color-primary, #3880ff);
+    color: var(--ion-color-primary-contrast, #ffffff);
     border: none;
     padding: 8px 12px;
     border-radius: 10px;
     font-size: 9px;
     font-weight: 800;
-
-    @media screen and (max-width: 480px) {
-      padding: 7px 10px;
-      font-size: 8px;
-    }
+    cursor: pointer;
 
     @media screen and (max-width: 360px) {
       width: 100%;
-    }
-
-    @media (hover: none) and (pointer: coarse) {
-      min-height: 44px;
-    }
-  }
-
-  .btn-susp {
-    background: ion-border-field;
-    color: ion-color-danger;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 10px;
-    font-size: 9px;
-    font-weight: 800;
-
-    @media screen and (max-width: 480px) {
-      padding: 7px 10px;
-      font-size: 8px;
-    }
-
-    @media screen and (max-width: 360px) {
-      width: 100%;
+      padding: 10px;
     }
   }
 }
 
-//SEMAFOROS//
 .segment-container {
   display: flex;
-  background: ion-color-primary;
-  padding: 5px;
+  background: var(--ion-color-step-100, #f7fafc);
+  padding: 4px;
   border-radius: 12px;
-  margin-bottom: 25px;
-
-  @media screen and (max-width: 480px) {
-    margin-bottom: 20px;
-  }
+  margin-bottom: 20px;
+  gap: 4px;
 
   @media screen and (max-width: 360px) {
     flex-direction: column;
-    gap: 5px;
   }
 
   button {
     flex: 1;
     border: none;
+    background: transparent;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 8px;
     font-weight: 800;
     font-size: 0.7rem;
-    color: ion-text-color-step-300;
+    color: var(--ion-text-color-step-400, #718096);
+    cursor: pointer;
+    transition: all 0.2s ease;
 
-    @media screen and (max-width: 480px) {
-      padding: 8px;
-      font-size: 0.65rem;
-    }
-
-    @media screen and (max-width: 360px) {
-      width: 100%;
-    }
-
-    @media (hover: none) and (pointer: coarse) {
-      min-height: 44px;
-    }
-
-    &.active-red { background: #c0392b; color: ion-text-color; }
-    &.active-yellow { background: #f39c12; color: ion-text-color; }
-    &.active-green { background: #16a085; color: ion-text-color; }
+    &.active-red { background: #c0392b; color: #ffffff; }
+    &.active-yellow { background: #f39c12; color: #ffffff; }
+    &.active-green { background: #16a085; color: #ffffff; }
   }
 }
 
-//OPERADORES//
 .employee-card {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 16px;
-  background: ion-background-color;
-  border: 1px solid #e2e8f0;
+  background: var(--ion-item-background, var(--ion-background-color, #ffffff));
+  border: 1px solid var(--ion-border-color, #e2e8f0);
   border-radius: 16px;
   margin-bottom: 12px;
-
-  @media screen and (max-width: 480px) {
-    padding: 14px;
-    border-radius: 14px;
-    margin-bottom: 10px;
-  }
-
-  @media screen and (max-width: 360px) {
-    padding: 12px;
-  }
+  cursor: pointer;
 
   .indicator {
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
     margin-right: 12px;
     flex-shrink: 0;
@@ -305,95 +221,53 @@
 
   .employee-info {
     flex: 1;
-    min-width: 0; // Para evitar desbordamiento
+    min-width: 0;
 
     .nombre-operador {
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 700;
-      color: ion-text-title;
+      color: var(--ion-text-color, #2d3748);
+      margin: 0;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-
-      @media screen and (max-width: 480px) {
-        font-size: 1rem;
-      }
     }
 
     .reloj-text {
-      font-size: 0.9rem;
-      color: ion-color-primary-contrast;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-
-      @media screen and (max-width: 480px) {
-        font-size: 0.8rem;
-      }
+      font-size: 0.8rem;
+      color: var(--ion-color-step-600, #718096);
+      margin: 2px 0 0 0;
     }
   }
 
   .chevron-icon {
-    color: input-background-focused;
-    font-size: 1.1rem;
-    flex-shrink: 0;
-
-    @media screen and (max-width: 480px) {
-      font-size: 1rem;
-    }
-  }
-
-  @media (hover: none) and (pointer: coarse) {
-    min-height: 70px;
+    color: var(--ion-color-step-400, #a0aec0);
+    font-size: 1.2rem;
   }
 }
 
 .info-card-blue {
-  background: button-background;
-  padding: 30px 20px;
+  background: var(--ion-color-primary, #3880ff);
+  padding: 25px 20px;
   border-radius: 24px;
-  color: ion-background-color;
+  color: var(--ion-color-primary-contrast, #ffffff);
   margin-bottom: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  @media screen and (max-width: 480px) {
-    padding: 25px 15px;
-    border-radius: 20px;
-    margin-bottom: 20px;
-  }
-
-  @media screen and (max-width: 360px) {
-    padding: 20px 12px;
-    border-radius: 18px;
-  }
-
   h2 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 800;
     margin: 12px 0;
-
-    @media screen and (max-width: 480px) {
-      font-size: 1.5rem;
-      margin: 10px 0;
-    }
-
-    @media screen and (max-width: 360px) {
-      font-size: 1.3rem;
-    }
+    text-align: center;
   }
 
   .reloj-tag {
-    background: rgba(255,255,255,0.15);
+    background: rgba(255, 255, 255, 0.2);
     padding: 4px 14px;
     border-radius: 8px;
     font-size: 0.75rem;
-
-    @media screen and (max-width: 480px) {
-      font-size: 0.7rem;
-      padding: 4px 12px;
-    }
   }
 
   .semaforo-pill {
@@ -401,10 +275,7 @@
     border-radius: 20px;
     font-size: 0.65rem;
     font-weight: 800;
-
-    @media screen and (max-width: 480px) {
-      font-size: 0.6rem;
-    }
+    color: #ffffff;
 
     &.rojo { background: #c0392b; }
     &.amarillo { background: #f39c12; }
@@ -412,139 +283,76 @@
   }
 }
 
-//HISTORIAL//
 .history-card {
-  border: 1px solid ion-item-background;
+  border: 1px solid var(--ion-border-color, #e2e8f0);
   border-radius: 20px;
   padding: 5px 20px;
-  margin-bottom: 15px;
-
-  @media screen and (max-width: 480px) {
-    padding: 5px 16px;
-    border-radius: 18px;
-    margin-bottom: 12px;
-  }
-
-  @media screen and (max-width: 360px) {
-    padding: 5px 12px;
-  }
+  margin-bottom: 20px;
+  background: var(--ion-item-background, var(--ion-background-color, #ffffff));
 }
 
 .history-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 0;
-
-  @media screen and (max-width: 480px) {
-    padding: 12px 0;
-  }
-
-  @media screen and (max-width: 360px) {
-    padding: 10px 0;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
+  padding: 14px 0;
 
   &:not(:last-child) {
-    border-bottom: 1px solid #f1f5f9;
+    border-bottom: 1px solid var(--ion-border-color, #f1f5f9);
   }
 
   .history-label {
-    font-size: .75rem;
-    color: ion-border-field;
+    font-size: 0.75rem;
+    color: var(--ion-color-step-500, #718096);
     font-weight: 700;
-
-    @media screen and (max-width: 480px) {
-      font-size: 0.7rem;
-    }
   }
 
   .history-value {
     font-size: 0.8rem;
-    color: ion-text-title;
-    font-weight: 800;
+    color: var(--ion-text-color, #2d3748);
     text-transform: uppercase;
-
-    @media screen and (max-width: 480px) {
-      font-size: 0.75rem;
-    }
-  }
-
-  ion-icon {
-    font-size: 1.1rem;
-
-    @media screen and (max-width: 480px) {
-      font-size: 1rem;
-    }
   }
 }
 
-// Iconos de colores
-.black-icon { color: #000000; }
+.black-icon { color: var(--ion-text-color, #000000); }
 .red-icon { color: #c0392b; }
 .green-icon { color: #16a085; }
 .orange-icon { color: #f39c12; }
-.pending-icon { color: #bdc3c7; }
 
-//BOTONES//
 .kardex-btn {
   width: 100%;
-  background: ion-background-color;
-  border: 1.5px dashed #cbd5e0;
-  padding: 12px;
+  background: transparent;
+  border: 1.5px dashed var(--ion-color-step-400, #cbd5e0);
+  padding: 14px;
   border-radius: 14px;
-  color: ion-text-color;
-  font-size: 0.65rem;
+  color: var(--ion-text-color, #4a5568);
+  font-size: 0.7rem;
   font-weight: 800;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-
-  @media screen and (max-width: 480px) {
-    padding: 10px;
-    font-size: 0.6rem;
-    border-radius: 12px;
-  }
-
-  @media (hover: none) and (pointer: coarse) {
-    min-height: 48px;
-  }
+  cursor: pointer;
+  margin-bottom: 15px;
 }
 
 .decision-footer {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-top: 25px;
-
-  @media screen and (max-width: 480px) {
-    margin-top: 20px;
-    gap: 8px;
-  }
+  margin-top: 20px;
 
   .btn-action {
-    padding: 16px;
+    padding: 15px;
     border-radius: 16px;
     border: none;
-    color: ion-color-primary-contrast;
+    color: #ffffff;
     font-weight: 800;
     font-size: 0.75rem;
-
-    @media screen and (max-width: 480px) {
-      padding: 14px;
-      font-size: 0.7rem;
-      border-radius: 14px;
-    }
-
-    @media (hover: none) and (pointer: coarse) {
-      min-height: 52px;
-    }
+    cursor: pointer;
 
     &.approve { background: #16a085; }
     &.reject { background: #c0392b; }
-    &.reactivate { background: #3e444a; }
   }
 }
 
@@ -552,59 +360,28 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  color: ion-color-primary;
+  color: var(--ion-color-primary, #3880ff);
   font-weight: 800;
   margin-bottom: 20px;
   cursor: pointer;
-
-  @media screen and (max-width: 480px) {
-    margin-bottom: 15px;
-    gap: 6px;
-    font-size: 0.9rem;
-  }
-
-  @media (hover: none) and (pointer: coarse) {
-    padding: 10px 0;
-    min-height: 44px;
-  }
-
-  ion-icon {
-    @media screen and (max-width: 480px) {
-      font-size: 1.2rem;
-    }
-  }
+  font-size: 0.85rem;
 }
 
 .footer-btn, .action-footer-btn {
-  background: ion-color-primary-contrast;
-  color: ion-text-color;
+  background: var(--ion-color-primary-contrast, transparent);
+  color: var(--ion-text-color, #2d3748);
+  border: 1px solid var(--ion-border-color, #cbd5e0);
   width: 100%;
   border-radius: 40px;
-  padding: 18px;
+  padding: 16px;
   font-weight: 800;
   font-size: 0.75rem;
-  margin-top: 25px;
-  border: none;
+  margin-top: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-
-  @media screen and (max-width: 480px) {
-    padding: 16px;
-    font-size: 0.7rem;
-    margin-top: 20px;
-    border-radius: 30px;
-  }
-
-  @media (hover: none) and (pointer: coarse) {
-    min-height: 52px;
-  }
-}
-
-//MENU HAMBURGUESA//
-.header-section {
-  margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .header-with-back {
@@ -613,490 +390,148 @@
   gap: 15px;
   margin-bottom: 20px;
 
-  @media screen and (max-width: 480px) {
-    gap: 12px;
-    margin-bottom: 15px;
-  }
-
   .regresar-text {
-    color: ion-text-title;
+    color: var(--ion-text-color, #1a202c);
     font-weight: 800;
     font-size: 14px;
-    letter-spacing: 0.5px;
-
-    @media screen and (max-width: 480px) {
-      font-size: 13px;
-    }
   }
 }
 
-//ANUNCIOS//
-.cabecera-anuncios {
-  display: flex;
+.back-btn {
+  background: var(--ion-color-light, #f7fafc);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  color: var(--ion-text-color, #1a202c);
+  font-size: 20px;
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 15px;
-
-  @media screen and (max-width: 480px) {
-    gap: 8px;
-    margin-bottom: 12px;
-  }
-}
-
-.icono-azul {
-  color: #3498db;
-  font-size: 1.4rem;
-
-  @media screen and (max-width: 480px) {
-    font-size: 1.2rem;
-  }
-}
-
-.titulo-tablon {
-  color: #3498db;
-  font-weight: 900;
-  font-size: 12px;
-  letter-spacing: 1px;
-
-  @media screen and (max-width: 480px) {
-    font-size: 11px;
-  }
+  justify-content: center;
+  cursor: pointer;
 }
 
 .seccion-anuncios {
-  background: transparent;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 
-  @media screen and (max-width: 480px) {
-    margin-bottom: 15px;
+  .cabecera-anuncios {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
   }
-}
 
-.lista-tarjetas {
-  display: flex;
-  flex-direction: column;
+  .icono-azul { color: #3498db; font-size: 1.2rem; }
+  .titulo-tablon { color: #3498db; font-weight: 900; font-size: 11px; letter-spacing: 0.5px; }
 }
 
 .tarjeta-info {
-  background: ion-background-color;
-  padding: 15px;
-  border-radius: 16px;
-  border: 1px solid #e2e8f0;
-  margin-bottom: 12px;
-  text-align: left;
-
-  @media screen and (max-width: 480px) {
-    padding: 12px;
-    border-radius: 14px;
-    margin-bottom: 10px;
-  }
+  background: var(--ion-item-background, var(--ion-background-color, #ffffff));
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid var(--ion-border-color, #e2e8f0);
+  margin-bottom: 10px;
 
   .fila-superior {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    @media screen and (max-width: 360px) {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 5px;
-    }
   }
 
   .tag {
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     font-weight: 700;
-    padding: 2px 8px;
+    padding: 2px 6px;
     border-radius: 4px;
-    background: ion-item-background;
+    background: var(--ion-color-light, #f1f5f9);
     color: #3498db;
-
-    @media screen and (max-width: 480px) {
-      font-size: 0.7rem;
-    }
   }
 
-  .fecha {
-    font-size: 0.75rem;
-    color: ion-text-color-step-300;
-    font-weight: 800;
-
-    @media screen and (max-width: 480px) {
-      font-size: 0.7rem;
-    }
-  }
-
-  .titulo-nota {
-    font-weight: 800;
-    font-size: 0.9rem;
-    color: ion-text-color;
-    margin: 8px 0 0;
-
-    @media screen and (max-width: 480px) {
-      font-size: 0.85rem;
-    }
-  }
+  .fecha { font-size: 0.7rem; color: var(--ion-color-step-400, #a0aec0); }
+  .titulo-nota { font-weight: 800; font-size: 0.85rem; margin: 8px 0 0 0; }
 }
 
 .subtitulo-gris {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 800;
-  color: ion-text-color;
-  margin: 25px 0 10px;
-  text-align: left;
-
-  @media screen and (max-width: 480px) {
-    font-size: 0.65rem;
-    margin: 20px 0 8px;
-  }
+  color: var(--ion-color-step-500, #718096);
+  margin: 20px 0 10px 0;
 }
 
 .enlace-recurso {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px;
-  border-bottom: 1px solid #f1f5f9;
-  font-size: 0.9rem;
-  color: ion-text-color;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--ion-border-color, #f1f5f9);
+  font-size: 0.85rem;
+  color: var(--ion-text-color, #2d3748);
   font-weight: 600;
 
-  @media screen and (max-width: 480px) {
-    padding: 12px;
-    font-size: 0.85rem;
-  }
-
-  @media (hover: none) and (pointer: coarse) {
-    min-height: 52px;
-  }
-
-  > span {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    @media screen and (max-width: 480px) {
-      gap: 8px;
-    }
-  }
-
-  ion-icon.flechita {
-    color: #ebedf0;
-    font-size: 16px;
-    line-height: 1;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 22px;
-    height: 22px;
-    margin-left: 8px;
-    transition: transform 0.12s ease, opacity 0.12s ease;
-    opacity: 0.95;
-
-    @media screen and (max-width: 480px) {
-      width: 20px;
-      height: 20px;
-      font-size: 15px;
-      margin-left: 6px;
-    }
-  }
-
-  &:hover ion-icon.flechita,
-  &:active ion-icon.flechita,
-  &:focus ion-icon.flechita {
-    transform: translateX(4px);
-    opacity: 1;
-  }
-}
-
-.menu-footer {
-  margin-top: auto;
-  padding-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-
-  @media screen and (max-width: 480px) {
-    padding-top: 15px;
-    gap: 8px;
-  }
+  span { display: flex; align-items: center; gap: 10px; }
+  .flechita { color: var(--ion-color-step-300, #cbd5e0); }
 }
 
 .logout-menu-btn {
   @extend .action-footer-btn;
-  background: ion-color-primary-contrast;
+  border: 1px solid #c0392b;
   color: #c0392b;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
   border-radius: 16px;
-  padding: 12px;
-  font-weight: 800;
-  font-size: 1.05rem;
-
-  @media screen and (max-width: 480px) {
-    font-size: 0.95rem;
-    padding: 10px;
-    gap: 8px;
-  }
-
-  @media (hover: none) and (pointer: coarse) {
-    min-height: 52px;
-  }
 }
 
-//VISTA: Cambiar Contraseña//
-.page-container {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-
-  @media screen and (max-width: 480px) {
-    gap: 12px;
-  }
-}
-
-.header-with-back {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 10px;
-
-  @media screen and (max-width: 480px) {
-    gap: 12px;
-    margin-bottom: 8px;
-  }
-}
-
-.back-btn {
-  background: ion-background-color;
-  border: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  color: ion-text-title;
-  font-size: 20px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-
-  @media screen and (max-width: 480px) {
-    width: 36px;
-    height: 36px;
-    font-size: 18px;
-    border-radius: 10px;
-  }
-
-  @media (hover: none) and (pointer: coarse) {
-    min-width: 44px;
-    min-height: 44px;
-  }
-}
-
-.user-name-pass {
-  font-size: 2rem;
-  font-weight: 800;
-  color: ion-text-color;
-  margin: 0;
-
-  @media screen and (max-width: 480px) {
-    font-size: 1.6rem;
-  }
-
-  @media screen and (max-width: 360px) {
-    font-size: 1.4rem;
-  }
-}
-
-.user-id-pass {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: ion-background-color;
-  text-transform: uppercase;
-  margin: 0;
-
-  @media screen and (max-width: 480px) {
-    font-size: 0.65rem;
-  }
-}
+.user-name-pass { font-size: 1.6rem; font-weight: 800; margin: 0; }
+.user-id-pass { font-size: 0.65rem; color: var(--ion-color-step-500, #718096); margin: 2px 0 0 0; }
 
 .password-form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 12px;
+  margin-top: 15px;
 
-  @media screen and (max-width: 480px) {
-    gap: 12px;
-  }
-}
+  .input-group-pass {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 
-.input-group-pass {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  text-align: left;
-
-  label {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: ion-border-field;
-
-    @media screen and (max-width: 480px) {
-      font-size: 0.75rem;
-    }
-  }
-
-  input {
-    padding: 14px;
-    border-radius: 12px;
-    border: 1px solid #e2e8f0;
-    background: ion-background-color;
-    font-size: 0.5rem;
-    outline: none;
-    transition: box-shadow 0.12s ease, border-color 0.12s ease;
-
-    @media screen and (max-width: 480px) {
+    label { font-size: 0.75rem; font-weight: 700; color: var(--ion-text-color-step-400, #4a5568); }
+    input {
       padding: 12px;
-      font-size: 16px; // Evita zoom en iOS
       border-radius: 10px;
-    }
-
-    &:focus {
-      border-color: rgba(#bdc3c7, 0.12);
-      box-shadow: 0 4px 12px rgba(26,61,99,0.06);
+      border: 1px solid var(--ion-border-color, #e2e8f0);
+      background: var(--ion-item-background, var(--ion-background-color, #ffffff));
+      font-size: 0.9rem;
+      color: var(--ion-text-color, #000000);
+      outline: none;
     }
   }
-}
-
-.form-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
 }
 
 .submit-btn {
   background: #3498db;
-  color: ion-text-color;
+  color: #ffffff;
   border: none;
-  padding: 16px;
-  border-radius: 16px;
-  font-size: 15px;
+  padding: 14px;
+  border-radius: 14px;
+  font-size: 0.85rem;
   font-weight: 700;
   cursor: pointer;
-  transition: transform 0.08s ease, box-shadow 0.12s ease;
-
-  @media screen and (max-width: 480px) {
-    padding: 14px;
-    font-size: 14px;
-    border-radius: 14px;
-  }
-
-  @media (hover: none) and (pointer: coarse) {
-    min-height: 52px;
-  }
-
-  &:active { transform: translateY(1px); }
 }
 
 .cancel-btn {
   background: transparent;
-  color: ion-color-primary-contrast;
+  color: var(--ion-color-step-600, #718096);
   border: none;
-  font-weight: 600;
   padding: 10px;
   cursor: pointer;
-  text-align: center;
-
-  @media screen and (max-width: 480px) {
-    padding: 12px;
-    font-size: 0.9rem;
-  }
-
-  @media (hover: none) and (pointer: coarse) {
-    min-height: 44px;
-  }
 }
 
-.password-hint {
-  font-size: 0.6rem;
-  color: ion-color-primary-contrasto;
-  margin-top: -6px;
-
-  @media screen and (max-width: 480px) {
-    font-size: 0.55rem;
-  }
-}
-
-// Media queries de algunas pantallas posibles
-@media screen and (max-width: 420px) {
-  .main-card {
-    padding: 25px 16px;
-  }
-
-  .menu-icon {
-    font-size: 24px;
-  }
-
-  .logout-menu-btn {
-    font-size: 13px;
-    padding: 10px;
-  }
-
-  .user-name-pass {
-    font-size: 1.5rem;
-  }
-
-  .back-btn {
-    width: 34px;
-    height: 34px;
-  }
-
-  .input-group-pass input {
-    padding: 10px;
-  }
-
-  .submit-btn {
-    padding: 12px;
-    font-size: 13px;
-  }
-}
-
-// Breakpoint para tablets chicas
-@media screen and (min-width: 421px) and (max-width: 768px) {
-  .main-card {
-    max-width: 450px;
-    padding: 35px 30px;
-  }
-
-  .user-greeting h1 {
-    font-size: 2rem;
-  }
-}
-
-
-// Mejora para el scroll area
 .scroll-area {
-  max-height: 300px;
+  max-height: 280px;
   overflow-y: auto;
   padding-right: 4px;
+}
 
-  @media screen and (max-width: 480px) {
-    max-height: 250px;
-  }
-
-  &::-webkit-scrollbar {
-    width: 4px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 4px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 4px;
-  }
+.kardex-render-zone {
+  width: 100%;
+  overflow-x: auto;
 }

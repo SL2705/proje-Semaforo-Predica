@@ -1,137 +1,136 @@
-//En este fue mas complicado adaptar mas elementos de las pantallas, consideren para la proxima hacer un carga de visual mas simple
-// para los formualrio laterales
-
-.text-center {
-  text-align: center;
+ion-content::part(scroll) {
+  display: flex;
 }
 
+/* CONTENEDOR PRINCIPAL - Adaptado para transparencia del Layout */
+
 .operator-wrapper {
+  flex: 1;
   display: flex;
-  align-items: center;
   justify-content: center;
-  min-height: 100%;
-  padding: 40px 20px;
+  align-items: center;
+  padding: 3rem;
+  background: transparent; /* Permite la visualización de las formas abstractas traseras */
 
   @media screen and (max-width: 768px) {
     padding: 20px 15px;
   }
+
   @media screen and (max-width: 480px) {
     padding: 15px 10px;
   }
 }
 
-//Contenedor//
+/* CONTENEDOR SPLIT FORM */
+
 .main-split-container {
   display: flex;
-  background: ion-color-primary;
   width: 100%;
-  max-width: 950px;
-  border-radius: 40px;
+  max-width: 1000px;
+  border-radius: 30px;
   overflow: hidden;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  background: var(--ion-card-background, #ffffff);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  z-index: 2; /* Asegura legibilidad por encima de los vectores */
+
+  @media screen and (max-width: 1024px) {
+    max-width: 900px;
+  }
 
   @media screen and (max-width: 768px) {
     flex-direction: column;
-    border-radius: 30px;
     max-width: 100%;
     margin: 0;
-    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
-  }
-  @media screen and (max-width: 480px) {
-    border-radius: 20px;
   }
 }
 
+/* PANEL IZQUIERDO DE IDENTIDAD */
+
 .side-panel-left {
   width: 40%;
-  min-width: 300px;
-  background-color: ion-color-primary;
+  padding: 40px;
+  text-align: center;
+  border-right: 1px solid var(--ion-color-step-150, #e2e8f0);
+  background: var(--ion-color-light, #f8f9fa);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px;
-  border-right: 1px solid ion-color-primary;
+
+  @media screen and (max-width: 1024px) {
+    min-width: 280px;
+    padding: 35px;
+  }
 
   @media screen and (max-width: 768px) {
     width: 100%;
-    min-width: auto;
-    padding: 30px 10px;
     border-right: none;
-    border-bottom: 1px solid ion-color-primary;
+    border-bottom: 1px solid var(--ion-color-step-150, #e2e8f0);
+    padding: 30px 15px;
   }
 
   @media screen and (max-width: 480px) {
-    padding: 20px 20px;
+    padding: 20px;
   }
 
   .logo-box {
-    width: 150px;
-    height: 150px;
-    background: transparent;
-    border-radius: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 15px;
-    margin-bottom: 25px;
-
-    @media screen and (max-width: 480px) {
-      width: 50%;
-      height: 50%;
-      padding: 1%;
-      margin-bottom: 10px;
-    }
 
     img {
-      max-width: 100%;
+      width: 120px;
       height: auto;
-    }
-  }
+      margin-bottom: 20px;
 
-  .panel-title {
-    font-size: 2.2rem;
-    font-weight: 800;
-    color: ion-text-color;
-    margin: 0 0 8px;
-    text-align: center;
-
-    @media screen and (max-width: 768px) {
-      font-size: 2rem;
-    }
-
-    @media screen and (max-width: 480px) {
-      font-size: 1.6rem;
-    }
-  }
-
-  .panel-text {
-    font-size: 0.9rem;
-    font-weight: 400;
-    color: ion-color-primary;
-    line-height: 1.5;
-    text-align: center;
-    max-width: 240px;
-    margin: 0;
-
-    @media screen and (max-width: 768px) {
-      max-width: 100%;
-      padding: 0 10px;
-    }
-
-    @media screen and (max-width: 480px) {
-      font-size: 0.85rem;
+      @media screen and (max-width: 360px) {
+        width: 100px;
+      }
     }
   }
 }
 
-//Formulario//
+.panel-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--ion-text-color, #000000);
+  margin: 0 0 8px 0;
+
+  @media screen and (max-width: 768px) {
+    font-size: 2rem;
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 1.6rem;
+  }
+
+  @media screen and (max-width: 360px) {
+    font-size: 1.4rem;
+  }
+}
+
+.panel-description {
+  font-size: 14px;
+  color: var(--ion-color-step-600, #64748b);
+  line-height: 1.5;
+  margin: 0;
+  max-width: 240px;
+
+  @media screen and (max-width: 768px) {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 0.85rem;
+  }
+}
+
+/* PANEL DERECHO DE FORMULARIOS */
+
 .operator-card {
-  background: ion-color-primary;
   width: 60%;
-  border-radius: 0;
-  box-shadow: none;
-  overflow: hidden;
+  background: transparent;
 
   @media screen and (max-width: 768px) {
     width: 100%;
@@ -139,10 +138,7 @@
 }
 
 .page-container {
-  padding: 30px 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  padding: 30px;
 
   @media screen and (max-width: 768px) {
     padding: 25px 20px;
@@ -150,15 +146,18 @@
 
   @media screen and (max-width: 480px) {
     padding: 20px 15px;
-    gap: 15px;
   }
 }
 
+.text-center {
+  text-align: center;
+}
+
 .user-name {
-  font-size: 1.6rem;
+  font-size: 26px;
   font-weight: 800;
-  color: ion-text-color;
-  margin: 0;
+  margin-bottom: 20px;
+  color: var(--ion-text-color, #000000);
 
   @media screen and (max-width: 768px) {
     font-size: 1.5rem;
@@ -167,29 +166,18 @@
   @media screen and (max-width: 480px) {
     font-size: 1.3rem;
   }
-}
 
-.status-section {
-  background: ion-color-primary;
-  border-radius: 24px;
-  padding: 20px;
-  border: 1px solid #e2e8f0;
-
-  @media screen and (max-width: 768px) {
-    padding: 18px;
-    border-radius: 20px;
-  }
-
-  @media screen and (max-width: 480px) {
-    padding: 15px;
-    border-radius: 16px;
+  @media screen and (max-width: 360px) {
+    font-size: 1.2rem;
   }
 }
+
+/* ESQUEMA DEL FORMULARIO Y FILAS */
 
 .register-form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 18px;
 
   @media screen and (max-width: 480px) {
     gap: 14px;
@@ -197,7 +185,6 @@
 }
 
 .input-group {
-  background: ion-item-background;
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -207,9 +194,21 @@
   }
 }
 
+.input-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ion-text-color, #000000);
+  margin-left: 2px;
+}
+
+.disabled-label {
+  opacity: 0.5;
+  color: var(--ion-color-step-400, #94a3b8);
+}
+
 .input-row {
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 12px;
 
   @media screen and (max-width: 600px) {
@@ -218,59 +217,47 @@
   }
 }
 
-.register-form .input-group .input-label {
-  font-size: 0.7rem;
-  font-weight: 700 !important;
-  color: ion-text-color !important;
-  text-transform: uppercase;
-  margin-left: 4px;
-  display: block;
-
-  @media screen and (max-width: 480px) {
-    font-size: 0.65rem;
-  }
-}
-
-.register-form .input-group .disabled-label {
-  color: ion-color-primary !important;
-  opacity: 0.6;
-}
+/* CAMPOS DE ENTRADA NATIVOS */
 
 .custom-input-field,
 .custom-select {
-  padding: 12px 16px;
+  padding: 12px;
   border-radius: 12px;
-  border: 1px solid #e2e8f0;
-  background: ion-text-color-step-300;
-  font-size: 0.9rem;
-  color: ion-text-color;
+  border: 1px solid var(--ion-color-step-150, #e2e8f0);
+  background: var(--ion-background-color, #f9fbfd);
+  color: var(--ion-text-color, #000000);
+  font-size: 14px;
   outline: none;
   width: 100%;
   box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 
   @media screen and (max-width: 768px) {
     padding: 11px 14px;
-    font-size: 1rem; // Evita zoom en ciertas pantallas como IOS
+    font-size: 16px;
   }
 
-  @media screen and (max-width: 480px) {
-    padding: 10px 12px;
-    border-radius: 10px;
+  @media screen and (max-width: 360px) {
+    padding: 9px 10px;
   }
 }
 
-.custom-input-field:disabled {
-  cursor: not-allowed;
-  color: ion-color-primary;
+.custom-input-field:focus,
+.custom-select:focus {
+  border-color: var(--ion-color-primary, #2563eb);
+  box-shadow: 0 0 0 3px var(--ion-color-primary-opacity, rgba(37, 99, 235, 0.15));
+}
 
-  @media screen and (max-width: 768px) {
-    opacity: 0.7;
-  }
+.custom-input-field:disabled,
+.custom-select:disabled {
+  background: var(--ion-color-step-100, #f1f5f9) !important;
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
 .helper-text {
-  font-size: 10px;
-  color: ion-color-primary;
+  font-size: 11px;
+  color: var(--ion-color-step-400, #94a3b8);
   margin: 2px 0 0 4px;
 
   @media screen and (max-width: 480px) {
@@ -278,19 +265,21 @@
   }
 }
 
-.register-button {
+/* ACCIONES DE FORMULARIO */
+
+.submit-button {
   margin-top: 10px;
-  background: ion-color-info;
-  color: ion-text-color;
-  padding: 16px;
-  border-radius: 14px;
+  background: var(--ion-color-primary, #2563eb);
+  color: var(--ion-color-primary-contrast, #ffffff);
+  padding: 14px;
+  border-radius: 25px;
   font-weight: 700;
   font-size: 1.1rem;
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(26, 61, 99, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   width: 100%;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.2s ease;
 
   @media screen and (max-width: 768px) {
     padding: 14px;
@@ -302,95 +291,30 @@
   @media screen and (max-width: 480px) {
     padding: 12px;
     font-size: 0.95rem;
-    border-radius: 10px;
-    box-shadow: 0 3px 8px rgba(26, 61, 99, 0.2);
+  }
+
+  &:hover {
+    background: var(--ion-color-primary-shade, #1d4ed8);
   }
 
   &:active {
     transform: scale(0.98);
-    background: #132d4a;
   }
 
-  // Para asegurar pulsacion tactil
   @media (hover: none) and (pointer: coarse) {
     min-height: 44px;
   }
 }
 
-.input-row.two-cols {
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  align-items: start;
+/* DETALLES ESPECÍFICOS DE IONIC */
 
-  @media screen and (max-width: 600px) {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-}
-
-// Ajustes adicionales
 @media screen and (max-width: 768px) {
-  // Mejorar el espaciado en el selector de rol
-  .custom-select {
-    option {
-      font-size: 14px;
-    }
+  .custom-select option {
+    font-size: 14px;
   }
 
   ion-content {
     --padding-start: 0;
     --padding-end: 0;
-
-    app-background-layout {
-      display: block;
-      height: 100%;
-    }
-  }
-}
-
-// Para dispositivos mas chicos
-@media screen and (max-width: 360px) {
-  .side-panel-left {
-    .panel-title {
-      font-size: 1.4rem;
-    }
-
-    .logo-box {
-      width: 100px;
-      height: 100px;
-    }
-  }
-
-  .user-name {
-    font-size: 1.2rem;
-  }
-
-  .status-section {
-    padding: 12px;
-  }
-
-  .custom-input-field,
-  .custom-select {
-    padding: 9px 10px;
-  }
-}
-
-// Mejoras para tablets cuando esta en modo horizontal
-@media screen and (min-width: 769px) and (max-width: 1024px) {
-  .main-split-container {
-    max-width: 900px;
-  }
-
-  .side-panel-left {
-    min-width: 280px;
-    padding: 35px;
-
-    .panel-title {
-      font-size: 2rem;
-    }
-  }
-
-  .page-container {
-    padding: 25px 20px;
   }
 }

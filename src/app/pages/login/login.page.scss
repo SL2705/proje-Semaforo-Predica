@@ -1,5 +1,71 @@
 // Puede que ciertos ajustes cambien si en todas la pantallas, el formulario no se adapte bien idk
 
+ion-content {
+  --overflow: auto;
+  --background: transparent; /* Permite visualizar el layout de fondo */
+
+  &::part(scroll) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+  }
+
+  @media screen and (max-width: 768px) {
+    --padding-top: 0;
+    --padding-bottom: 0;
+  }
+}
+
+.login-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5rem;
+  background: transparent; /* Evita bloquear la visualización trasera */
+
+  @media screen and (max-width: 1024px) {
+    padding: 3rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 1rem;
+  }
+
+  @media screen and (max-width: 480px) {
+    padding: 0.5rem;
+  }
+
+  .login-card {
+    background: var(--ion-card-background, #ffffff);
+    width: 30rem;
+    max-width: 35rem;
+    padding: 40px 45px;
+    justify-content: center;
+    text-align: center;
+
+    @media screen and (max-width: 1024px) {
+      width: 28rem;
+      padding: 35px 40px;
+    }
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      max-width: 100%;
+      padding: 30px 25px;
+    }
+
+    @media screen and (max-width: 480px) {
+      padding: 25px 20px;
+    }
+  }
+}
+
 .main-split-container {
   display: flex;
   width: 100%;
