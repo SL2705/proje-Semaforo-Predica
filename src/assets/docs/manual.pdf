@@ -1,0 +1,94 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 5 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 1615 >>
+stream
+BT
+/F1 18 Tf
+72 760 Td
+(Manual de Usuario) Tj
+0 -30 Td
+/F1 12 Tf
+18 TL
+(Tabla de contenido) Tj
+0 -18 Td
+(1. Introducción) Tj
+0 -18 Td
+(2. Acceso al sistema) Tj
+0 -18 Td
+(3. Funciones principales) Tj
+0 -18 Td
+(4. Centro de ayuda) Tj
+0 -18 Td
+(5. Recomendaciones de seguridad) Tj
+0 -18 Td
+0 -18 Td
+(1. Introducción) Tj
+0 -18 Td
+(   Este manual está diseñado para usuarios del sistema de control de accesos y gestión de usuarios.) Tj
+0 -18 Td
+(   Describe las funciones principales y el flujo de trabajo recomendado.) Tj
+0 -18 Td
+0 -18 Td
+(2. Acceso al sistema) Tj
+0 -18 Td
+(   - Inicia sesión con credenciales autorizadas.) Tj
+0 -18 Td
+(   - Mantén tu contraseña privada y segura.) Tj
+0 -18 Td
+(   - Si tienes problemas para ingresar, contacta soporte técnico.) Tj
+0 -18 Td
+0 -18 Td
+(3. Funciones principales) Tj
+0 -18 Td
+(   - Registrar Usuario: crea usuarios nuevos y asigna roles específicos.) Tj
+0 -18 Td
+(   - Kardex: área restringida para monitoreo y registros internos.) Tj
+0 -18 Td
+(   - Gestionar Roles: asigna permisos según las responsabilidades.) Tj
+0 -18 Td
+(   - Listar Usuarios: consulta el estado de usuarios activos y roles asignados.) Tj
+0 -18 Td
+0 -18 Td
+(4. Centro de ayuda) Tj
+0 -18 Td
+(   - Usa el acceso rápido para acceder al soporte por correo electrónico.) Tj
+0 -18 Td
+(   - Revisa esta documentación cuando necesites orientación.) Tj
+0 -18 Td
+0 -18 Td
+(5. Recomendaciones de seguridad) Tj
+0 -18 Td
+(   - Nunca compartas credenciales.) Tj
+0 -18 Td
+(   - Cierra sesión al terminar.) Tj
+0 -18 Td
+(   - Reporta cualquier comportamiento inesperado al equipo de sistemas.) Tj
+0 -18 Td
+0 -18 Td
+ETendstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000001907 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+2004
+%EOF

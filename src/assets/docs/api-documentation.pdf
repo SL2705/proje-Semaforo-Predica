@@ -1,0 +1,344 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 5 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 6419 >>
+stream
+BT
+/F1 18 Tf
+72 760 Td
+(Documentación API) Tj
+0 -30 Td
+/F1 12 Tf
+18 TL
+(=== DOCUMENTACION API - SISTEMA DE CONTROL DE ACCESOS ===) Tj
+0 -18 Td
+0 -18 Td
+(1. ENCABEZADO OBLIGATORIO) Tj
+0 -18 Td
+(Nombre de la API: Sistema de Control de Accesos) Tj
+0 -18 Td
+(Version: 1.0.0) Tj
+0 -18 Td
+(Base URL: https://api.tusistema.com) Tj
+0 -18 Td
+(Formato de datos: JSON) Tj
+0 -18 Td
+(Autenticacion: Bearer Token JWT) Tj
+0 -18 Td
+0 -18 Td
+(2. AUTENTICACION) Tj
+0 -18 Td
+(Tipo: Bearer Token JWT) Tj
+0 -18 Td
+(Header obligatorio: Authorization) Tj
+0 -18 Td
+(Formato: Authorization: Bearer <JWT_TOKEN>) Tj
+0 -18 Td
+0 -18 Td
+(Ejemplo completo:) Tj
+0 -18 Td
+(Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...) Tj
+0 -18 Td
+0 -18 Td
+(3. FLUJO DE USO DE LA API) Tj
+0 -18 Td
+(Paso 1: Consumir POST /login para obtener token JWT) Tj
+0 -18 Td
+(Paso 2: Guardar el token en el cliente \(sesion o storage\)) Tj
+0 -18 Td
+(Paso 3: Enviar token en header Authorization en cada request) Tj
+0 -18 Td
+(Paso 4: Consumir endpoints protegidos con el token) Tj
+0 -18 Td
+(Paso 5: Si token expira, solicitar uno nuevo) Tj
+0 -18 Td
+0 -18 Td
+(4. ENDPOINTS DISPONIBLES) Tj
+0 -18 Td
+0 -18 Td
+(--- POST /login ---) Tj
+0 -18 Td
+(Descripcion: Autentica un usuario y devuelve un token JWT.) Tj
+0 -18 Td
+0 -18 Td
+(Request:) Tj
+0 -18 Td
+({) Tj
+0 -18 Td
+(  "usuario": "admin",) Tj
+0 -18 Td
+(  "password": "1234") Tj
+0 -18 Td
+(}) Tj
+0 -18 Td
+0 -18 Td
+(Response 200 \(Exitoso\):) Tj
+0 -18 Td
+({) Tj
+0 -18 Td
+(  "status": "success",) Tj
+0 -18 Td
+(  "data": {) Tj
+0 -18 Td
+(    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...") Tj
+0 -18 Td
+(  },) Tj
+0 -18 Td
+(  "message": "Autenticacion exitosa") Tj
+0 -18 Td
+(}) Tj
+0 -18 Td
+0 -18 Td
+(Errores:) Tj
+0 -18 Td
+(401: Credenciales incorrectas) Tj
+0 -18 Td
+(500: Error interno del servidor) Tj
+0 -18 Td
+0 -18 Td
+(Ejemplo curl:) Tj
+0 -18 Td
+(curl -X POST https://api.tusistema.com/login) Tj
+0 -18 Td
+(-H "Content-Type: application/json") Tj
+0 -18 Td
+(-d '{"usuario":"admin","password":"1234"}') Tj
+0 -18 Td
+0 -18 Td
+(--- GET /usuarios ---) Tj
+0 -18 Td
+(Descripcion: Retorna la lista de todos los usuarios registrados.) Tj
+0 -18 Td
+(Autenticacion: Requerida \(Bearer Token\)) Tj
+0 -18 Td
+0 -18 Td
+(Request: Sin parametros en body) Tj
+0 -18 Td
+(Header: Authorization: Bearer <token>) Tj
+0 -18 Td
+0 -18 Td
+(Response 200 \(Exitoso\):) Tj
+0 -18 Td
+({) Tj
+0 -18 Td
+(  "status": "success",) Tj
+0 -18 Td
+(  "data": [) Tj
+0 -18 Td
+(    {"id": 1, "usuario": "admin", "rol": "administrador"},) Tj
+0 -18 Td
+(    {"id": 2, "usuario": "juan", "rol": "usuario"}) Tj
+0 -18 Td
+(  ],) Tj
+0 -18 Td
+(  "message": "Usuarios obtenidos exitosamente") Tj
+0 -18 Td
+(}) Tj
+0 -18 Td
+0 -18 Td
+(Errores:) Tj
+0 -18 Td
+(401: No autorizado \(token inválido o ausente\)) Tj
+0 -18 Td
+(403: Acceso restringido \(sin permisos\)) Tj
+0 -18 Td
+(500: Error interno del servidor) Tj
+0 -18 Td
+0 -18 Td
+(Ejemplo curl:) Tj
+0 -18 Td
+(curl -X GET https://api.tusistema.com/usuarios) Tj
+0 -18 Td
+(-H "Authorization: Bearer <token>") Tj
+0 -18 Td
+0 -18 Td
+(--- POST /usuarios ---) Tj
+0 -18 Td
+(Descripcion: Crea un nuevo usuario en el sistema.) Tj
+0 -18 Td
+(Autenticacion: Requerida \(Bear Token\)) Tj
+0 -18 Td
+0 -18 Td
+(Request:) Tj
+0 -18 Td
+({) Tj
+0 -18 Td
+(  "usuario": "nuevouser",) Tj
+0 -18 Td
+(  "password": "segura123",) Tj
+0 -18 Td
+(  "rol": "usuario") Tj
+0 -18 Td
+(}) Tj
+0 -18 Td
+0 -18 Td
+(Response 201 \(Creado\):) Tj
+0 -18 Td
+({) Tj
+0 -18 Td
+(  "status": "success",) Tj
+0 -18 Td
+(  "data": {"id": 3, "usuario": "nuevouser", "rol": "usuario"},) Tj
+0 -18 Td
+(  "message": "Usuario creado exitosamente") Tj
+0 -18 Td
+(}) Tj
+0 -18 Td
+0 -18 Td
+(Errores:) Tj
+0 -18 Td
+(400: Datos inválidos o incompletos) Tj
+0 -18 Td
+(401: No autorizado) Tj
+0 -18 Td
+(403: Sin permisos para crear usuarios) Tj
+0 -18 Td
+(500: Error interno del servidor) Tj
+0 -18 Td
+0 -18 Td
+(--- GET /roles ---) Tj
+0 -18 Td
+(Descripcion: Retorna la lista de roles configurados en el sistema.) Tj
+0 -18 Td
+(Autenticacion: Requerida \(Bearer Token\)) Tj
+0 -18 Td
+0 -18 Td
+(Response 200 \(Exitoso\):) Tj
+0 -18 Td
+({) Tj
+0 -18 Td
+(  "status": "success",) Tj
+0 -18 Td
+(  "data": [) Tj
+0 -18 Td
+(    {"id": 1, "nombre": "administrador", "permisos": ["*"]},) Tj
+0 -18 Td
+(    {"id": 2, "nombre": "usuario", "permisos": ["lectura"]}) Tj
+0 -18 Td
+(  ],) Tj
+0 -18 Td
+(  "message": "Roles obtenidos exitosamente") Tj
+0 -18 Td
+(}) Tj
+0 -18 Td
+0 -18 Td
+(Errores:) Tj
+0 -18 Td
+(401: No autorizado) Tj
+0 -18 Td
+(500: Error interno del servidor) Tj
+0 -18 Td
+0 -18 Td
+(--- POST /roles ---) Tj
+0 -18 Td
+(Descripcion: Crea o actualiza un rol con permisos específicos.) Tj
+0 -18 Td
+(Autenticacion: Requerida \(Bearer Token\)) Tj
+0 -18 Td
+0 -18 Td
+(Request:) Tj
+0 -18 Td
+({) Tj
+0 -18 Td
+(  "nombre": "moderador",) Tj
+0 -18 Td
+(  "permisos": ["lectura", "escritura"]) Tj
+0 -18 Td
+(}) Tj
+0 -18 Td
+0 -18 Td
+(Response 201 \(Creado\):) Tj
+0 -18 Td
+({) Tj
+0 -18 Td
+(  "status": "success",) Tj
+0 -18 Td
+(  "data": {"id": 3, "nombre": "moderador", "permisos": [...]},) Tj
+0 -18 Td
+(  "message": "Rol creado exitosamente") Tj
+0 -18 Td
+(}) Tj
+0 -18 Td
+0 -18 Td
+(Errores:) Tj
+0 -18 Td
+(400: Datos inválidos) Tj
+0 -18 Td
+(401: No autorizado) Tj
+0 -18 Td
+(403: Sin permisos para crear roles) Tj
+0 -18 Td
+(500: Error interno del servidor) Tj
+0 -18 Td
+0 -18 Td
+(5. CODIGOS HTTP COMPLETOS) Tj
+0 -18 Td
+(200 OK = La solicitud fue exitosa) Tj
+0 -18 Td
+(201 Created = Recurso creado exitosamente) Tj
+0 -18 Td
+(400 Bad Request = Datos inválidos o incompletos) Tj
+0 -18 Td
+(401 Unauthorized = Autenticacion requerida o falló) Tj
+0 -18 Td
+(403 Forbidden = Autenticado pero sin permisos) Tj
+0 -18 Td
+(404 Not Found = Recurso no existe) Tj
+0 -18 Td
+(500 Internal Server Error = Error en el servidor) Tj
+0 -18 Td
+0 -18 Td
+(6. ESTANDAR DE RESPUESTAS) Tj
+0 -18 Td
+(Todas las respuestas exitosas usan:) Tj
+0 -18 Td
+({"status":"success", "data":{...}, "message":"texto"}) Tj
+0 -18 Td
+0 -18 Td
+(Todas las respuestas de error usan:) Tj
+0 -18 Td
+({"status":"error", "message":"descripcion del error"}) Tj
+0 -18 Td
+0 -18 Td
+(7. CONSIDERACIONES DE SEGURIDAD) Tj
+0 -18 Td
+(- El token JWT incluye datos del usuario autenticado) Tj
+0 -18 Td
+(- Tokens expiran después de 24 horas) Tj
+0 -18 Td
+(- No compartas tokens, son personales e intransferibles) Tj
+0 -18 Td
+(- Usa HTTPS para todos los requests) Tj
+0 -18 Td
+(- Guarda tokens en lugar seguro \(no en localStorage en prod\)) Tj
+0 -18 Td
+0 -18 Td
+(=== FIN DOCUMENTACION API ===) Tj
+0 -18 Td
+0 -18 Td
+ETendstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000006711 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+6808
+%EOF
